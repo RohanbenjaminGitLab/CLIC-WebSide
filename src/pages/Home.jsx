@@ -113,7 +113,7 @@ export default function Home() {
             >
               Welcome to <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-accent">
-                Cambridge Languages Inforteach Campus
+                CLIC campus
               </span>
             </motion.h1>
 
