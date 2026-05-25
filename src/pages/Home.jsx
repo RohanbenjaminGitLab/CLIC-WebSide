@@ -73,14 +73,14 @@ export default function Home() {
 
   return (
     <div className="w-full flex-grow pt-16">
-      
+
       {/* 1. Full-screen Hero Section */}
       <section className="relative h-[95vh] w-full flex items-center justify-center overflow-hidden bg-slate-950">
-        
+
         {/* Parallax Background Video/Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{ 
+          style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop')",
             backgroundAttachment: 'scroll'
           }}
@@ -92,7 +92,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left w-full">
           <div className="max-w-3xl space-y-6">
-            
+
             {/* Tagline */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -113,7 +113,7 @@ export default function Home() {
             >
               Welcome to <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-accent">
-                Future Campus
+                Cambridge Languages Inforteach Campus
               </span>
             </motion.h1>
 
@@ -156,11 +156,10 @@ export default function Home() {
         <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl shadow-xl dark:shadow-2xl p-8 sm:p-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, idx) => (
-              <div 
-                key={stat.label} 
-                className={`text-center space-y-1 ${
-                  idx !== stats.length - 1 ? 'lg:border-r border-slate-100 dark:border-slate-800' : ''
-                }`}
+              <div
+                key={stat.label}
+                className={`text-center space-y-1 ${idx !== stats.length - 1 ? 'lg:border-r border-slate-100 dark:border-slate-800' : ''
+                  }`}
               >
                 <span className="text-3xl sm:text-4xl font-extrabold text-brand dark:text-brand-300 block">
                   {stat.value}
@@ -180,7 +179,7 @@ export default function Home() {
       {/* 3. Why Choose Us Section */}
       <section className="py-20 bg-slate-50 dark:bg-slate-950 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-3 py-1 rounded-full">
@@ -225,7 +224,7 @@ export default function Home() {
       {/* 4. Student Testimonials Slider */}
       <section className="py-20 bg-white dark:bg-slate-900 transition-colors border-t border-slate-100 dark:border-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Section Header */}
           <div className="text-center mb-16 space-y-3">
             <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-3 py-1 rounded-full">
@@ -238,7 +237,7 @@ export default function Home() {
 
           {/* Testimonial Card Slider */}
           <div className="relative bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 sm:p-12 shadow-sm min-h-[320px] flex flex-col justify-between">
-            
+
             {/* Quote Icon */}
             <div className="absolute top-6 left-6 text-brand-200 dark:text-slate-800 text-6xl font-serif select-none pointer-events-none">
               “
@@ -257,11 +256,11 @@ export default function Home() {
                   <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 italic leading-relaxed font-light">
                     {testimonials[currentSlide].quote}
                   </p>
-                  
+
                   {/* User Profile info */}
                   <div className="flex items-center gap-4">
-                    <img 
-                      src={testimonials[currentSlide].image} 
+                    <img
+                      src={testimonials[currentSlide].image}
                       alt={testimonials[currentSlide].name}
                       className="h-14 w-14 rounded-full object-cover border-2 border-brand/20 shadow-md"
                     />
@@ -280,7 +279,7 @@ export default function Home() {
 
             {/* Slider Controls */}
             <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-6 mt-8">
-              
+
               {/* Stars indicators */}
               <div className="flex items-center gap-0.5 text-amber-500">
                 {[...Array(5)].map((_, i) => (
@@ -309,10 +308,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* 5. CTA Applied Section */}
       <section className="py-20 bg-brand text-white transition-colors relative overflow-hidden">
-        
+
         {/* Subtle decorative circles */}
         <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-600/30 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-brand-800/30 blur-3xl pointer-events-none" />

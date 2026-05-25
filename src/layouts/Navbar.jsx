@@ -70,27 +70,33 @@ export default function Navbar({ isDark, toggleTheme }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'glass-navbar-light dark:glass-navbar-dark shadow-md py-3'
-          : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'glass-navbar-light dark:glass-navbar-dark shadow-md py-3'
+        : 'bg-transparent py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-brand text-white p-2 rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105">
-              <GraduationCap className="h-6 w-6" />
-            </div>
-            <div>
-              <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white transition-colors">
-                CLIC <span className="text-brand dark:text-brand-300">CAMPUS</span>
-              </span>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold tracking-widest uppercase -mt-1">
-                Future Academic Hub
-              </p>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img
+              src="/CLICK.png"
+              alt="CLIC CAMPUS Logo"
+              className="
+    h-24 sm:h-32
+    w-24 sm:w-32
+    object-cover
+    rounded-full
+    p-2
+    bg-white/10
+    backdrop-blur-lg
+    shadow-2xl
+    border-4 border-white/30
+    transition-all duration-500
+    group-hover:scale-110
+    group-hover:rotate-3
+  "
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -99,11 +105,10 @@ export default function Navbar({ isDark, toggleTheme }) {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors ${
-                  location.pathname === link.path
-                    ? 'text-brand dark:text-brand-300'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300'
-                }`}
+                className={`relative px-3 py-2 text-sm font-medium transition-colors ${location.pathname === link.path
+                  ? 'text-brand dark:text-brand-300'
+                  : 'text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300'
+                  }`}
               >
                 {link.name}
                 {location.pathname === link.path && (
@@ -128,11 +133,10 @@ export default function Navbar({ isDark, toggleTheme }) {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <button
-                    className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors ${
-                      isOpenDropdown
-                        ? 'text-brand dark:text-brand-300'
-                        : 'text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300'
-                    }`}
+                    className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors ${isOpenDropdown
+                      ? 'text-brand dark:text-brand-300'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300'
+                      }`}
                   >
                     {dropdown.title}
                     <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpenDropdown ? 'rotate-180' : ''}`} />
@@ -236,11 +240,10 @@ export default function Navbar({ isDark, toggleTheme }) {
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`block px-3 py-2.5 rounded-xl text-base font-semibold transition-colors ${
-                      location.pathname === link.path
-                        ? 'bg-brand/10 text-brand dark:text-brand-300'
-                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
-                    }`}
+                    className={`block px-3 py-2.5 rounded-xl text-base font-semibold transition-colors ${location.pathname === link.path
+                      ? 'bg-brand/10 text-brand dark:text-brand-300'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                      }`}
                   >
                     {link.name}
                   </Link>
