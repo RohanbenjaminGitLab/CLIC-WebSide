@@ -64,7 +64,7 @@ export default function About() {
   ];
 
   return (
-    <div className="w-full flex-grow pt-24 bg-slate-50 dark:bg-slate-950 transition-colors">
+    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Page Header */}
@@ -111,8 +111,8 @@ export default function About() {
             className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 sm:p-10 rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
           >
             {/* Background design accents */}
-            <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-cyan-50/50 dark:bg-cyan-950/10 translate-x-8 -translate-y-8 group-hover:scale-125 transition-transform duration-300" />
-            <div className="bg-cyan-500/5 dark:bg-cyan-950/30 text-cyan-500 dark:text-cyan-400 p-4 rounded-2xl w-fit mb-6">
+            <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-brand-50/50 dark:bg-brand-950/20 translate-x-8 -translate-y-8 group-hover:scale-125 transition-transform duration-300" />
+            <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-4 rounded-2xl w-fit mb-6">
               <Compass className="h-7 w-7" />
             </div>
             <h3 className="text-2xl font-bold text-slate-950 dark:text-white mb-3">Our Vision</h3>

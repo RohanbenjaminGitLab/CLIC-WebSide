@@ -188,16 +188,16 @@ export default function Navbar({ isDark, toggleTheme }) {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 transition-colors"
+              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 transition-colors"
               aria-label="Toggle Theme"
             >
-              {isDark ? <Sun className="h-5 w-5 text-amber-500" /> : <Moon className="h-5 w-5 text-brand" />}
+              {isDark ? <Sun className="h-5 w-5 text-brand-300" /> : <Moon className="h-5 w-5 text-brand" />}
             </button>
 
             {/* CTA Button */}
             <Link
               to="/admission"
-              className="bg-brand hover:bg-primary-hover text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center gap-1.5"
+              className="bg-brand hover:bg-brand-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center gap-1.5"
             >
               Apply Now
             </Link>
@@ -208,10 +208,10 @@ export default function Navbar({ isDark, toggleTheme }) {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 transition-colors"
+              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 transition-colors"
               aria-label="Toggle Theme"
             >
-              {isDark ? <Sun className="h-5 w-5 text-amber-500" /> : <Moon className="h-5 w-5 text-brand" />}
+              {isDark ? <Sun className="h-5 w-5 text-brand-300" /> : <Moon className="h-5 w-5 text-brand" />}
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -280,7 +280,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               <div className="border-t border-slate-100 dark:border-slate-800 pt-4 flex flex-col gap-2">
                 <Link
                   to="/admission"
-                  className="bg-brand hover:bg-primary-hover text-white text-center font-semibold py-3 rounded-xl shadow-md transition-colors"
+                  className="bg-brand hover:bg-brand-800 text-white text-center font-semibold py-3 rounded-xl shadow-md transition-colors"
                 >
                   Apply Online
                 </Link>

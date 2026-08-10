@@ -16,7 +16,7 @@ export default {
           400: '#d37ea6',
           500: '#bd5384',
           600: '#9d3b6a',
-          700: '#751c58', // BRAND PRIMARY Plum/Burgundy
+          700: '#751c58',
           800: '#641b4b',
           900: '#531b40',
           950: '#340a25',
@@ -24,16 +24,16 @@ export default {
         },
         primary: {
           DEFAULT: '#751c58',
-          hover: '#922971',
+          hover: '#641b4b',
           light: '#fbf3f7',
         },
         secondary: {
-          DEFAULT: '#0F172A',
-          light: '#1E293B',
+          DEFAULT: '#1F2937',
+          light: '#374151',
         },
         accent: {
-          DEFAULT: '#38BDF8',
-          gold: '#F59E0B',
+          DEFAULT: '#751c58',
+          light: '#e5adc9',
         }
       },
       fontFamily: {

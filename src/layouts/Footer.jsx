@@ -65,7 +65,7 @@ export default function Footer() {
   const socialIcons = [
     {
       label: 'Facebook',
-      color: 'hover:bg-blue-600',
+      color: 'hover:bg-brand hover:text-white',
       href: '#',
       renderIcon: () => (
         <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -75,7 +75,7 @@ export default function Footer() {
     },
     {
       label: 'Twitter',
-      color: 'hover:bg-sky-500',
+      color: 'hover:bg-brand hover:text-white',
       href: '#',
       renderIcon: () => (
         <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,7 +85,7 @@ export default function Footer() {
     },
     {
       label: 'Instagram',
-      color: 'hover:bg-pink-650',
+      color: 'hover:bg-brand hover:text-white',
       href: '#',
       renderIcon: () => (
         <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -97,7 +97,7 @@ export default function Footer() {
     },
     {
       label: 'LinkedIn',
-      color: 'hover:bg-blue-700',
+      color: 'hover:bg-brand hover:text-white',
       href: '#',
       renderIcon: () => (
         <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -109,7 +109,7 @@ export default function Footer() {
     },
     {
       label: 'YouTube',
-      color: 'hover:bg-red-600',
+      color: 'hover:bg-brand hover:text-white',
       href: '#',
       renderIcon: () => (
         <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -206,11 +206,11 @@ export default function Footer() {
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-slate-800 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors pr-12"
+                className="w-full bg-slate-800 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand transition-colors pr-12"
               />
               <button
                 type="submit"
-                className="absolute right-1.5 top-1.5 bottom-1.5 bg-brand hover:bg-brand-600 text-white px-3.5 rounded-lg transition-colors flex items-center justify-center"
+                className="absolute right-1.5 top-1.5 bottom-1.5 bg-brand hover:bg-brand-800 text-white px-3.5 rounded-lg transition-colors flex items-center justify-center"
                 aria-label="Subscribe"
               >
                 <Send className="h-4 w-4" />
@@ -232,7 +232,7 @@ export default function Footer() {
                   initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -5 }}
-                  className="text-xs text-emerald-400 mt-2 font-medium"
+                  className="text-xs text-brand-300 mt-2 font-medium"
                 >
                   Thank you! You have subscribed successfully.
                 </motion.p>

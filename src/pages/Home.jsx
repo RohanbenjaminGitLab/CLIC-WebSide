@@ -112,7 +112,7 @@ export default function Home() {
               className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans"
             >
               Welcome to <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-accent">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-100">
                 CLIC campus
               </span>
             </motion.h1>
@@ -135,7 +135,7 @@ export default function Home() {
             >
               <Link
                 to="/admission"
-                className="w-full sm:w-auto bg-brand hover:bg-primary-hover text-white text-center font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto bg-brand hover:bg-brand-800 text-white text-center font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 Apply Online Now
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -177,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* 3. Why Choose Us Section */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-950 transition-colors">
+      <section className="py-20 bg-white dark:bg-slate-950 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section Header */}
@@ -236,10 +236,10 @@ export default function Home() {
           </div>
 
           {/* Testimonial Card Slider */}
-          <div className="relative bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 sm:p-12 shadow-sm min-h-[320px] flex flex-col justify-between">
+          <div className="relative bg-white dark:bg-slate-950 border border-brand-100/60 dark:border-slate-800 rounded-3xl p-8 sm:p-12 shadow-sm min-h-[320px] flex flex-col justify-between">
 
             {/* Quote Icon */}
-            <div className="absolute top-6 left-6 text-brand-200 dark:text-slate-800 text-6xl font-serif select-none pointer-events-none">
+            <div className="absolute top-6 left-6 text-brand-100 dark:text-slate-800 text-6xl font-serif select-none pointer-events-none">
               “
             </div>
 
@@ -281,7 +281,7 @@ export default function Home() {
             <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-6 mt-8">
 
               {/* Stars indicators */}
-              <div className="flex items-center gap-0.5 text-amber-500">
+              <div className="flex items-center gap-0.5 text-brand">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4.5 w-4.5 fill-current" />
                 ))}

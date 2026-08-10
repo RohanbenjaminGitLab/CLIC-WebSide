@@ -168,7 +168,7 @@ export default function Courses() {
   });
 
   return (
-    <div className="w-full flex-grow pt-24 bg-slate-50 dark:bg-slate-950 transition-colors">
+    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Page Header */}
@@ -195,7 +195,7 @@ export default function Courses() {
               placeholder="Search course title, description, keywords..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 pl-12 pr-10 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand-500 transition-colors text-sm"
+              className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 pl-12 pr-10 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand transition-colors text-sm"
             />
             {searchQuery && (
               <button
@@ -217,7 +217,7 @@ export default function Courses() {
                 className={`text-xs font-semibold px-4.5 py-2.5 rounded-xl border transition-all duration-300 ${
                   selectedDept === dept
                     ? 'bg-brand border-brand text-white shadow-md shadow-brand/10'
-                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800'
                 }`}
               >
                 {dept}
@@ -272,7 +272,7 @@ export default function Courses() {
                 </div>
 
                 {/* Card Footer details */}
-                <div className="border-t border-slate-100 dark:border-slate-800/80 px-6 py-4 bg-slate-50/50 dark:bg-slate-900/40 flex items-center justify-between">
+                <div className="border-t border-slate-100 dark:border-slate-800/80 px-6 py-4 bg-brand-50/20 dark:bg-slate-900/40 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <img
                       src={course.lecturer.image}
@@ -347,7 +347,7 @@ export default function Courses() {
                 </p>
 
                 {/* Course Metadata Specs */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl">
                   <div className="flex items-center gap-3.5">
                     <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-2.5 rounded-xl">
                       <Clock className="h-5 w-5" />
@@ -359,7 +359,7 @@ export default function Courses() {
                   </div>
 
                   <div className="flex items-center gap-3.5">
-                    <div className="bg-emerald-500/5 text-emerald-500 dark:text-emerald-400 p-2.5 rounded-xl">
+                    <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-2.5 rounded-xl">
                       <DollarSign className="h-5 w-5" />
                     </div>
                     <div>
@@ -385,7 +385,7 @@ export default function Courses() {
                 {/* Lecturer Card Details */}
                 <div className="border-t border-slate-100 dark:border-slate-800 pt-6 space-y-4">
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Course Director & Lecturer</h4>
-                  <div className="flex flex-col sm:flex-row gap-4 bg-slate-50 dark:bg-slate-950/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/50">
+                  <div className="flex flex-col sm:flex-row gap-4 bg-white dark:bg-slate-950/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/50">
                     <img
                       src={activeCourseModal.lecturer.image}
                       alt={activeCourseModal.lecturer.name}
@@ -416,7 +416,7 @@ export default function Courses() {
                   <Link
                     to={`/contact?course=${encodeURIComponent(activeCourseModal.title)}`}
                     onClick={() => setActiveCourseModal(null)}
-                    className="bg-brand hover:bg-primary-hover text-white text-center font-bold px-6 py-3 rounded-xl shadow-md transition-colors text-xs flex items-center gap-1"
+                    className="bg-brand hover:bg-brand-800 text-white text-center font-bold px-6 py-3 rounded-xl shadow-md transition-colors text-xs flex items-center gap-1"
                   >
                     Inquire About This Course
                     <ChevronRight className="h-4 w-4" />

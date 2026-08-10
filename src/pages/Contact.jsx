@@ -97,7 +97,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full flex-grow pt-24 bg-slate-50 dark:bg-slate-950 transition-colors">
+    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Page Header */}
@@ -133,7 +133,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter full name"
-                    className="w-full bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand-500 text-sm"
+                    className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand text-sm"
                   />
                 </div>
 
@@ -147,7 +147,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="e.g. name@domain.com"
-                    className="w-full bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand-500 text-sm"
+                    className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand text-sm"
                   />
                 </div>
               </div>
@@ -163,7 +163,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="e.g. +1 (555) 019-2834"
-                    className="w-full bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand-500 text-sm"
+                    className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand text-sm"
                   />
                 </div>
 
@@ -174,7 +174,7 @@ export default function Contact() {
                     name="course"
                     value={formData.course}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-white px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand-500 text-sm"
+                    className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand text-sm"
                   >
                     {coursesList.map((course) => (
                       <option key={course} value={course}>
@@ -195,7 +195,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Describe your questions, academic scores, or specific inquiries here..."
-                  className="w-full bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand-500 text-sm leading-relaxed"
+                  className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand text-sm leading-relaxed"
                 />
               </div>
 
@@ -203,7 +203,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-brand hover:bg-primary-hover disabled:bg-slate-200 dark:disabled:bg-slate-800 text-white disabled:text-slate-400 font-bold py-4 rounded-xl shadow-md transition-all duration-350 flex items-center justify-center gap-2 text-sm"
+                className="w-full bg-brand hover:bg-brand-800 disabled:bg-slate-200 dark:disabled:bg-slate-800 text-white disabled:text-slate-400 font-bold py-4 rounded-xl shadow-md transition-all duration-350 flex items-center justify-center gap-2 text-sm"
               >
                 {loading ? (
                   <>
@@ -250,10 +250,10 @@ export default function Contact() {
               </div>
               <button
                 onClick={() => handleCopy('studentsupport@cliccampus.edu', 'email')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors"
                 aria-label="Copy Email"
               >
-                {copyStatus.email ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
+                {copyStatus.email ? <Check className="h-4 w-4 text-brand" /> : <Copy className="h-4 w-4" />}
               </button>
             </div>
 
@@ -270,10 +270,10 @@ export default function Contact() {
               </div>
               <button
                 onClick={() => handleCopy('+1 (800) 254-2267', 'phone')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors"
                 aria-label="Copy Phone"
               >
-                {copyStatus.phone ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
+                {copyStatus.phone ? <Check className="h-4 w-4 text-brand" /> : <Copy className="h-4 w-4" />}
               </button>
             </div>
 
@@ -323,9 +323,9 @@ export default function Contact() {
             className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-2xl p-4.5 rounded-2xl w-full max-w-sm"
           >
             {toast.success ? (
-              <CheckCircle className="h-6 w-6 text-emerald-500 shrink-0" />
+              <CheckCircle className="h-6 w-6 text-brand shrink-0" />
             ) : (
-              <XCircle className="h-6 w-6 text-red-500 shrink-0" />
+              <XCircle className="h-6 w-6 text-brand-700 shrink-0" />
             )}
             <div className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-white leading-snug">
               {toast.message}

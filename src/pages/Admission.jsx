@@ -88,7 +88,7 @@ export default function Admission() {
   };
 
   return (
-    <div className="w-full flex-grow pt-24 bg-slate-50 dark:bg-slate-950 transition-colors">
+    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Page Header */}
@@ -124,7 +124,7 @@ export default function Admission() {
                   className={`text-left p-4.5 rounded-2xl border transition-all duration-300 flex items-start gap-4 ${
                     isActive
                       ? 'bg-brand/5 border-brand text-slate-950 dark:text-white shadow-sm'
-                      : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900'
+                      : 'bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:bg-brand-50 dark:hover:bg-slate-900'
                   }`}
                 >
                   <div className={`p-2.5 rounded-xl shrink-0 transition-colors ${
@@ -142,7 +142,7 @@ export default function Admission() {
           </div>
 
           {/* Stepper Selected Step Content */}
-          <div className="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-6 rounded-2xl">
+          <div className="bg-brand-50/20 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-6 rounded-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}
@@ -190,7 +190,7 @@ export default function Admission() {
                   <p className="text-xs text-slate-555 dark:text-slate-400 leading-relaxed font-light">
                     {req.details}
                   </p>
-                  <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block bg-slate-50 dark:bg-slate-950/60 p-2 rounded-lg border border-slate-100 dark:border-slate-800/50">
+                  <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block bg-brand-50/30 dark:bg-slate-950/60 p-2 rounded-lg border border-slate-100 dark:border-slate-800/50">
                     Criteria: {req.criteria}
                   </span>
                 </div>
@@ -217,7 +217,7 @@ export default function Admission() {
               className={`w-full text-xs font-bold py-3.5 px-6 rounded-2xl shadow-md transition-all duration-300 flex items-center justify-center gap-2 ${
                 downloading
                   ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed shadow-none'
-                  : 'bg-brand hover:bg-primary-hover text-white'
+                  : 'bg-brand hover:bg-brand-800 text-white'
               }`}
             >
               {downloading ? (
@@ -239,7 +239,7 @@ export default function Admission() {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 5 }}
-                  className="bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 text-xs font-semibold p-3.5 rounded-xl border border-emerald-500/20"
+                  className="bg-brand/5 text-brand dark:text-brand-300 text-xs font-semibold p-3.5 rounded-xl border border-brand/20"
                 >
                   Prospectus download successful! Check your system download folder.
                 </motion.div>
