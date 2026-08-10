@@ -201,7 +201,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-brand hover:bg-brand-800 disabled:bg-slate-200 dark:disabled:bg-slate-800 text-white disabled:text-slate-400 font-bold py-4 rounded-xl shadow-md transition-all duration-350 flex items-center justify-center gap-2 text-sm"
+                className="w-full bg-brand hover:bg-brand-950 disabled:bg-slate-200 dark:disabled:bg-slate-800 text-white disabled:text-slate-400 font-bold py-4 rounded-xl shadow-md transition-all duration-350 flex items-center justify-center gap-2 text-sm"
               >
                 {loading ? (
                   <>
@@ -230,7 +230,9 @@ export default function Contact() {
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-slate-950 dark:text-white">Campus Address</h4>
                 <p className="text-xs text-slate-550 dark:text-slate-400 leading-relaxed font-light">
-                  102 University Avenue, Academic Square, <br /> New York, NY 10003, USA
+                  1st Floor, Pradesa Saba Market Complex,<br />
+                  Sagama Road, Akkaraipattu,<br />
+                  Sri Lanka
                 </p>
               </div>
             </div>
@@ -291,16 +293,18 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* 2. Embedded Google Maps Container */}
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <MapPin className="h-5.5 w-5.5 text-brand dark:text-brand-300" />
             <h3 className="text-lg font-bold text-slate-950 dark:text-white">Campus Location Map</h3>
           </div>
+          <p className="text-xs text-slate-400 dark:text-slate-500 font-light -mt-2">
+            1st Floor, Pradesa Saba Market Complex, Sagama Road, Akkaraipattu, Sri Lanka
+          </p>
           <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-3 rounded-3xl shadow-sm overflow-hidden h-[400px]">
             <iframe
-              title="CLIC Campus Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.617540209673!2d-73.99676832342598!3d40.74844047138903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2slk!4v1709400000000!5m2!1sen!2slk"
+              title="CLIC Campus Location — Akkaraipattu"
+              src="https://maps.google.com/maps?q=Akkaraipattu+Pradesa+Sabha+Market+Complex+Sagama+Road+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed"
               className="w-full h-full rounded-2xl border-0"
               allowFullScreen=""
               loading="lazy"

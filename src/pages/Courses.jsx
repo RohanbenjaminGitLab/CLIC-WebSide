@@ -386,7 +386,7 @@ export default function Courses() {
                   <Link
                     to={`/contact?course=${encodeURIComponent(activeCourseModal.title)}`}
                     onClick={() => setActiveCourseModal(null)}
-                    className="bg-brand hover:bg-brand-800 text-white text-center font-bold px-6 py-3 rounded-xl shadow-md transition-colors text-xs flex items-center gap-1"
+                    className="bg-brand hover:bg-brand-950 text-white text-center font-bold px-6 py-3 rounded-xl shadow-md transition-colors text-xs flex items-center gap-1"
                   >
                     Inquire About This Course
                     <ChevronRight className="h-4 w-4" />

@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+      <div className="flex flex-col min-h-screen bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100" style={{ transition: 'background-color 0.3s ease, color 0.3s ease' }}>
         
         {/* Dynamic scroll manager */}
         <ScrollToTop />

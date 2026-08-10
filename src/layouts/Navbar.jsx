@@ -53,14 +53,16 @@ export default function Navbar({ isDark, toggleTheme }) {
     w-24 sm:w-32
     object-cover
     rounded-full
-    p-2
-    bg-white/10
-    backdrop-blur-lg
-    shadow-2xl
-    border-4 border-white/30
+    p-0.5
+    bg-white
+    shadow-xl
+    border-4 border-brand
+    ring-2 ring-brand/20
     transition-all duration-500
     group-hover:scale-110
     group-hover:rotate-3
+    group-hover:shadow-2xl
+    group-hover:shadow-brand/30
   "
             />
           </Link>
@@ -102,7 +104,7 @@ export default function Navbar({ isDark, toggleTheme }) {
             {/* CTA Button */}
             <Link
               to="/contact"
-              className="bg-brand hover:bg-brand-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center gap-1.5"
+              className="bg-brand hover:bg-brand-950 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center gap-1.5"
             >
               Inquire Now
             </Link>
@@ -159,7 +161,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               <div className="border-t border-slate-100 dark:border-slate-800 pt-4 flex flex-col gap-2">
                 <Link
                   to="/contact"
-                  className="bg-brand hover:bg-brand-800 text-white text-center font-semibold py-3 rounded-xl shadow-md transition-colors"
+                  className="bg-brand hover:bg-brand-950 text-white text-center font-semibold py-3 rounded-xl shadow-md transition-colors"
                 >
                   Inquire Now
                 </Link>

@@ -209,7 +209,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="absolute right-1.5 top-1.5 bottom-1.5 bg-brand hover:bg-brand-800 text-white px-3.5 rounded-lg transition-colors flex items-center justify-center"
+                className="absolute right-1.5 top-1.5 bottom-1.5 bg-brand hover:bg-brand-950 text-white px-3.5 rounded-lg transition-colors flex items-center justify-center"
                 aria-label="Subscribe"
               >
                 <Send className="h-4 w-4" />

@@ -135,7 +135,7 @@ export default function Home() {
             >
               <Link
                 to="/contact"
-                className="w-full sm:w-auto bg-brand hover:bg-brand-800 text-white text-center font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto bg-brand hover:bg-brand-950 text-white text-center font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 Inquire Now
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform duration-300" />

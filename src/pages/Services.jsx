@@ -326,7 +326,7 @@ export default function Services() {
                   <Link
                     to="/contact"
                     onClick={() => setActiveModal(null)}
-                    className="bg-brand hover:bg-brand-800 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-colors text-xs flex items-center gap-1"
+                    className="bg-brand hover:bg-brand-950 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-colors text-xs flex items-center gap-1"
                   >
                     Inquire About This Service
                     <ChevronRight className="h-4 w-4" />
