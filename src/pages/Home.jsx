@@ -134,10 +134,10 @@ export default function Home() {
               className="flex flex-col sm:flex-row items-center gap-4 pt-4"
             >
               <Link
-                to="/admission"
+                to="/contact"
                 className="w-full sm:w-auto bg-brand hover:bg-brand-800 text-white text-center font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-brand/20 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
-                Apply Online Now
+                Inquire Now
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform duration-300" />
               </Link>
               <Link
@@ -325,10 +325,10 @@ export default function Home() {
           </p>
           <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              to="/admission"
+              to="/contact"
               className="bg-white hover:bg-slate-100 text-brand text-center font-bold px-8 py-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
             >
-              Apply Online Today
+              Get In Touch
             </Link>
             <Link
               to="/contact"

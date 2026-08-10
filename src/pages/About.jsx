@@ -66,7 +66,7 @@ export default function About() {
   return (
     <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        
+
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-3 py-1 rounded-full">
@@ -125,14 +125,14 @@ export default function About() {
         {/* 2. Principal/Director Message Section */}
         <section className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-8 sm:p-12 mb-24 shadow-sm relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
-            
+
             {/* Image Column */}
             <div className="lg:col-span-1 flex justify-center">
               <div className="relative group">
                 <div className="absolute inset-0 bg-brand/10 dark:bg-brand/20 rounded-2xl translate-x-3 translate-y-3 z-0 group-hover:translate-x-1.5 group-hover:translate-y-1.5 transition-transform duration-350" />
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
-                  alt="Dr. Arlene Vance"
+                  src="/Sir.jpeg"
+                  alt="Maha Deven"
                   className="relative z-10 w-64 h-80 object-cover rounded-2xl border-4 border-white dark:border-slate-800 shadow-md"
                 />
               </div>
@@ -149,12 +149,12 @@ export default function About() {
                 </h3>
               </div>
               <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 italic leading-relaxed font-light">
-                "Welcome to the CLIC ecosystem. Here at CLIC Campus, our singular focus is to craft a highly empowering academic ecosystem that matches modern industry workflows. We believe education must extend far beyond theoretical textbooks; our curriculum requires students to solve authentic problems, operate complex engineering cells, build software architectures, and participate in active industry projects."
+                "Welcome to the CLIC . Here at CLIC Campus, our singular focus is to craft a highly empowering academic ecosystem that matches modern industry workflows. We believe education must extend far beyond theoretical textbooks; our curriculum requires students to solve authentic problems, operate complex engineering cells, build software architectures, and participate in active industry projects."
               </p>
               <div>
-                <h4 className="text-base font-bold text-slate-950 dark:text-white">Dr. Arlene Vance</h4>
+                <h4 className="text-base font-bold text-slate-950 dark:text-white">Kurunathapillai Mahathevan</h4>
                 <p className="text-xs text-slate-400 dark:text-slate-500 font-semibold uppercase tracking-wider">
-                  Managing Director, CLIC Academic Senate
+                  Managing Director, CLIC Campus
                 </p>
               </div>
             </div>
@@ -182,9 +182,8 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 ${
-                    isEven ? 'md:flex-row-reverse' : ''
-                  }`}
+                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 ${isEven ? 'md:flex-row-reverse' : ''
+                    }`}
                 >
                   {/* Circle Pin Marker */}
                   <div className="absolute -left-[5px] md:left-1/2 md:-translate-x-1.5 h-3.5 w-3.5 rounded-full bg-brand dark:bg-brand-300 border-4 border-white dark:border-slate-950 z-20 shadow-md" />
@@ -239,7 +238,7 @@ export default function About() {
                   alt={image.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                
+
                 {/* Overlay details */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
                   <span className="text-[10px] text-brand-300 uppercase tracking-widest font-bold">

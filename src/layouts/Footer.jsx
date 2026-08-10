@@ -42,18 +42,17 @@ export default function Footer() {
     services: {
       title: 'Services',
       items: [
-        { name: 'Campus Library', path: '/admission#services' },
-        { name: 'Student Hostel', path: '/admission#services' },
-        { name: 'Student Support', path: '/contact' },
-        { name: 'Placement Cell', path: '/about#careers' },
-        { name: 'Scholarships', path: '/admission#scholarships' },
+        { name: 'Campus Library', path: '/services' },
+        { name: 'Student Hostel', path: '/services' },
+        { name: 'Student Support', path: '/services' },
+        { name: 'Placement Cell', path: '/services' },
+        { name: 'Scholarships', path: '/services' },
       ]
     },
     company: {
       title: 'Our Institution',
       items: [
         { name: 'About Campus', path: '/about' },
-        { name: 'Admission Policy', path: '/admission' },
         { name: 'Contact & Inquiry', path: '/contact' },
         { name: 'News & Events', path: '/' },
         { name: 'Virtual Campus Tour', path: '/about#gallery' },
