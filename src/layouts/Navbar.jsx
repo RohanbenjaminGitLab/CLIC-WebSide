@@ -80,7 +80,7 @@ export default function Navbar({ isDark, toggleTheme }) {
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <img
-              src="/public/CLIClogo.jpeg"
+              src="/CLIClogo.jpeg"
               alt="CLIC CAMPUS Logo"
               className="
     h-24 sm:h-32
