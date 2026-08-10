@@ -10,128 +10,98 @@ export default function Courses() {
   const [activeCourseModal, setActiveCourseModal] = useState(null);
 
   // Departments list as requested
-  const departments = ['All', 'Computing', 'Business', 'English', 'Engineering', 'Graphic Design'];
+  const departments = ['All', 'English', 'Computing', 'Graphic Design', 'Business'];
 
   const courses = [
     {
-      id: 'bsc-software-engineering',
-      title: 'B.Sc. (Hons) in Software Engineering',
-      dept: 'Computing',
-      duration: '3 Years (Full-time)',
-      fees: '$9,500 / Year',
-      lecturer: {
-        name: 'Dr. Julian Sterling',
-        role: 'Professor of Distributed Systems',
-        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop',
-        bio: 'Dr. Sterling has over 15 years of software design experience in Silicon Valley, specializing in heavy-load database pipelines and cloud computing.'
-      },
-      desc: 'Build advanced programming competencies in full-stack JavaScript, system architecture, database design, and cloud infrastructures.',
-      syllabus: ['Advanced Algorithms', 'Cloud System Architecture (AWS/GCP)', 'Mobile Application Development', 'Machine Learning Foundations']
-    },
-    {
-      id: 'msc-data-science',
-      title: 'M.Sc. in Data Science & Artificial Intelligence',
-      dept: 'Computing',
-      duration: '2 Years (Full-time)',
-      fees: '$12,000 / Year',
-      lecturer: {
-        name: 'Dr. Clara Thorne',
-        role: 'AI Research Director',
-        image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=150&auto=format&fit=crop',
-        bio: 'Dr. Thorne acts as the chief research director at the CLIC Computing Incubator, advising on commercial computer vision products.'
-      },
-      desc: 'A research-intensive postgraduate program covering statistical learning models, big data processing, and neural network pipelines.',
-      syllabus: ['Deep Learning & Neural Networks', 'Natural Language Processing', 'Big Data Engineering (Spark)', 'Statistical Modeling & R']
-    },
-    {
-      id: 'bba-finance-marketing',
-      title: 'Bachelor of Business Administration (BBA)',
-      dept: 'Business',
-      duration: '3 Years (Full-time)',
-      fees: '$8,000 / Year',
-      lecturer: {
-        name: 'Prof. Marcus Vance',
-        role: 'Corporate Management Fellow',
-        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop',
-        bio: 'Prof. Marcus Vance spent two decades in Goldman Sachs before joining CLIC, mentoring students in corporate valuation models.'
-      },
-      desc: 'Master corporate finance structures, global marketing mechanics, supply chain configurations, and modern team leadership strategy.',
-      syllabus: ['Corporate Financial Analysis', 'Global Consumer Behavior', 'Strategic Management', 'Digital Brand Building']
-    },
-    {
-      id: 'mba-digital-entrepreneurship',
-      title: 'MBA in Digital Entrepreneurship',
-      dept: 'Business',
-      duration: '1.5 Years (Full-time)',
-      fees: '$14,500 / Year',
-      lecturer: {
-        name: 'Sarah Lin',
-        role: 'Startup Venture Lead',
-        image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop',
-        bio: 'Sarah is an active startup angel investor and corporate accelerator partner, helping early-stage ventures bootstrap efficiently.'
-      },
-      desc: 'Specifically designed for future startup founders, focusing on SaaS metrics, venture capital models, product growth, and scaling strategies.',
-      syllabus: ['Venture Capital & Seed Funding', 'Growth Hacking & SaaS Metrics', 'Product Strategy & MVP Design', 'Interpersonal Negotiations']
-    },
-    {
-      id: 'ba-english-literature',
-      title: 'BA in English Literature & Linguistics',
+      id: 'diploma-english',
+      title: 'Diploma in English',
       dept: 'English',
-      duration: '3 Years (Full-time)',
-      fees: '$6,500 / Year',
+      duration: '6 Months (Part-time)',
+      fees: '$300 / Total',
       lecturer: {
         name: 'Dr. Evelyn Hawthorne',
         role: 'Associate Linguistics Professor',
         image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop',
         bio: 'Dr. Hawthorne conducts active researches in cognitive semantics, comparative structural linguistics, and historical prose.'
       },
-      desc: 'Explore historical English prose, advanced narrative structures, creative writing methodologies, and modern corporate communications.',
-      syllabus: ['Historical Prose & Poetry Analysis', 'Modern Syntax & Grammar Systems', 'Creative Copywriting & Editing', 'Cognitive Semantics']
+      desc: 'Enhance your English communication skills for corporate and academic excellence. Covers grammar, writing, and professional speaking.',
+      syllabus: ['Spoken English & Pronunciation', 'Business Communication & Email Writing', 'Advanced Grammar Structures', 'Presentation Skills']
     },
     {
-      id: 'beng-robotics',
-      title: 'B.Eng. in Robotics & Mechanical Technology',
-      dept: 'Engineering',
-      duration: '4 Years (Full-time)',
-      fees: '$10,500 / Year',
+      id: 'diploma-ict',
+      title: 'Diploma in ICT',
+      dept: 'Computing',
+      duration: '6 Months (Full-time)',
+      fees: '$450 / Total',
       lecturer: {
-        name: 'Prof. Arthur Pendleton',
-        role: 'Robotics Engineering Mentor',
-        image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&auto=format&fit=crop',
-        bio: 'Prof. Arthur is a former NASA aerospace engineer, advising CLIC students on control loop systems and microcontroller structures.'
+        name: 'Dr. Julian Sterling',
+        role: 'Professor of Distributed Systems',
+        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop',
+        bio: 'Dr. Sterling has over 15 years of software design experience in Silicon Valley, specializing in heavy-load database pipelines and cloud computing.'
       },
-      desc: 'Learn mechanical designs, electronic circuit fabrication, robotic controller architectures, microcontrollers, and sensor arrays.',
-      syllabus: ['Microcontroller Architectures (Arduino/Pi)', 'Control Loop Systems & Sensors', 'Computer Aided CAD & SolidWorks', 'Kinematics & Dynamics']
+      desc: 'A comprehensive foundation in Information and Communication Technology, preparing you for IT support, administration, and software development.',
+      syllabus: ['Computer Hardware & OS', 'Networking Fundamentals', 'Database Management Systems', 'Software Development Basics']
     },
     {
-      id: 'beng-electrical-energy',
-      title: 'B.Eng. in Electrical & Sustainable Energy',
-      dept: 'Engineering',
-      duration: '4 Years (Full-time)',
-      fees: '$10,000 / Year',
-      lecturer: {
-        name: 'Dr. Samuel Cho',
-        role: 'Clean Grid Fellow',
-        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop',
-        bio: 'Dr. Samuel Cho is a leading consultant for state grid companies, focusing on green transition grids and battery safety design.'
-      },
-      desc: 'A comprehensive study of high-voltage transmission networks, micro-grid setups, sustainable battery storage architectures, and power grids.',
-      syllabus: ['High Voltage Transmission', 'Renewable Microgrid Infrastructure', 'Power Storage & Cell Designs', 'Electronic Power Regulators']
-    },
-    {
-      id: 'ba-graphic-design',
-      title: 'BA (Hons) in Graphic Design & UI/UX Art',
+      id: 'diploma-graphic-design',
+      title: 'Diploma in Graphic Designing',
       dept: 'Graphic Design',
-      duration: '3 Years (Full-time)',
-      fees: '$8,500 / Year',
+      duration: '6 Months (Part-time)',
+      fees: '$500 / Total',
       lecturer: {
         name: 'Elena Rostova',
         role: 'Head of Visual Communications',
         image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop',
-        bio: 'Elena has managed design teams at tech unicorns. She structures the course to mimic professional agency workflows.',
+        bio: 'Elena has managed design teams at tech unicorns. She structures the course to mimic professional agency workflows.'
       },
-      desc: 'Develop deep expertise in visual branding, color logic, vector layouts, visual systems, responsive wireframes, and interactive prototyping.',
-      syllabus: ['Advanced Figma Prototyping', 'Color Theory & Brand Visuals', 'Vector Graphic Design (Illustrator)', 'Responsive Web Interface Design']
+      desc: 'Master industry-standard tools like Adobe Photoshop and Illustrator to create stunning visual content for digital marketing and print media.',
+      syllabus: ['Adobe Photoshop Essentials', 'Vector Illustration with Illustrator', 'Typography & Layout Design', 'Digital Branding & Portfolio']
+    },
+    {
+      id: 'diploma-networking',
+      title: 'Diploma in Networking',
+      dept: 'Computing',
+      duration: '6 Months (Part-time)',
+      fees: '$550 / Total',
+      lecturer: {
+        name: 'Prof. Arthur Pendleton',
+        role: 'Networking Engineering Mentor',
+        image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&auto=format&fit=crop',
+        bio: 'Prof. Arthur is a former NASA aerospace engineer, advising CLIC students on control loop systems and microcontroller structures.'
+      },
+      desc: 'Learn to design, configure, and maintain enterprise network architectures, including routing, switching, and network security protocols.',
+      syllabus: ['Network Architecture & Topologies', 'Cisco Routing & Switching', 'Network Security & Firewalls', 'Server Administration']
+    },
+    {
+      id: 'diploma-web-designing',
+      title: 'Diploma in Web Designing',
+      dept: 'Computing',
+      duration: '6 Months (Part-time)',
+      fees: '$480 / Total',
+      lecturer: {
+        name: 'Sarah Lin',
+        role: 'Frontend Development Lead',
+        image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop',
+        bio: 'Sarah is an active startup angel investor and corporate accelerator partner, helping early-stage ventures bootstrap efficiently.'
+      },
+      desc: 'Build beautiful, responsive, and dynamic websites from scratch using HTML5, CSS3, JavaScript, and modern frontend frameworks.',
+      syllabus: ['HTML5 & Semantic Web', 'CSS3 & Responsive Design (Tailwind)', 'JavaScript Fundamentals', 'UI/UX Prototyping']
+    },
+    {
+      id: 'diploma-office-package',
+      title: 'Diploma in Office Package',
+      dept: 'Business',
+      duration: '3 Months (Part-time)',
+      fees: '$200 / Total',
+      lecturer: {
+        name: 'Prof. Marcus Vance',
+        role: 'Corporate Management Fellow',
+        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop',
+        bio: 'Prof. Marcus Vance spent two decades in Goldman Sachs before joining CLIC, mentoring students in corporate valuation models.'
+      },
+      desc: 'Become highly proficient in Microsoft Office tools (Word, Excel, PowerPoint, Access) to streamline corporate administration and reporting.',
+      syllabus: ['Advanced MS Word Formatting', 'MS Excel Data Analysis & Macros', 'Professional MS PowerPoint Presentations', 'MS Access Database Management']
     }
   ];
 

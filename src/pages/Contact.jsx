@@ -20,14 +20,12 @@ export default function Contact() {
 
   const coursesList = [
     'General Inquiry',
-    'B.Sc. (Hons) in Software Engineering',
-    'M.Sc. in Data Science & Artificial Intelligence',
-    'Bachelor of Business Administration (BBA)',
-    'MBA in Digital Entrepreneurship',
-    'BA in English Literature & Linguistics',
-    'B.Eng. in Robotics & Mechanical Technology',
-    'B.Eng. in Electrical & Sustainable Energy',
-    'BA (Hons) in Graphic Design & UI/UX Art'
+    'Diploma in English',
+    'Diploma in ICT',
+    'Diploma in Graphic Designing',
+    'Diploma in Networking',
+    'Diploma in Web Designing',
+    'Diploma in Office Package'
   ];
 
   // Pre-populate course selection if passed via search query parameters
