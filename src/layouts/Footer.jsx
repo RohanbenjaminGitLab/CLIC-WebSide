@@ -254,14 +254,43 @@ export default function Footer() {
       </div>
 
       {/* Bottom Copyright Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
-          <p>© {new Date().getFullYear()} CLIC Campus Management System. All Rights Reserved.</p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-slate-400">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-400">Terms of Service</a>
-            <a href="#" className="hover:text-slate-400">Sitemap</a>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 text-xs text-slate-500 font-medium">
+
+          {/* Left Column: Copyright & Links */}
+          <div className="flex flex-col gap-4 order-2 md:order-1 w-full md:w-auto text-center md:text-left">
+            <p>
+              © {new Date().getFullYear()} CLIC Campus Management System. All Rights Reserved.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-slate-400 transition-colors">Sitemap</a>
+            </div>
           </div>
+
+          {/* Right Column: Developer Profile */}
+          <div className="order-1 md:order-2 flex justify-center md:justify-end w-full md:w-auto">
+            <div className="flex flex-col items-center gap-2 group w-max mt-2">
+              <div className="relative shrink-0">
+                <img
+                  src="/rohan.jpg"
+                  alt="S. Rohan Benjamin"
+                  onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=S+Rohan+Benjamin&background=8F173D&color=fff"; }}
+                  className="h-36 w-36 rounded-full object-cover border-[2px] border-brand shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300"
+                />
+              </div>
+              <div className="flex flex-col text-center">
+                <span className="text-slate-100 font-bold text-base tracking-wide group-hover:text-brand-700 transition-colors duration-300">
+                  S. Rohan Benjamin
+                </span>
+                <span className="text-slate-100 text-[11px] mt-0.5 font-medium">
+                  Designed & Developed with dedication
+                </span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </footer>
