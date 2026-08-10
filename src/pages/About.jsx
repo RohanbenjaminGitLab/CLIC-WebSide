@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { Target, Compass, Award, Calendar, BookOpen, UserCheck, ShieldAlert, Zap } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Target, Compass, Award, Calendar, BookOpen, UserCheck, ShieldAlert, Zap, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 export default function About() {
   const milestones = [
@@ -30,37 +31,31 @@ export default function About() {
     }
   ];
 
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+
   const galleryImages = [
-    {
-      url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop',
-      title: 'Main Academic Wing',
-      category: 'Campus Grounds'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop',
-      title: 'Collaborative Study Spaces',
-      category: 'Student Hub'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=600&auto=format&fit=crop',
-      title: 'Central Digital Archive',
-      category: 'Library'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=600&auto=format&fit=crop',
-      title: 'Advanced Computing Center',
-      category: 'Research Labs'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop',
-      title: 'Engineering Workshop Cell',
-      category: 'Robotics Wing'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop',
-      title: 'Graphic Design Studio',
-      category: 'Arts Wing'
-    }
+    { url: '/Cricket.jpeg', title: 'Sports & Athletics', category: 'Campus Grounds' },
+    { url: '/Cricket1.jpeg', title: 'Intramural Cricket', category: 'Campus Grounds' },
+    { url: '/Cricket3.jpeg', title: 'Annual Sports Meet', category: 'Campus Grounds' },
+    { url: '/Exam2.jpeg', title: 'Examination Hall', category: 'Academics' },
+    { url: '/LibraryVisite1.jpeg', title: 'Library Reference Section', category: 'Library' },
+    { url: '/LibraryVisite2.jpeg', title: 'Digital Archives', category: 'Library' },
+    { url: '/LibraryVisite3.jpeg', title: 'Quiet Study Zones', category: 'Library' },
+    { url: '/LibraryVisite4.jpeg', title: 'Library Access', category: 'Library' },
+    { url: '/Samaiyal.jpeg', title: 'Hostel Dining', category: 'Student Hub' },
+    { url: '/Samaiyal1.jpeg', title: 'Culinary Activities', category: 'Student Hub' },
+    { url: '/Samaiyal3.jpeg', title: 'Cafeteria Gathering', category: 'Student Hub' },
+    { url: '/Samaiyal4.jpeg', title: 'Food Festival', category: 'Student Hub' },
+    { url: '/Seminar1.jpeg', title: 'Tech Seminar', category: 'Academics' },
+    { url: '/WorkShop.jpeg', title: 'Engineering Workshop', category: 'Labs' },
+    { url: '/birthday.jpeg', title: 'Campus Celebrations', category: 'Student Life' },
+    { url: '/jobfire.jpeg', title: 'Job Fair Event', category: 'Careers' },
+    { url: '/jobfire1.jpeg', title: 'Corporate Placements', category: 'Careers' },
+    { url: '/jobfire2.jpeg', title: 'Interview Sessions', category: 'Careers' },
+    { url: '/kovil visit .jpeg', title: 'Cultural Visit', category: 'Student Life' },
+    { url: '/kovilVisite2.jpeg', title: 'Heritage Tour', category: 'Student Life' },
+    { url: '/seminar.jpeg', title: 'Guest Lecture', category: 'Academics' },
+    { url: '/Team.jpeg', title: 'Student Team', category: 'Student Hub' }
   ];
 
   return (
@@ -222,29 +217,31 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {galleryImages.map((image, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                whileHover={{ y: -6 }}
-                className="relative overflow-hidden rounded-2xl group shadow-sm cursor-pointer aspect-video"
+                transition={{ duration: 0.4, delay: (idx % 8) * 0.05 }}
+                whileHover={{ y: -4 }}
+                onClick={() => setLightboxIndex(idx)}
+                className="relative overflow-hidden rounded-2xl group shadow-sm hover:shadow-md hover:shadow-brand/10 cursor-pointer aspect-square sm:aspect-[4/3] bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
               >
                 <img
                   src={image.url}
                   alt={image.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
                 {/* Overlay details */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                  <span className="text-[10px] text-brand-300 uppercase tracking-widest font-bold">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <span className="text-[9px] sm:text-[10px] text-brand-300 uppercase tracking-widest font-bold">
                     {image.category}
                   </span>
-                  <h4 className="text-sm font-semibold text-white">
+                  <h4 className="text-xs sm:text-sm font-semibold text-white line-clamp-1">
                     {image.title}
                   </h4>
                 </div>
@@ -254,6 +251,81 @@ export default function About() {
         </section>
 
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setLightboxIndex(null)}
+              className="absolute inset-0 bg-slate-950/95 backdrop-blur-md cursor-pointer"
+            />
+
+            {/* Content container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="relative z-10 max-w-5xl w-full px-4 sm:px-12 flex flex-col items-center pointer-events-none"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setLightboxIndex(null)}
+                className="absolute -top-12 right-4 sm:right-12 text-white/70 hover:text-white bg-white/10 hover:bg-brand/80 p-2 rounded-full backdrop-blur-md transition-all pointer-events-auto"
+                aria-label="Close Gallery"
+              >
+                <X className="h-6 w-6" />
+              </button>
+
+              {/* Prev Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex(prev => prev === 0 ? galleryImages.length - 1 : prev - 1);
+                }}
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-brand/80 p-3 rounded-full backdrop-blur-md transition-all pointer-events-auto"
+                aria-label="Previous Image"
+              >
+                <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" />
+              </button>
+
+              {/* Active Image */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl pointer-events-auto w-full flex justify-center">
+                <img
+                  src={galleryImages[lightboxIndex].url}
+                  alt={galleryImages[lightboxIndex].title}
+                  className="max-h-[75vh] w-auto object-contain bg-slate-900 rounded-xl"
+                />
+              </div>
+
+              {/* Next Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex(prev => prev === galleryImages.length - 1 ? 0 : prev + 1);
+                }}
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-brand/80 p-3 rounded-full backdrop-blur-md transition-all pointer-events-auto"
+                aria-label="Next Image"
+              >
+                <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" />
+              </button>
+
+              {/* Image Caption */}
+              <div className="mt-6 text-center pointer-events-auto">
+                <h3 className="text-white text-lg font-bold">{galleryImages[lightboxIndex].title}</h3>
+                <p className="text-brand-300 text-sm font-medium tracking-wide uppercase mt-1">
+                  {galleryImages[lightboxIndex].category} • {lightboxIndex + 1} / {galleryImages.length}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

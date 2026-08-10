@@ -125,7 +125,7 @@ export default function Footer() {
       {/* Primary Footer Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          
+
           {/* Brand Info Column */}
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="flex items-center gap-2 group w-max">
@@ -144,7 +144,7 @@ export default function Footer() {
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
               Empowering leaders, inventors, and digital architects of tomorrow. Join CLIC Campus to explore advanced, globally-recognized courses designed for real-world excellence.
             </p>
-            
+
             {/* Social Grid */}
             <div className="flex items-center gap-3">
               {socialIcons.map(({ renderIcon, href, label, color }) => (
@@ -190,7 +190,7 @@ export default function Footer() {
       {/* Newsletter Block & Location Details */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-y border-slate-800/80 py-10 my-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          
+
           {/* Newsletter Text */}
           <div className="lg:col-span-1 space-y-1">
             <h4 className="text-base font-bold text-white">Subscribe to our newsletter</h4>
@@ -243,11 +243,11 @@ export default function Footer() {
           <div className="lg:col-span-1 flex flex-col md:flex-row lg:flex-col gap-4 text-xs lg:items-end md:justify-between text-slate-400">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-brand-300" />
-              <span>102 University Avenue, Academic Square, NY 10003</span>
+              <span>CLIC Campus, Sagama Road, Akkaripattu</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-brand-300" />
-              <span>+1 (800) 254-2267 (Campus Hotline)</span>
+              <span>+94 777635657 (Campus Hotline)</span>
             </div>
           </div>
         </div>
