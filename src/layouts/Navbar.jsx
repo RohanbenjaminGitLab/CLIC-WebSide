@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Sun, Moon, GraduationCap, BookOpen, Compass, Laptop, Briefcase, Languages, Palette, Wrench, Shield, Home, Users } from 'lucide-react';
+import { Menu, X, ChevronDown, Sun, Moon, BookOpen, Compass, Laptop, Briefcase, Languages, Palette, Wrench, Home, Users } from 'lucide-react';
 
 export default function Navbar({ isDark, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +80,7 @@ export default function Navbar({ isDark, toggleTheme }) {
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <img
-              src="/CLICK.png"
+              src="/public/CLIClogo.jpeg"
               alt="CLIC CAMPUS Logo"
               className="
     h-24 sm:h-32
