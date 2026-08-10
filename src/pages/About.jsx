@@ -55,7 +55,12 @@ export default function About() {
     { url: '/kovil visit .jpeg', title: 'Cultural Visit', category: 'Student Life' },
     { url: '/kovilVisite2.jpeg', title: 'Heritage Tour', category: 'Student Life' },
     { url: '/seminar.jpeg', title: 'Guest Lecture', category: 'Academics' },
-    { url: '/Team.jpeg', title: 'Student Team', category: 'Student Hub' }
+    { url: '/Team.jpeg', title: 'Student Team', category: 'Student Hub' },
+    { url: '/Akka3.jpeg', title: 'Campus Event', category: 'Student Life' },
+    { url: '/DavidSir.jpeg', title: 'Faculty & Mentors', category: 'Academics' },
+    { url: '/JayakanthanSir .jpeg', title: 'Guest Speaker', category: 'Academics' },
+    { url: '/Kankakaran Sir .jpeg', title: 'Leadership', category: 'Academics' },
+    { url: '/Students.jpeg', title: 'Student Community', category: 'Student Life' }
   ];
 
   return (
