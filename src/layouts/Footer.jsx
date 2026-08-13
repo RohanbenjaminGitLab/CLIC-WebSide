@@ -271,22 +271,255 @@ export default function Footer() {
 
           {/* Right Column: Developer Profile */}
           <div className="order-1 md:order-2 flex justify-center md:justify-end w-full md:w-auto">
-            <div className="flex flex-col items-center gap-2 group w-max mt-2">
-              <div className="relative shrink-0">
-                <img
-                  src="/rohan.jpg"
-                  alt="S. Rohan Benjamin"
-                  onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=S+Rohan+Benjamin&background=8F173D&color=fff"; }}
-                  className="h-24 w-24 sm:h-28 sm:w-28 rounded-full object-cover border-[2px] border-brand shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300"
+            <div className="group relative mt-2 flex w-max flex-col items-center">
+
+              {/* Ambient Glow */}
+              <div
+                className="
+        absolute -inset-8 -z-10
+        rounded-full
+        bg-[#8F173D]/20
+        blur-3xl
+        opacity-0
+        transition-all duration-700
+        group-hover:opacity-100
+      "
+              />
+
+              {/* Developer Image Area */}
+              <div
+                className="
+        relative
+        animate-[float_4s_ease-in-out_infinite]
+      "
+              >
+
+                {/* Rotating Gradient Ring */}
+                <div
+                  className="
+          absolute -inset-[5px]
+          rounded-full
+          bg-[conic-gradient(from_0deg,#8F173D,transparent,#8F173D)]
+          opacity-70
+          transition-all duration-700
+          group-hover:rotate-180
+          group-hover:opacity-100
+        "
+                />
+
+                {/* Inner Ring */}
+                <div
+                  className="
+          absolute -inset-[2px]
+          rounded-full
+          bg-slate-900
+        "
+                />
+
+                {/* Image */}
+                <div
+                  className="
+          relative
+          h-32 w-32
+          sm:h-36 sm:w-36
+          overflow-hidden
+          rounded-full
+          border-2 border-white/90
+          bg-slate-900
+          shadow-[0_8px_30px_rgba(0,0,0,0.25)]
+          transition-all duration-500
+          ease-out
+          group-hover:scale-105
+          group-hover:shadow-[0_15px_45px_rgba(143,23,61,0.45)]
+        "
+                >
+                  <img
+                    src="/rohan.jpg"
+                    alt="S. Rohan Benjamin"
+                    onError={(e) => {
+                      e.currentTarget.src =
+                        "https://ui-avatars.com/api/?name=S+Rohan+Benjamin&background=8F173D&color=fff";
+                    }}
+                    className="
+            h-full w-full
+            object-cover
+            transition-transform
+            duration-700
+            ease-out
+            group-hover:scale-110
+          "
+                  />
+
+                  {/* Image Dark Overlay */}
+                  <div
+                    className="
+            absolute inset-0
+            rounded-full
+            bg-gradient-to-t
+            from-[#8F173D]/20
+            via-transparent
+            to-white/10
+            opacity-60
+          "
+                  />
+
+                  {/* Shine Sweep */}
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+                    <div
+                      className="
+              absolute
+              -left-[130%]
+              top-[-20%]
+              h-[140%]
+              w-[45%]
+              rotate-[25deg]
+              bg-gradient-to-r
+              from-transparent
+              via-white/50
+              to-transparent
+              transition-all
+              duration-1000
+              ease-out
+              group-hover:left-[140%]
+            "
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Status Indicator */}
+                <div
+                  className="
+          absolute
+          bottom-1
+          right-1
+          flex
+          h-5
+          w-5
+          items-center
+          justify-center
+          rounded-full
+          border-2
+          border-white
+          bg-[#8F173D]
+          shadow-[0_0_15px_rgba(143,23,61,0.7)]
+          transition-all
+          duration-300
+          group-hover:scale-125
+        "
+                >
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+                </div>
+
+                {/* Small Decorative Dot */}
+                <span
+                  className="
+          absolute
+          -right-3
+          top-5
+          h-2
+          w-2
+          rounded-full
+          bg-[#8F173D]
+          shadow-[0_0_12px_rgba(143,23,61,0.8)]
+          transition-all duration-500
+          group-hover:-right-5
+        "
+                />
+
+                {/* Small Decorative Dot */}
+                <span
+                  className="
+          absolute
+          -left-3
+          bottom-7
+          h-1.5
+          w-1.5
+          rounded-full
+          bg-white
+          opacity-70
+          transition-all duration-500
+          group-hover:-left-5
+        "
                 />
               </div>
-              <div className="flex flex-col text-center">
-                <span className="text-slate-100 font-bold text-base tracking-wide group-hover:text-brand-700 transition-colors duration-300">
+
+              {/* Developer Information */}
+              <div className="mt-4 flex flex-col items-center text-center">
+
+                {/* Developer Badge */}
+                <div
+                  className="
+          mb-1.5
+          rounded-full
+          border border-white/10
+          bg-white/5
+          px-3
+          py-1
+          backdrop-blur-md
+          transition-all duration-300
+          group-hover:border-[#8F173D]/40
+          group-hover:bg-[#8F173D]/10
+        "
+                >
+                  <span
+                    className="
+            text-[8px]
+            font-semibold
+            uppercase
+            tracking-[0.28em]
+            text-slate-300
+          "
+                  >
+                    SoftWare Developer
+                  </span>
+                </div>
+
+                {/* Name */}
+                <span
+                  className="
+          text-base
+          font-bold
+          tracking-wide
+          text-white
+          transition-all
+          duration-300
+          group-hover:text-[#8F173D]
+          group-hover:tracking-wider
+        "
+                >
                   S. Rohan Benjamin
                 </span>
-                <span className="text-slate-100 text-[11px] mt-0.5 font-medium">
+
+                {/* Description */}
+                <span
+                  className="
+          mt-1
+          max-w-[220px]
+          text-[10px]
+          font-medium
+          leading-relaxed
+          text-slate-300
+          transition-all
+          duration-300
+          group-hover:text-slate-200
+        "
+                >
                   Designed & Developed with dedication
                 </span>
+
+                {/* Mini Line */}
+                <div
+                  className="
+          mt-2
+          h-[2px]
+          w-8
+          rounded-full
+          bg-[#8F173D]
+          transition-all
+          duration-500
+          group-hover:w-16
+        "
+                />
               </div>
             </div>
           </div>
