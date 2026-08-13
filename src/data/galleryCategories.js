@@ -161,6 +161,87 @@ export const galleryImages = [
     image: "/gallery/seminars/Meeting4.jpeg",
     title: "Parent Meeting",
   },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding2.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding3.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding4.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding5.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding6.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding7.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding8.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding9.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding10.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding11.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding12.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding13.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding14.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding15.JPG",
+    title: "Awarding Ceremony",
+  },
+  {
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding16.JPG",
+    title: "Awarding Ceremony",
+  },
+
 
 
 ];
