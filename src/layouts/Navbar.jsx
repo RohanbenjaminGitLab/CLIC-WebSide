@@ -49,8 +49,8 @@ export default function Navbar({ isDark, toggleTheme }) {
               src="/CLIClogo.jpeg"
               alt="CLIC CAMPUS Logo"
               className="
-    h-12 sm:h-14 md:h-16
-    w-12 sm:w-14 md:w-16
+    h-32 sm:h-32 md:h-32
+    w-32 sm:w-32:w-32
     object-cover
     rounded-full
     p-0.5
