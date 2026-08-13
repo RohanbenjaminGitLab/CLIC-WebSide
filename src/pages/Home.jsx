@@ -101,7 +101,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 bg-brand/20 backdrop-blur-md border border-brand-500/30 px-3.5 py-1.5 rounded-full text-brand-300 text-xs sm:text-sm font-semibold uppercase tracking-wider w-fit"
             >
               <GraduationCap className="h-4.5 w-4.5 text-brand-300" />
-              Empowering Future Innovators
+              Enjoy The Best in Learning
             </motion.div>
 
             {/* Title with Plum signature color scroll effects */}
