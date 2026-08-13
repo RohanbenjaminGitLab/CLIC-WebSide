@@ -95,8 +95,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full flex-grow pt-20 sm:pt-24 bg-white dark:bg-slate-950 transition-colors">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-12">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -242,15 +242,15 @@ export default function Contact() {
               <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-3 rounded-xl h-11 w-11 flex items-center justify-center shrink-0">
                 <Mail className="h-5.5 w-5.5" />
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1 flex-1 min-w-0 pr-10">
                 <h4 className="text-sm font-bold text-slate-950 dark:text-white">Support Email</h4>
-                <p className="text-xs text-slate-550 dark:text-slate-400 font-light">
+                <p className="text-xs text-slate-550 dark:text-slate-400 font-light truncate">
                   studentsupport@cliccampus.edu
                 </p>
               </div>
               <button
                 onClick={() => handleCopy('studentsupport@cliccampus.edu', 'email')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors shrink-0"
                 aria-label="Copy Email"
               >
                 {copyStatus.email ? <Check className="h-4 w-4 text-brand" /> : <Copy className="h-4 w-4" />}
@@ -262,7 +262,7 @@ export default function Contact() {
               <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-3 rounded-xl h-11 w-11 flex items-center justify-center shrink-0">
                 <Phone className="h-5.5 w-5.5" />
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1 flex-1 min-w-0 pr-10">
                 <h4 className="text-sm font-bold text-slate-950 dark:text-white">Student Admissions Hotline</h4>
                 <p className="text-xs text-slate-555 dark:text-slate-400 font-light">
                   +1 (800) 254-2267
@@ -270,7 +270,7 @@ export default function Contact() {
               </div>
               <button
                 onClick={() => handleCopy('+1 (800) 254-2267', 'phone')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors shrink-0"
                 aria-label="Copy Phone"
               >
                 {copyStatus.phone ? <Check className="h-4 w-4 text-brand" /> : <Copy className="h-4 w-4" />}
@@ -301,7 +301,7 @@ export default function Contact() {
           <p className="text-xs text-slate-400 dark:text-slate-500 font-light -mt-2">
             1st Floor, Pradesa Saba Market Complex, Sagama Road, Akkaraipattu, Sri Lanka
           </p>
-          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-3 rounded-3xl shadow-sm overflow-hidden h-[400px]">
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-3 rounded-3xl shadow-sm overflow-hidden h-[260px] sm:h-[320px] md:h-[400px]">
             <iframe
               title="CLIC Campus Location — Akkaraipattu"
               src="https://maps.google.com/maps?q=Akkaraipattu+Pradesa+Sabha+Market+Complex+Sagama+Road+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -322,7 +322,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 50, x: '-50%' }}
             animate={{ opacity: 1, y: 0, x: '-50%' }}
             exit={{ opacity: 0, y: 50, x: '-50%' }}
-            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-2xl p-4.5 rounded-2xl w-full max-w-sm"
+            className="fixed bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-2xl p-4 sm:p-4.5 rounded-2xl w-[calc(100vw-2rem)] max-w-sm"
           >
             {toast.success ? (
               <CheckCircle className="h-6 w-6 text-brand shrink-0" />

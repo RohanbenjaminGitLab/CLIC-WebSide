@@ -113,8 +113,8 @@ export default function Services() {
   );
 
   return (
-    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full flex-grow pt-20 sm:pt-24 bg-white dark:bg-slate-950 transition-colors">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-12">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -217,17 +217,17 @@ export default function Services() {
         </div>
 
         {/* Quick Inquiry Callout Banner */}
-        <section className="bg-brand text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
+        <section className="bg-brand text-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-600/30 blur-3xl pointer-events-none" />
-          <div className="relative z-10 max-w-3xl space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-extrabold">Need Help or Service Assistance?</h3>
+          <div className="relative z-10 max-w-2xl space-y-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold">Need Help or Service Assistance?</h3>
             <p className="text-sm sm:text-base text-brand-100 font-light leading-relaxed">
               Our Student Support Helpdesk is available daily to answer questions regarding hostel allocations, library access cards, scholarship waivers, and career counseling slots.
             </p>
-            <div className="pt-2 flex flex-wrap gap-4">
+            <div className="pt-2 flex flex-wrap gap-3 sm:gap-4">
               <Link
                 to="/contact"
-                className="bg-white text-brand hover:bg-slate-100 font-bold px-6 py-3.5 rounded-xl shadow-md transition-colors text-sm"
+                className="bg-white text-brand hover:bg-slate-100 font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl shadow-md transition-colors text-sm"
               >
                 Contact Student Helpdesk
               </Link>
@@ -240,7 +240,7 @@ export default function Services() {
       {/* Details Modal */}
       <AnimatePresence>
         {activeModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center px-4 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 sm:py-10 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -254,7 +254,7 @@ export default function Services() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 30 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-6 sm:p-8 z-10 border border-slate-100 dark:border-slate-800 overflow-hidden"
+              className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-5 sm:p-8 z-10 border border-slate-100 dark:border-slate-800 overflow-hidden my-auto"
             >
               <button
                 onClick={() => setActiveModal(null)}
@@ -264,7 +264,7 @@ export default function Services() {
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="space-y-6 max-h-[80vh] overflow-y-auto pr-1">
+              <div className="space-y-6 max-h-[75vh] sm:max-h-[80vh] overflow-y-auto pr-1">
                 <div className="flex items-center gap-3">
                   <div className="bg-brand/5 text-brand dark:text-brand-300 p-3 rounded-2xl">
                     {(() => {
@@ -286,7 +286,7 @@ export default function Services() {
                   {activeModal.fullDesc}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-4.5 rounded-2xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-4 rounded-2xl">
                   <div className="flex items-center gap-3">
                     <Clock className="h-5 w-5 text-brand shrink-0" />
                     <div>

@@ -1,6 +1,6 @@
 /**
  * Campus Gallery Frontend Configuration & Image Management
- * 
+ *
  * Category List:
  * - Sports & Games
  * - Special Days
@@ -11,6 +11,11 @@
  * - Visits
  * - Social Service
  * - Meetings
+ *
+ * NOTE: All images are explicitly listed below.
+ * Auto-glob is intentionally disabled to prevent duplicate image cards.
+ * When adding new images, add them to public/gallery/<folder>/ AND add
+ * an entry in the galleryImages array below.
  */
 
 export const CATEGORIES = [
@@ -23,7 +28,7 @@ export const CATEGORIES = [
   'Class Activities',
   'Visits',
   'Social Service',
-  'Meetings'
+  'Meetings',
 ];
 
 export const CATEGORY_FOLDER_MAP = {
@@ -39,280 +44,94 @@ export const CATEGORY_FOLDER_MAP = {
 };
 
 /**
- * Frontend Image Configuration Array
- * 
- * Add new image entries here when you manually add images to public/gallery/
- * Example:
- * {
- *   category: "Sports & Games",
- *   image: "/gallery/sports-games/sports-01.jpg",
- *   title: "Sports Day 2026",
- * }
+ * Add new image entries here when you add images to public/gallery/.
+ * Format: { category, image, title }
  */
 export const galleryImages = [
-  // Sports & Games
-  {
-    category: "Sports & Games",
-    image: "/gallery/sports-games/Cricket.jpeg",
-    title: "Annual Sports Meet",
-  },
-  {
-    category: "Sports & Games",
-    image: "/gallery/sports-games/Cricket1.jpeg",
-    title: "Annual Sports Meet",
-  },
-  {
-    category: "Sports & Games",
-    image: "/gallery/sports-games/Cricket3.jpeg",
-    title: "Annual Sports Meet",
-  },
 
-  // Special Days
-  {
-    category: "Special Days",
-    image: "/gallery/special-days/Pongal.jpeg",
-    title: "Pongal Celebration",
-  },
-  {
-    category: "Special Days",
-    image: "/gallery/special-days/Pongal1.jpeg",
-    title: "Pongal Celebration",
-  },
-  {
-    category: "Special Days",
-    image: "/gallery/special-days/pongal2.jpeg",
-    title: "Pongal Celebration",
-  },
-  {
-    category: "Special Days",
-    image: "/gallery/special-days/Pongal3.jpeg",
-    title: "Pongal Celebration",
-  },
-  {
-    category: "Special Days",
-    image: "/gallery/special-days/Pongal4.jpeg",
-    title: "Pongal Celebration",
-  },
+  // ── Sports & Games ──────────────────────────────────────────────────────────
+  { category: "Sports & Games", image: "/gallery/sports-games/Cricket.jpeg", title: "Annual Sports Meet" },
+  { category: "Sports & Games", image: "/gallery/sports-games/Cricket1.jpeg", title: "Annual Sports Meet" },
+  { category: "Sports & Games", image: "/gallery/sports-games/Cricket3.jpeg", title: "Annual Sports Meet" },
 
-  // Campus Events
-  {
-    category: "Campus Events",
-    image: "/gallery/campus-events/Samaiyal.jpeg",
-    title: "Batch Samaiyal",
-  },
-  {
-    category: "Campus Events",
-    image: "/gallery/campus-events/Samaiyal1.jpeg",
-    title: "Batch Samaiyal",
-  },
-  {
-    category: "Campus Events",
-    image: "/gallery/campus-events/Samaiyal3.jpeg",
-    title: "Batch Samaiyal",
-  },
-  {
-    category: "Campus Events",
-    image: "/gallery/campus-events/Samaiyal4.jpeg",
-    title: "Batch Samaiyal",
-  },
+  // ── Special Days ─────────────────────────────────────────────────────────────
+  { category: "Special Days", image: "/gallery/special-days/Pongal.jpeg", title: "Pongal Celebration" },
+  { category: "Special Days", image: "/gallery/special-days/Pongal1.jpeg", title: "Pongal Celebration" },
+  { category: "Special Days", image: "/gallery/special-days/pongal2.jpeg", title: "Pongal Celebration" },
+  { category: "Special Days", image: "/gallery/special-days/Pongal3.jpeg", title: "Pongal Celebration" },
+  { category: "Special Days", image: "/gallery/special-days/Pongal4.jpeg", title: "Pongal Celebration" },
 
-  // Seminars
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/seminar.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Seminar1.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Seminar4.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Seminar5.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Seminar6.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Seminar7.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Seminar8.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Seminar9.jpeg",
-    title: "Academic Seminar",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Akka3.jpeg",
-    title: "Interactive Session",
-  },
-  {
-    category: "Seminars",
-    image: "/gallery/seminars/Students.jpeg",
-    title: "Student Presentation",
-  },
+  // ── Campus Events ─────────────────────────────────────────────────────────────
+  { category: "Campus Events", image: "/gallery/campus-events/Samaiyal.jpeg", title: "Batch Samaiyal" },
+  { category: "Campus Events", image: "/gallery/campus-events/Samaiyal1.jpeg", title: "Batch Samaiyal" },
+  { category: "Campus Events", image: "/gallery/campus-events/Samaiyal3.jpeg", title: "Batch Samaiyal" },
+  { category: "Campus Events", image: "/gallery/campus-events/Samaiyal4.jpeg", title: "Batch Samaiyal" },
 
-  // Meetings
-  {
-    category: "Meetings",
-    image: "/gallery/seminars/Meeting1.jpeg",
-    title: "Parent Meeting",
-  },
-  {
-    category: "Meetings",
-    image: "/gallery/seminars/Meeting2.jpeg",
-    title: "Parent Meeting",
-  },
-  {
-    category: "Meetings",
-    image: "/gallery/seminars/Meeting3.jpeg",
-    title: "Parent Meeting",
-  },
-  {
-    category: "Meetings",
-    image: "/gallery/seminars/Meeting4.jpeg",
-    title: "Parent Meeting",
-  },
+  // ── Seminars ──────────────────────────────────────────────────────────────────
+  { category: "Seminars", image: "/gallery/seminars/seminar.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Seminar1.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Seminar4.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Seminar5.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Seminar6.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Seminar7.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Seminar8.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Seminar9.jpeg", title: "Academic Seminar" },
+  { category: "Seminars", image: "/gallery/seminars/Akka3.jpeg", title: "Interactive Session" },
+  { category: "Seminars", image: "/gallery/seminars/Students.jpeg", title: "Student Presentation" },
 
-  // Awarding
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding1.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding2.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding3.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding4.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding5.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding6.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding7.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding8.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding9.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding10.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding11.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding12.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding13.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding14.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding15.jpg",
-    title: "Awarding Ceremony",
-  },
-  {
-    category: "Awarding",
-    image: "/gallery/awarding/Avarding16.jpg",
-    title: "Awarding Ceremony",
-  },
+  // ── Meetings ──────────────────────────────────────────────────────────────────
+  { category: "Meetings", image: "/gallery/seminars/Meeting1.jpeg", title: "Parent Meeting" },
+  { category: "Meetings", image: "/gallery/seminars/Meeting2.jpeg", title: "Parent Meeting" },
+  { category: "Meetings", image: "/gallery/seminars/Meeting3.jpeg", title: "Parent Meeting" },
+  { category: "Meetings", image: "/gallery/seminars/Meeting4.jpeg", title: "Parent Meeting" },
 
-  // Class Activities
-  {
-    category: "Class Activities",
-    image: "/gallery/class-activities/Lab.jpeg",
-    title: "Lab Session",
-  },
-  {
-    category: "Class Activities",
-    image: "/gallery/class-activities/Lab1.jpeg",
-    title: "Lab Session",
-  },
-  {
-    category: "Class Activities",
-    image: "/gallery/class-activities/Lab2.jpeg",
-    title: "Lab Session",
-  },
-  {
-    category: "Class Activities",
-    image: "/gallery/class-activities/Lab3.jpeg",
-    title: "Lab Session",
-  },
-  {
-    category: "Class Activities",
-    image: "/gallery/class-activities/Lab4.jpeg",
-    title: "Lab Session",
-  },
-  {
-    category: "Class Activities",
-    image: "/gallery/class-activities/Lab5.jpeg",
-    title: "Lab Session",
-  },
-  {
-    category: "Class Activities",
-    image: "/gallery/class-activities/Exam2.jpeg",
-    title: "Classroom Examination",
-  },
+  // ── Awarding ──────────────────────────────────────────────────────────────────
+  { category: "Awarding", image: "/gallery/awarding/Avarding.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding1.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding2.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding3.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding4.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding5.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding6.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding7.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding8.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding9.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding10.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding11.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding12.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding13.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding14.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding15.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding16.jpg", title: "Awarding Ceremony" },
+
+  // ── Class Activities ──────────────────────────────────────────────────────────
+  { category: "Class Activities", image: "/gallery/class-activities/Lab.jpeg", title: "Lab Session" },
+  { category: "Class Activities", image: "/gallery/class-activities/Lab1.jpeg", title: "Lab Session" },
+  { category: "Class Activities", image: "/gallery/class-activities/Lab2.jpeg", title: "Lab Session" },
+  { category: "Class Activities", image: "/gallery/class-activities/Lab3.jpeg", title: "Lab Session" },
+  { category: "Class Activities", image: "/gallery/class-activities/Lab4.jpeg", title: "Lab Session" },
+  { category: "Class Activities", image: "/gallery/class-activities/Lab5.jpeg", title: "Lab Session" },
+  { category: "Class Activities", image: "/gallery/class-activities/Exam2.jpeg", title: "Classroom Examination" },
+
+  // ── Visits — Jobfair ──────────────────────────────────────────────────────────
+  { category: "Visits", image: "/gallery/visits/jobfire.jpeg", title: "Jobfair Visit" },
+  { category: "Visits", image: "/gallery/visits/jobfire1.jpeg", title: "Jobfair Visit" },
+  { category: "Visits", image: "/gallery/visits/jobfire2.jpeg", title: "Jobfair Visit" },
+
+  // ── Visits — Library ──────────────────────────────────────────────────────────
+  { category: "Visits", image: "/gallery/visits/LibraryVisite1.jpeg", title: "Library Visit" },
+  { category: "Visits", image: "/gallery/visits/LibraryVisite2.jpeg", title: "Library Visit" },
+  { category: "Visits", image: "/gallery/visits/LibraryVisite3.jpeg", title: "Library Visit" },
+  { category: "Visits", image: "/gallery/visits/LibraryVisite4.jpeg", title: "Library Visit" },
+
+  // ── Visits — Kovil ────────────────────────────────────────────────────────────
+  { category: "Visits", image: "/gallery/visits/kovilvisit.jpeg", title: "Kovil Visit" },
+  { category: "Visits", image: "/gallery/visits/kovilVisite2.jpeg", title: "Kovil Visit" },
+
+  // ── Social Service ────────────────────────────────────────────────────────────
+  { category: "Social service", image: "/gallery/social-service/", title: "Social service" },
+  { category: "Social service", image: "/gallery/social-service/", title: "Social service" },
+
 ];
 
 /**
@@ -328,71 +147,24 @@ function formatTitleFromFilename(filename) {
 }
 
 /**
- * Pure frontend function to retrieve all gallery images.
- * Merges manual entries in `galleryImages` with auto-detected files in `public/gallery/`.
+ * Returns all gallery images from the explicit galleryImages list above.
+ * Auto-glob is intentionally disabled — it caused duplicate cards because
+ * Vite's import.meta.glob on public/ resolves to hashed asset URLs that
+ * don't match the plain path strings in addedPaths, bypassing deduplication.
  */
 export function getAllGalleryImages() {
-  const list = [];
-  const addedPaths = new Set();
+  if (!Array.isArray(galleryImages)) return [];
 
-  // 1. Process manually listed items in galleryImages array
-  if (Array.isArray(galleryImages)) {
-    galleryImages.forEach((item, idx) => {
-      if (item && item.image) {
-        const imgPath = item.image.startsWith('/') ? item.image : `/${item.image}`;
-        addedPaths.add(imgPath.toLowerCase());
-        list.push({
-          id: `manual-${idx}-${imgPath}`,
-          image: imgPath,
-          url: imgPath,
-          category: item.category || 'Campus Events',
-          title: item.title || formatTitleFromFilename(imgPath.split('/').pop()),
-        });
-      }
+  return galleryImages
+    .filter((item) => item && item.image)
+    .map((item, idx) => {
+      const imgPath = item.image.startsWith('/') ? item.image : `/${item.image}`;
+      return {
+        id: `img-${idx}-${imgPath}`,
+        image: imgPath,
+        url: imgPath,
+        category: item.category || 'Campus Events',
+        title: item.title || formatTitleFromFilename(imgPath.split('/').pop()),
+      };
     });
-  }
-
-  // 2. Auto-detect files inside public/gallery/ folders
-  try {
-    const globFiles = import.meta.glob(
-      ['/public/gallery/*/*.*', '/public/gallery/*/*/*.*'],
-      { eager: true, import: 'default' }
-    );
-
-    Object.entries(globFiles).forEach(([filePath, resolvedUrl]) => {
-      if (filePath.endsWith('.gitkeep') || filePath.includes('/.')) return;
-
-      let publicPath = typeof resolvedUrl === 'string' ? resolvedUrl : filePath;
-      if (publicPath.startsWith('/public')) {
-        publicPath = publicPath.replace(/^\/public/, '');
-      }
-      if (!publicPath.startsWith('/')) {
-        publicPath = '/' + publicPath;
-      }
-
-      if (!addedPaths.has(publicPath.toLowerCase())) {
-        addedPaths.add(publicPath.toLowerCase());
-
-        const relativeParts = filePath.replace(/\\/g, '/').split('/gallery/')[1]?.split('/') || [];
-        const folderSlug = relativeParts[0] || '';
-        const filename = relativeParts[relativeParts.length - 1] || 'Image';
-
-        const matchedCategory = Object.keys(CATEGORY_FOLDER_MAP).find(
-          (cat) => CATEGORY_FOLDER_MAP[cat].toLowerCase() === folderSlug.toLowerCase()
-        ) || formatTitleFromFilename(folderSlug);
-
-        list.push({
-          id: filePath,
-          image: publicPath,
-          url: publicPath,
-          category: matchedCategory,
-          title: formatTitleFromFilename(filename),
-        });
-      }
-    });
-  } catch (err) {
-    // Ignore non-vite context
-  }
-
-  return list;
 }

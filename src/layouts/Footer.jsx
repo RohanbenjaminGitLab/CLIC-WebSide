@@ -121,10 +121,10 @@ export default function Footer() {
 
 
   return (
-    <footer className="bg-slate-900 text-slate-350 border-t border-slate-800 transition-colors pt-16 pb-8 relative z-10">
+    <footer className="bg-slate-900 text-slate-350 border-t border-slate-800 transition-colors pt-12 sm:pt-16 pb-8 relative z-10">
       {/* Primary Footer Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
 
           {/* Brand Info Column */}
           <div className="lg:col-span-2 space-y-6">
@@ -146,7 +146,7 @@ export default function Footer() {
             </p>
 
             {/* Social Grid */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2.5">
               {socialIcons.map(({ renderIcon, href, label, color }) => (
                 <a
                   key={label}
@@ -188,8 +188,8 @@ export default function Footer() {
       </div>
 
       {/* Newsletter Block & Location Details */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-y border-slate-800/80 py-10 my-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 border-y border-slate-800/80 py-8 sm:py-10 my-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-center">
 
           {/* Newsletter Text */}
           <div className="lg:col-span-1 space-y-1">
@@ -254,7 +254,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Copyright Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-4 pb-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 text-xs text-slate-500 font-medium">
 
           {/* Left Column: Copyright & Links */}
@@ -277,7 +277,7 @@ export default function Footer() {
                   src="/rohan.jpg"
                   alt="S. Rohan Benjamin"
                   onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=S+Rohan+Benjamin&background=8F173D&color=fff"; }}
-                  className="h-36 w-36 rounded-full object-cover border-[2px] border-brand shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300"
+                  className="h-24 w-24 sm:h-28 sm:w-28 rounded-full object-cover border-[2px] border-brand shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col text-center">

@@ -37,11 +37,11 @@ export default function Navbar({ isDark, toggleTheme }) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'glass-navbar-light dark:glass-navbar-dark shadow-md py-3'
-        : 'bg-transparent py-5'
+        ? 'glass-navbar-light dark:glass-navbar-dark shadow-md py-2 sm:py-3'
+        : 'bg-transparent py-3 sm:py-4'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
@@ -49,8 +49,8 @@ export default function Navbar({ isDark, toggleTheme }) {
               src="/CLIClogo.jpeg"
               alt="CLIC CAMPUS Logo"
               className="
-    h-24 sm:h-32
-    w-24 sm:w-32
+    h-12 sm:h-14 md:h-16
+    w-12 sm:w-14 md:w-16
     object-cover
     rounded-full
     p-0.5
@@ -141,7 +141,7 @@ export default function Navbar({ isDark, toggleTheme }) {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden border-t border-slate-150 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden"
           >
-            <div className="px-4 pt-3 pb-6 space-y-4 max-h-[85vh] overflow-y-auto">
+            <div className="px-4 pt-3 pb-6 space-y-4 max-h-[80svh] overflow-y-auto">
               <div className="space-y-1">
                 {navLinks.map((link) => (
                   <Link

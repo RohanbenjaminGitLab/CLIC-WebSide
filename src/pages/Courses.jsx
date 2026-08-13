@@ -138,8 +138,8 @@ export default function Courses() {
   });
 
   return (
-    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full flex-grow pt-20 sm:pt-24 bg-white dark:bg-slate-950 transition-colors">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-12">
         
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
@@ -184,7 +184,7 @@ export default function Courses() {
               <button
                 key={dept}
                 onClick={() => handleDeptFilter(dept)}
-                className={`text-xs font-semibold px-4.5 py-2.5 rounded-xl border transition-all duration-300 ${
+                className={`text-xs font-semibold px-4 py-2.5 rounded-xl border transition-all duration-300 ${
                   selectedDept === dept
                     ? 'bg-brand border-brand text-white shadow-md shadow-brand/10'
                     : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800'
@@ -272,7 +272,7 @@ export default function Courses() {
       {/* 5. Course Details Modal */}
       <AnimatePresence>
         {activeCourseModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center px-4 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 sm:py-10 overflow-y-auto">
             {/* Backdrop Blur */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -288,7 +288,7 @@ export default function Courses() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 30 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-6 sm:p-8 z-10 border border-slate-100 dark:border-slate-800 overflow-hidden"
+              className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-5 sm:p-8 z-10 border border-slate-100 dark:border-slate-800 overflow-hidden my-auto"
             >
               
               {/* Close Button */}
@@ -300,7 +300,7 @@ export default function Courses() {
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="space-y-6 max-h-[80vh] overflow-y-auto pr-1">
+              <div className="space-y-6 max-h-[75vh] sm:max-h-[80vh] overflow-y-auto pr-1">
                 
                 {/* Header */}
                 <div className="space-y-2">

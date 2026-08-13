@@ -221,7 +221,7 @@ export default function CampusGallery() {
                 </div>
 
                 {/* Main Lightbox Image */}
-                <div className="relative flex items-center justify-center p-2 bg-slate-950 min-h-[300px] sm:min-h-[450px]">
+                <div className="relative flex items-center justify-center p-2 bg-slate-950 min-h-[240px] sm:min-h-[380px] md:min-h-[450px]">
                   <img
                     src={filteredImages[lightboxIndex].url || filteredImages[lightboxIndex].image}
                     alt={filteredImages[lightboxIndex].title}
@@ -233,17 +233,17 @@ export default function CampusGallery() {
                     <>
                       <button
                         onClick={handlePrev}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-2xl bg-slate-900/80 hover:bg-[#8F173D] text-white border border-slate-700/60 shadow-lg backdrop-blur-md transition-all duration-200"
+                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-slate-900/80 hover:bg-[#8F173D] text-white border border-slate-700/60 shadow-lg backdrop-blur-md transition-all duration-200"
                         aria-label="Previous Image"
                       >
-                        <ChevronLeft className="h-6 w-6" />
+                        <ChevronLeft className="h-5 sm:h-6 w-5 sm:w-6" />
                       </button>
                       <button
                         onClick={handleNext}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-2xl bg-slate-900/80 hover:bg-[#8F173D] text-white border border-slate-700/60 shadow-lg backdrop-blur-md transition-all duration-200"
+                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-slate-900/80 hover:bg-[#8F173D] text-white border border-slate-700/60 shadow-lg backdrop-blur-md transition-all duration-200"
                         aria-label="Next Image"
                       >
-                        <ChevronRight className="h-6 w-6" />
+                        <ChevronRight className="h-5 sm:h-6 w-5 sm:w-6" />
                       </button>
                     </>
                   )}

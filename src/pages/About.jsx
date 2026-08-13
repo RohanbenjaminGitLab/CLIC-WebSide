@@ -32,8 +32,8 @@ export default function About() {
   ];
 
   return (
-    <div className="w-full flex-grow pt-24 bg-white dark:bg-slate-950 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full flex-grow pt-20 sm:pt-24 bg-white dark:bg-slate-950 transition-colors">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-12">
 
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -101,7 +101,7 @@ export default function About() {
                 <img
                   src="/Sir.jpeg"
                   alt="Maha Deven"
-                  className="relative z-10 w-64 h-80 object-cover rounded-2xl border-4 border-white dark:border-slate-800 shadow-md"
+                  className="relative z-10 w-full max-w-[220px] sm:max-w-[256px] aspect-[4/5] object-cover rounded-2xl border-4 border-white dark:border-slate-800 shadow-md"
                 />
               </div>
             </div>
@@ -130,9 +130,9 @@ export default function About() {
         </section>
 
         {/* 3. Historical Timeline Section */}
-        <section className="mb-24">
-          <div className="text-center max-w-xl mx-auto mb-16 space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
+        <section className="mb-16 sm:mb-24">
+          <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16 space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
               Institutional Journey
             </h2>
             <p className="text-xs sm:text-sm text-slate-550 dark:text-slate-455 font-light">
@@ -140,42 +140,53 @@ export default function About() {
             </p>
           </div>
 
-          <div className="relative border-l border-slate-200 dark:border-slate-800 ml-4 md:ml-0 md:left-1/2 md:-translate-x-1/2 max-w-3xl space-y-12">
-            {milestones.map((item, idx) => {
-              const isEven = idx % 2 === 0;
-              return (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 ${isEven ? 'md:flex-row-reverse' : ''
+          {/* Left-aligned timeline on mobile, centered two-column on md+ */}
+          <div className="relative max-w-3xl mx-auto">
+            {/* Vertical line: left edge on mobile, centered on md+ */}
+            <div className="absolute top-0 bottom-0 left-4 md:left-1/2 w-px bg-slate-200 dark:bg-slate-800 md:-translate-x-px" />
+
+            <div className="space-y-10 sm:space-y-12">
+              {milestones.map((item, idx) => {
+                const isEven = idx % 2 === 0;
+                return (
+                  <motion.div
+                    key={item.year}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className={`relative flex items-start gap-0 md:gap-0 ${
+                      isEven ? 'md:flex-row' : 'md:flex-row-reverse'
                     }`}
-                >
-                  {/* Circle Pin Marker */}
-                  <div className="absolute -left-[5px] md:left-1/2 md:-translate-x-1.5 h-3.5 w-3.5 rounded-full bg-brand dark:bg-brand-300 border-4 border-white dark:border-slate-950 z-20 shadow-md" />
+                  >
+                    {/* Circle Pin Marker */}
+                    <div className="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-brand dark:bg-brand-300 border-4 border-white dark:border-slate-950 z-20 shadow-md shrink-0" />
 
-                  {/* Spacer for structural balance */}
-                  <div className="hidden md:block w-1/2 px-8" />
-
-                  {/* Timeline Card */}
-                  <div className="w-full md:w-1/2 px-4 md:px-8">
-                    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative">
-                      <span className="absolute -top-3.5 left-6 bg-brand dark:bg-brand-900 border border-brand-500/25 text-white text-xs font-bold px-3 py-0.5 rounded-full">
-                        {item.year}
-                      </span>
-                      <h4 className="text-base font-bold text-slate-950 dark:text-white mt-1 mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-                        {item.desc}
-                      </p>
+                    {/* Mobile: full-width card offset from line */}
+                    {/* Desktop: half-width card on alternating sides */}
+                    <div className={`w-full pl-12 md:pl-0 md:w-1/2 ${
+                      isEven ? 'md:pr-10 md:text-right' : 'md:pl-10'
+                    }`}>
+                      {/* Spacer for even items on desktop so card is on right side */}
+                      <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative">
+                        <span className="inline-block bg-brand dark:bg-brand-900 border border-brand-500/25 text-white text-xs font-bold px-3 py-0.5 rounded-full mb-2">
+                          {item.year}
+                        </span>
+                        <h4 className="text-base font-bold text-slate-950 dark:text-white mb-1.5">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+
+                    {/* Spacer for the opposite side on desktop */}
+                    <div className="hidden md:block w-1/2" />
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </section>
 

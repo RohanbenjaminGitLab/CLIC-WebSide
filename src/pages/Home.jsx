@@ -75,7 +75,7 @@ export default function Home() {
     <div className="w-full flex-grow pt-16">
 
       {/* 1. Full-screen Hero Section */}
-      <section className="relative h-[95vh] w-full flex items-center justify-center overflow-hidden bg-slate-950">
+      <section className="relative min-h-[580px] h-[95svh] w-full flex items-center justify-center overflow-hidden bg-slate-950">
 
         {/* Parallax Background Video/Image */}
         <div
@@ -90,7 +90,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left w-full">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center sm:text-left w-full">
           <div className="max-w-3xl space-y-6">
 
             {/* Tagline */}
@@ -152,14 +152,15 @@ export default function Home() {
       </section>
 
       {/* 2. Interactive Statistics Section */}
-      <section className="relative z-25 -mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl shadow-xl dark:shadow-2xl p-8 sm:p-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="relative z-25 -mt-12 sm:-mt-16 max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl shadow-xl dark:shadow-2xl p-6 sm:p-8 lg:p-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, idx) => (
               <div
                 key={stat.label}
-                className={`text-center space-y-1 ${idx !== stats.length - 1 ? 'lg:border-r border-slate-100 dark:border-slate-800' : ''
-                  }`}
+                className={`text-center space-y-1 ${
+                  idx !== 0 && idx % 2 !== 0 ? 'border-r border-slate-100 dark:border-slate-800 lg:border-0' : ''
+                } ${idx < 2 ? 'pb-6 border-b border-slate-100 dark:border-slate-800 lg:pb-0 lg:border-b-0' : ''} ${idx !== stats.length - 1 ? 'lg:border-r lg:border-slate-100 dark:lg:border-slate-800' : ''}`}
               >
                 <span className="text-3xl sm:text-4xl font-extrabold text-brand dark:text-brand-300 block">
                   {stat.value}
@@ -177,8 +178,8 @@ export default function Home() {
       </section>
 
       {/* 3. Why Choose Us Section */}
-      <section className="py-20 bg-white dark:bg-slate-950 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 bg-white dark:bg-slate-950 transition-colors">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
 
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
@@ -222,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* 4. Student Testimonials Slider */}
-      <section className="py-20 bg-white dark:bg-slate-900 transition-colors border-t border-slate-100 dark:border-slate-800">
+      <section className="py-16 sm:py-20 bg-white dark:bg-slate-900 transition-colors border-t border-slate-100 dark:border-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section Header */}
@@ -236,7 +237,7 @@ export default function Home() {
           </div>
 
           {/* Testimonial Card Slider */}
-          <div className="relative bg-white dark:bg-slate-950 border border-brand-100/60 dark:border-slate-800 rounded-3xl p-8 sm:p-12 shadow-sm min-h-[320px] flex flex-col justify-between">
+          <div className="relative bg-white dark:bg-slate-950 border border-brand-100/60 dark:border-slate-800 rounded-3xl p-6 sm:p-8 md:p-12 shadow-sm min-h-[300px] sm:min-h-[320px] flex flex-col justify-between">
 
             {/* Quote Icon */}
             <div className="absolute top-6 left-6 text-brand-100 dark:text-slate-800 text-6xl font-serif select-none pointer-events-none">
@@ -310,29 +311,29 @@ export default function Home() {
       </section>
 
       {/* 5. CTA Applied Section */}
-      <section className="py-20 bg-brand text-white transition-colors relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-brand text-white transition-colors relative overflow-hidden">
 
         {/* Subtle decorative circles */}
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-600/30 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-brand-800/30 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 sm:w-80 h-64 sm:h-80 rounded-full bg-brand-600/30 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 sm:w-80 h-64 sm:h-80 rounded-full bg-brand-800/30 blur-3xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-5 sm:space-y-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
             Ready to Shape Your Academic Path?
           </h2>
-          <p className="text-base text-brand-100 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-brand-100 max-w-xl mx-auto font-light leading-relaxed">
             Submit your application details or inquiries today. Our student onboarding specialists will review your academic background and schedule an online advising call.
           </p>
-          <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link
               to="/contact"
-              className="bg-white hover:bg-slate-100 text-brand text-center font-bold px-8 py-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
+              className="w-full sm:w-auto bg-white hover:bg-slate-100 text-brand text-center font-bold px-8 py-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
             >
               Get In Touch
             </Link>
             <Link
               to="/contact"
-              className="border border-white/40 hover:bg-white/10 text-white text-center font-semibold px-8 py-4 rounded-2xl transition-all duration-300"
+              className="w-full sm:w-auto border border-white/40 hover:bg-white/10 text-white text-center font-semibold px-8 py-4 rounded-2xl transition-all duration-300"
             >
               Inquire Now
             </Link>
