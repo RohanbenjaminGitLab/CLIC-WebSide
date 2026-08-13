@@ -53,14 +53,116 @@ export const galleryImages = [
   },
   {
     category: "Sports & Games",
-    image: "/gallery/sports-games/Cricket.jpeg",
+    image: "/gallery/sports-games/Cricket1.jpeg",
     title: "Annual Sports Meet",
   },
   {
-    category: "Seminars",
-    image: "/gallery/seminars/seminar-01.jpg",
-    title: "Tech Seminar 2026",
+    category: "Sports & Games",
+    image: "/gallery/sports-games/Cricket3.jpeg",
+    title: "Annual Sports Meet",
   },
+  {
+    category: "Special Days",
+    image: "/gallery/special-days/Pongal.jpeg",
+    title: "Pongal Celebration",
+  },
+  {
+    category: "Special Days",
+    image: "/gallery/special-days/Pongal1.jpeg",
+    title: "Pongal Celebration",
+  },
+  {
+    category: "Special Days",
+    image: "/gallery/special-days/pongal2.jpeg",
+    title: "Pongal Celebration",
+  },
+  {
+    category: "Special Days",
+    image: "/gallery/special-days/Pongal3.jpeg",
+    title: "Pongal Celebration ",
+  },
+  {
+    category: "Campus Events",
+    image: "/gallery/campus-events/Samaiyal.jpeg",
+    title: "Batch Samaiyal",
+  },
+  {
+    category: "Campus Events",
+    image: "/gallery/campus-events/Samaiyal1.jpeg",
+    title: "Batch Samaiyal",
+  },
+  {
+    category: "Campus Events",
+    image: "/gallery/campus-events/Samaiyal3.jpeg",
+    title: "Batch Samaiyal",
+  },
+  {
+    category: "Campus Events",
+    image: "/gallery/campus-events/Samaiyal4.jpeg",
+    title: "Batch Samaiyal",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/seminar.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Seminar1.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Seminar4.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Seminar5.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Seminar6.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Seminar7.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Seminar8.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Seminar9.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Akka3.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Students.jpeg",
+    title: "Seminars",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Meeting1.jpeg",
+    title: "Parent Meeting",
+  },
+  {
+    category: "Seminars",
+    image: "/gallery/seminars/Meeting4.jpeg",
+    title: "Parent Meeting",
+  },
+
+
 ];
 
 /**
