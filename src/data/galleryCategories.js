@@ -9,6 +9,8 @@
  * - Awarding
  * - Class Activities
  * - Visits
+ * - Social Service
+ * - Meetings
  */
 
 export const CATEGORIES = [
@@ -33,7 +35,7 @@ export const CATEGORY_FOLDER_MAP = {
   'Class Activities': 'class-activities',
   'Visits': 'visits',
   'Social Service': 'social-service',
-  'Meetings': 'meetings',
+  'Meetings': 'seminars',
 };
 
 /**
@@ -48,6 +50,7 @@ export const CATEGORY_FOLDER_MAP = {
  * }
  */
 export const galleryImages = [
+  // Sports & Games
   {
     category: "Sports & Games",
     image: "/gallery/sports-games/Cricket.jpeg",
@@ -63,6 +66,8 @@ export const galleryImages = [
     image: "/gallery/sports-games/Cricket3.jpeg",
     title: "Annual Sports Meet",
   },
+
+  // Special Days
   {
     category: "Special Days",
     image: "/gallery/special-days/Pongal.jpeg",
@@ -81,8 +86,15 @@ export const galleryImages = [
   {
     category: "Special Days",
     image: "/gallery/special-days/Pongal3.jpeg",
-    title: "Pongal Celebration ",
+    title: "Pongal Celebration",
   },
+  {
+    category: "Special Days",
+    image: "/gallery/special-days/Pongal4.jpeg",
+    title: "Pongal Celebration",
+  },
+
+  // Campus Events
   {
     category: "Campus Events",
     image: "/gallery/campus-events/Samaiyal.jpeg",
@@ -103,195 +115,204 @@ export const galleryImages = [
     image: "/gallery/campus-events/Samaiyal4.jpeg",
     title: "Batch Samaiyal",
   },
+
+  // Seminars
   {
     category: "Seminars",
     image: "/gallery/seminars/seminar.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Seminar1.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Seminar4.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Seminar5.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Seminar6.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Seminar7.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Seminar8.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Seminar9.jpeg",
-    title: "Seminars",
+    title: "Academic Seminar",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Akka3.jpeg",
-    title: "Seminars",
+    title: "Interactive Session",
   },
   {
     category: "Seminars",
     image: "/gallery/seminars/Students.jpeg",
-    title: "Seminars",
+    title: "Student Presentation",
   },
+
+  // Meetings
   {
-    category: "Seminars",
+    category: "Meetings",
     image: "/gallery/seminars/Meeting1.jpeg",
     title: "Parent Meeting",
   },
   {
-    category: "Seminars",
-    image: "/gallery/seminars/Meeting4.jpeg",
+    category: "Meetings",
+    image: "/gallery/seminars/Meeting2.jpeg",
     title: "Parent Meeting",
   },
   {
+    category: "Meetings",
+    image: "/gallery/seminars/Meeting3.jpeg",
+    title: "Parent Meeting",
+  },
+  {
+    category: "Meetings",
+    image: "/gallery/seminars/Meeting4.jpeg",
+    title: "Parent Meeting",
+  },
+
+  // Awarding
+  {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding.JPG",
+    image: "/gallery/awarding/Avarding.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding2.JPG",
+    image: "/gallery/awarding/Avarding1.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding3.JPG",
+    image: "/gallery/awarding/Avarding2.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding4.JPG",
+    image: "/gallery/awarding/Avarding3.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding5.JPG",
+    image: "/gallery/awarding/Avarding4.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding6.JPG",
+    image: "/gallery/awarding/Avarding5.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding7.JPG",
+    image: "/gallery/awarding/Avarding6.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding8.JPG",
+    image: "/gallery/awarding/Avarding7.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding9.JPG",
+    image: "/gallery/awarding/Avarding8.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding10.JPG",
+    image: "/gallery/awarding/Avarding9.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding11.JPG",
+    image: "/gallery/awarding/Avarding10.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding12.JPG",
+    image: "/gallery/awarding/Avarding11.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding13.JPG",
+    image: "/gallery/awarding/Avarding12.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding14.JPG",
+    image: "/gallery/awarding/Avarding13.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding15.JPG",
+    image: "/gallery/awarding/Avarding14.jpg",
     title: "Awarding Ceremony",
   },
   {
     category: "Awarding",
-    image: "/gallery/awarding/Avarding16.JPG",
+    image: "/gallery/awarding/Avarding15.jpg",
     title: "Awarding Ceremony",
   },
   {
-    category: "Class activities",
+    category: "Awarding",
+    image: "/gallery/awarding/Avarding16.jpg",
+    title: "Awarding Ceremony",
+  },
+
+  // Class Activities
+  {
+    category: "Class Activities",
     image: "/gallery/class-activities/Lab.jpeg",
-    title: "Lab",
+    title: "Lab Session",
   },
   {
-    category: "Class activities",
+    category: "Class Activities",
     image: "/gallery/class-activities/Lab1.jpeg",
-    title: "Lab",
+    title: "Lab Session",
   },
   {
-    category: "Class activities",
+    category: "Class Activities",
     image: "/gallery/class-activities/Lab2.jpeg",
-    title: "Lab",
+    title: "Lab Session",
   },
   {
-    category: "Class activities",
+    category: "Class Activities",
     image: "/gallery/class-activities/Lab3.jpeg",
-    title: "Lab",
+    title: "Lab Session",
   },
   {
-    category: "Class activities",
+    category: "Class Activities",
     image: "/gallery/class-activities/Lab4.jpeg",
-    title: "Lab",
+    title: "Lab Session",
   },
   {
-    category: "Class activities",
+    category: "Class Activities",
     image: "/gallery/class-activities/Lab5.jpeg",
-    title: "Lab",
+    title: "Lab Session",
   },
   {
-    category: "Class activities",
+    category: "Class Activities",
     image: "/gallery/class-activities/Exam2.jpeg",
-    title: "Lab",
+    title: "Classroom Examination",
   },
-  {
-    category: "Class activities",
-    image: "/gallery/class-activities/Lab7.jpeg",
-    title: "Lab",
-  },
-  {
-    category: "Class activities",
-    image: "/gallery/class-activities/Lab8.jpeg",
-    title: "Lab",
-  },
-
-
-
-
 ];
 
 /**
@@ -319,7 +340,7 @@ export function getAllGalleryImages() {
     galleryImages.forEach((item, idx) => {
       if (item && item.image) {
         const imgPath = item.image.startsWith('/') ? item.image : `/${item.image}`;
-        addedPaths.add(imgPath);
+        addedPaths.add(imgPath.toLowerCase());
         list.push({
           id: `manual-${idx}-${imgPath}`,
           image: imgPath,
@@ -334,26 +355,30 @@ export function getAllGalleryImages() {
   // 2. Auto-detect files inside public/gallery/ folders
   try {
     const globFiles = import.meta.glob(
-      ['/gallery/*/*.*', '/gallery/*/*/*.*'],
+      ['/public/gallery/*/*.*', '/public/gallery/*/*/*.*'],
       { eager: true, import: 'default' }
     );
 
     Object.entries(globFiles).forEach(([filePath, resolvedUrl]) => {
       if (filePath.endsWith('.gitkeep') || filePath.includes('/.')) return;
 
-      const publicPath = typeof resolvedUrl === 'string'
-        ? resolvedUrl
-        : filePath;
+      let publicPath = typeof resolvedUrl === 'string' ? resolvedUrl : filePath;
+      if (publicPath.startsWith('/public')) {
+        publicPath = publicPath.replace(/^\/public/, '');
+      }
+      if (!publicPath.startsWith('/')) {
+        publicPath = '/' + publicPath;
+      }
 
-      if (!addedPaths.has(publicPath)) {
-        addedPaths.add(publicPath);
+      if (!addedPaths.has(publicPath.toLowerCase())) {
+        addedPaths.add(publicPath.toLowerCase());
 
-        const relativeParts = filePath.replace('\\', '/').split('/gallery/')[1]?.split('/') || [];
+        const relativeParts = filePath.replace(/\\/g, '/').split('/gallery/')[1]?.split('/') || [];
         const folderSlug = relativeParts[0] || '';
         const filename = relativeParts[relativeParts.length - 1] || 'Image';
 
         const matchedCategory = Object.keys(CATEGORY_FOLDER_MAP).find(
-          (cat) => CATEGORY_FOLDER_MAP[cat] === folderSlug
+          (cat) => CATEGORY_FOLDER_MAP[cat].toLowerCase() === folderSlug.toLowerCase()
         ) || formatTitleFromFilename(folderSlug);
 
         list.push({

@@ -15,7 +15,9 @@ export default function CampusGallery() {
     if (activeCategory === 'All') {
       return allImages;
     }
-    return allImages.filter((img) => img.category === activeCategory);
+    return allImages.filter(
+      (img) => img.category?.trim().toLowerCase() === activeCategory.trim().toLowerCase()
+    );
   }, [allImages, activeCategory]);
 
   // Modal navigation
