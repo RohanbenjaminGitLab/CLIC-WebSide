@@ -9,31 +9,31 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#fbf3f7',
-          100: '#f8e8f0',
-          200: '#f2d1e2',
-          300: '#e5adc9',
-          400: '#d37ea6',
-          500: '#bd5384',
-          600: '#9d3b6a',
-          700: '#751c58',
-          800: '#641b4b',
-          900: '#531b40',
-          950: '#340a25',
-          DEFAULT: '#531b40',
+          50: '#fdf2f5',
+          100: '#fbe5eb',
+          200: '#f8cad7',
+          300: '#f09eb8',
+          400: '#e36990',
+          500: '#d43e6f',
+          600: '#b72555',
+          700: '#8F173D',
+          800: '#781636',
+          900: '#651631',
+          950: '#3b091a',
+          DEFAULT: '#8F173D',
         },
         primary: {
-          DEFAULT: '#531b40',
-          hover: '#3d1430',
-          light: '#fbf3f7',
+          DEFAULT: '#8F173D',
+          hover: '#781636',
+          light: '#fdf2f5',
         },
         secondary: {
           DEFAULT: '#1F2937',
           light: '#374151',
         },
         accent: {
-          DEFAULT: '#531b40',
-          light: '#e5adc9',
+          DEFAULT: '#8F173D',
+          light: '#f09eb8',
         }
       },
       fontFamily: {
