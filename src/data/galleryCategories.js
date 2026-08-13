@@ -21,6 +21,7 @@ export const CATEGORIES = [
   'Class Activities',
   'Visits',
   'Social Service',
+  'Meetings'
 ];
 
 export const CATEGORY_FOLDER_MAP = {
@@ -32,6 +33,7 @@ export const CATEGORY_FOLDER_MAP = {
   'Class Activities': 'class-activities',
   'Visits': 'visits',
   'Social Service': 'social-service',
+  'Meetings': 'meetings',
 };
 
 /**
@@ -241,6 +243,52 @@ export const galleryImages = [
     image: "/gallery/awarding/Avarding16.JPG",
     title: "Awarding Ceremony",
   },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab1.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab2.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab3.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab4.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab5.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Exam2.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab7.jpeg",
+    title: "Lab",
+  },
+  {
+    category: "Class activities",
+    image: "/gallery/class-activities/Lab8.jpeg",
+    title: "Lab",
+  },
+
 
 
 
