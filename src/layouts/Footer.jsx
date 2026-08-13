@@ -504,7 +504,7 @@ export default function Footer() {
           group-hover:text-slate-200
         "
                 >
-                  Designed & Developed with dedication
+                  Designed & Developed with Dedication
                 </span>
 
                 {/* Mini Line */}
