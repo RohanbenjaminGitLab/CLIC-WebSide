@@ -125,7 +125,7 @@ export const galleryImages = [
   { category: "Visits", image: "/gallery/visits/LibraryVisite4.jpeg", title: "Library Visit" },
 
   // ── Visits — Kovil ────────────────────────────────────────────────────────────
-  { category: "Visits", image: "/gallery/visits/kovilvisite.jpeg", title: "Kovil Visit" },
+  { category: "Visits", image: "/gallery/visits/kovilVisite1.jpeg", title: "Kovil Visit" },
   { category: "Visits", image: "/gallery/visits/kovilVisite2.jpeg", title: "Kovil Visit" },
 
   // ── Social Service ────────────────────────────────────────────────────────────
