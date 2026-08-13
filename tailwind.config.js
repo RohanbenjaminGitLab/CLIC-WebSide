@@ -20,10 +20,10 @@ export default {
           800: '#781636',
           900: '#651631',
           950: '#3b091a',
-          DEFAULT: '#3b091a',
+          DEFAULT: '#651631',
         },
         primary: {
-          DEFAULT: '#3b091a',
+          DEFAULT: '#651631',
           hover: '#781636',
           light: '#fdf2f5',
         },
@@ -32,7 +32,7 @@ export default {
           light: '#374151',
         },
         accent: {
-          DEFAULT: '#3b091a',
+          DEFAULT: '#651631',
           light: '#f09eb8',
         }
       },
