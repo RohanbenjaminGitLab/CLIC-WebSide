@@ -29,6 +29,7 @@ export const CATEGORIES = [
   'Visits',
   'Social Service',
   'Meetings',
+  'Abacus'
 ];
 
 export const CATEGORY_FOLDER_MAP = {
@@ -41,6 +42,7 @@ export const CATEGORY_FOLDER_MAP = {
   'Visits': 'visits',
   'Social Service': 'social-service',
   'Meetings': 'seminars',
+  'Abacus': 'abacus'
 };
 
 /**
@@ -131,6 +133,19 @@ export const galleryImages = [
   // ── Social Service ────────────────────────────────────────────────────────────
   { category: "Social service", image: "/gallery/social-service/", title: "Social service" },
   { category: "Social service", image: "/gallery/social-service/", title: "Social service" },
+
+  // ── Abacus ────────────────────────────────────────────────────────────
+  { category: "Abacus", image: "/gallery/Abacus/Abacus.jpeg", title: "Abacus" },
+  { category: "Abacus", image: "/gallery/Abacus/Abacus1.jpeg", title: "Abacus" },
+  { category: "Abacus", image: "/gallery/Abacus/Abacus2.jpeg", title: "Abacus" },
+  { category: "Abacus", image: "/gallery/Abacus/Abacus3.jpeg", title: "Abacus" },
+  { category: "Abacus", image: "/gallery/Abacus/Abacus4.jpeg", title: "Abacus" },
+  { category: "Abacus", image: "/gallery/Abacus/Abacus5.jpeg", title: "Abacus" },
+  { category: "Abacus", image: "/gallery/Abacus/Abacus6.jpeg", title: "Abacus" },
+  { category: "Abacus", image: "/gallery/Abacus/Abacus7.jpeg", title: "Abacus" },
+
+
+
 
 ];
 
