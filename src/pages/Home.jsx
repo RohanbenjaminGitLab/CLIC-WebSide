@@ -77,13 +77,14 @@ export default function Home() {
       {/* 1. Full-screen Hero Section */}
       <section className="relative min-h-[580px] h-[95svh] w-full flex items-center justify-center overflow-hidden bg-slate-950">
 
-        {/* Parallax Background Video/Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{
-            backgroundImage: "url('/frontpic.webp')",
-            backgroundAttachment: 'scroll'
-          }}
+        {/* High-Performance Hero Background Image */}
+        <img
+          src="/frontpic.webp"
+          alt="CLIC Campus"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none select-none"
         />
         {/* Dark overlay with signature plum tone gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-brand-950/40 mix-blend-multiply" />
