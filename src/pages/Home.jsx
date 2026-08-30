@@ -81,7 +81,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop')",
+            backgroundImage: "url('/frontpic.jpg')",
             backgroundAttachment: 'scroll'
           }}
         />
