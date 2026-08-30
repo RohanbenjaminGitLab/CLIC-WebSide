@@ -81,7 +81,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
-            backgroundImage: "url('/frontpic.jpg')",
+            backgroundImage: "url('/frontpic.webp')",
             backgroundAttachment: 'scroll'
           }}
         />
@@ -158,9 +158,8 @@ export default function Home() {
             {stats.map((stat, idx) => (
               <div
                 key={stat.label}
-                className={`text-center space-y-1 ${
-                  idx !== 0 && idx % 2 !== 0 ? 'border-r border-slate-100 dark:border-slate-800 lg:border-0' : ''
-                } ${idx < 2 ? 'pb-6 border-b border-slate-100 dark:border-slate-800 lg:pb-0 lg:border-b-0' : ''} ${idx !== stats.length - 1 ? 'lg:border-r lg:border-slate-100 dark:lg:border-slate-800' : ''}`}
+                className={`text-center space-y-1 ${idx !== 0 && idx % 2 !== 0 ? 'border-r border-slate-100 dark:border-slate-800 lg:border-0' : ''
+                  } ${idx < 2 ? 'pb-6 border-b border-slate-100 dark:border-slate-800 lg:pb-0 lg:border-b-0' : ''} ${idx !== stats.length - 1 ? 'lg:border-r lg:border-slate-100 dark:lg:border-slate-800' : ''}`}
               >
                 <span className="text-3xl sm:text-4xl font-extrabold text-brand dark:text-brand-300 block">
                   {stat.value}
