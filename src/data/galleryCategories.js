@@ -105,6 +105,13 @@ export const galleryImages = [
   { category: "Awarding", image: "/gallery/awarding/Avarding14.jpg", title: "Awarding Ceremony" },
   { category: "Awarding", image: "/gallery/awarding/Avarding15.jpg", title: "Awarding Ceremony" },
   { category: "Awarding", image: "/gallery/awarding/Avarding16.jpg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding17.jpeg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding18.jpeg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding19.jpeg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding20.jpeg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding21.jpeg", title: "Awarding Ceremony" },
+  { category: "Awarding", image: "/gallery/awarding/Avarding22.jpeg", title: "Awarding Ceremony" },
+
 
   // ── Class Activities ──────────────────────────────────────────────────────────
   { category: "Class Activities", image: "/gallery/class-activities/Lab.jpeg", title: "Lab Session" },
