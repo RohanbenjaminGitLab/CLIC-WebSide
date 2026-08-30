@@ -55,14 +55,14 @@ export default function Contact() {
 
     try {
       const response = await sendInquiryEmail(formData);
-      
+
       if (response.success) {
         setToast({
           show: true,
           success: true,
           message: response.message
         });
-        
+
         // Reset Form
         setFormData({
           name: '',
@@ -86,7 +86,7 @@ export default function Contact() {
       });
     } finally {
       setLoading(false);
-      
+
       // Auto-hide toast after 5 seconds
       setTimeout(() => {
         setToast((prev) => ({ ...prev, show: false }));
@@ -97,7 +97,7 @@ export default function Contact() {
   return (
     <div className="w-full flex-grow pt-20 sm:pt-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-12">
-        
+
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-3 py-1 rounded-full">
@@ -114,11 +114,11 @@ export default function Contact() {
 
         {/* 1. Interactive Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-24 items-start">
-          
+
           {/* Inquiry Form (Columns 1, 2, 3) */}
           <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 rounded-3xl shadow-sm space-y-6">
             <h3 className="text-lg font-bold text-slate-950 dark:text-white">Submit Academic Inquiry</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Full Name */}
@@ -221,7 +221,7 @@ export default function Contact() {
           {/* Quick Contact Info Cards (Columns 4 & 5) */}
           <div className="lg:col-span-2 space-y-6">
             <h3 className="text-lg font-bold text-slate-950 dark:text-white">Contact Information</h3>
-            
+
             {/* Campus Address Card */}
             <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl flex gap-4 shadow-sm">
               <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-3 rounded-xl h-11 w-11 flex items-center justify-center shrink-0">
@@ -245,7 +245,7 @@ export default function Contact() {
               <div className="space-y-1 flex-1 min-w-0 pr-10">
                 <h4 className="text-sm font-bold text-slate-950 dark:text-white">Support Email</h4>
                 <p className="text-xs text-slate-550 dark:text-slate-400 font-light truncate">
-                  studentsupport@cliccampus.edu
+                  cliccampusinfo@gmail.com
                 </p>
               </div>
               <button
@@ -265,11 +265,11 @@ export default function Contact() {
               <div className="space-y-1 flex-1 min-w-0 pr-10">
                 <h4 className="text-sm font-bold text-slate-950 dark:text-white">Student Admissions Hotline</h4>
                 <p className="text-xs text-slate-555 dark:text-slate-400 font-light">
-                  +1 (800) 254-2267
+                  0777635657
                 </p>
               </div>
               <button
-                onClick={() => handleCopy('+1 (800) 254-2267', 'phone')}
+                onClick={() => handleCopy('0777635657', 'phone')}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors shrink-0"
                 aria-label="Copy Phone"
               >
@@ -285,8 +285,8 @@ export default function Contact() {
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-slate-950 dark:text-white">Office Opening Hours</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-                  Monday – Friday: 08:30 AM – 05:30 PM <br />
-                  Saturday: 09:00 AM – 01:00 PM (Closed on Sunday)
+                  Monday – Sunday: 08:30 AM – 05:30 PM <br />
+                  (Closed on Friday)
                 </p>
               </div>
             </div>
