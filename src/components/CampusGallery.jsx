@@ -1,11 +1,82 @@
-import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ImageOff, ChevronLeft, ChevronRight, X, Maximize2, Sparkles, FolderOpen } from 'lucide-react';
+import { ImageOff, ChevronLeft, ChevronRight, X, Maximize2, Sparkles, FolderOpen, Loader2 } from 'lucide-react';
 import { CATEGORIES, CATEGORY_FOLDER_MAP, getAllGalleryImages } from '../data/galleryCategories';
+
+// Memoized Gallery Image Card with progressive skeleton loading and zero layout shift
+const GalleryImageCard = React.memo(function GalleryImageCard({ image, index, onSelect }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.96 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: '50px' }}
+      transition={{ duration: 0.3, delay: (index % 8) * 0.03 }}
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={() => onSelect(index)}
+      className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:shadow-[#8F173D]/10 transition-all duration-300 cursor-pointer aspect-[4/3] xs:aspect-[4/3] sm:aspect-square"
+    >
+      {/* Progressive Skeleton Loader Placeholder */}
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800/70 animate-pulse flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full border-2 border-brand/20 border-t-brand animate-spin opacity-40" />
+        </div>
+      )}
+
+      {/* Optimized Responsive Picture / WebP */}
+      <picture className="w-full h-full block">
+        <source srcSet={image.thumbUrl || image.url} type="image/webp" />
+        <img
+          src={image.thumbUrl || image.url}
+          alt={image.title}
+          loading="lazy"
+          decoding="async"
+          width={400}
+          height={400}
+          onLoad={() => setIsLoaded(true)}
+          onError={(e) => {
+            if (e.currentTarget.src !== image.url && image.url) {
+              e.currentTarget.src = image.url;
+            } else {
+              setHasError(true);
+            }
+            setIsLoaded(true);
+          }}
+          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-108 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      </picture>
+
+      {/* Category Chip always visible on mobile, expanded on desktop hover */}
+      <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
+        <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-white bg-slate-950/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10 shadow-sm">
+          {image.category}
+        </span>
+      </div>
+
+      {/* Gradient Hover/Focus Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 sm:p-4 z-20">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="text-xs sm:text-sm font-bold text-white line-clamp-1">
+            {image.title}
+          </h3>
+          <div className="p-1.5 rounded-lg bg-white/20 text-white backdrop-blur-md shrink-0">
+            <Maximize2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+});
 
 export default function CampusGallery() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [lightboxLoading, setLightboxLoading] = useState(true);
   const tabsContainerRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -82,12 +153,14 @@ export default function CampusGallery() {
   const handlePrev = useCallback((e) => {
     if (e) e.stopPropagation();
     if (lightboxIndex === null || filteredImages.length === 0) return;
+    setLightboxLoading(true);
     setLightboxIndex((prev) => (prev === 0 ? filteredImages.length - 1 : prev - 1));
   }, [lightboxIndex, filteredImages.length]);
 
   const handleNext = useCallback((e) => {
     if (e) e.stopPropagation();
     if (lightboxIndex === null || filteredImages.length === 0) return;
+    setLightboxLoading(true);
     setLightboxIndex((prev) => (prev === filteredImages.length - 1 ? 0 : prev + 1));
   }, [lightboxIndex, filteredImages.length]);
 
@@ -110,6 +183,20 @@ export default function CampusGallery() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [lightboxIndex, handlePrev, handleNext]);
+
+  // Preload adjacent images when lightbox is open for instant navigation
+  useEffect(() => {
+    if (lightboxIndex === null || filteredImages.length <= 1) return;
+
+    const nextIndex = (lightboxIndex + 1) % filteredImages.length;
+    const prevIndex = (lightboxIndex - 1 + filteredImages.length) % filteredImages.length;
+
+    const nextImg = new Image();
+    nextImg.src = filteredImages[nextIndex]?.fullUrl || filteredImages[nextIndex]?.url;
+
+    const prevImg = new Image();
+    prevImg.src = filteredImages[prevIndex]?.fullUrl || filteredImages[prevIndex]?.url;
+  }, [lightboxIndex, filteredImages]);
 
   return (
     <section id="gallery" className="w-full py-8 sm:py-12 md:py-16 scroll-mt-24 bg-white dark:bg-slate-950 transition-colors">
@@ -227,46 +314,15 @@ export default function CampusGallery() {
               className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6"
             >
               {filteredImages.map((image, idx) => (
-                <motion.div
+                <GalleryImageCard
                   key={image.id || idx}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: (idx % 8) * 0.03 }}
-                  whileHover={{ y: -4 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setLightboxIndex(idx)}
-                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:shadow-[#8F173D]/10 transition-all duration-300 cursor-pointer aspect-[4/3] xs:aspect-[4/3] sm:aspect-square"
-                >
-                  <img
-                    src={image.url || image.image}
-                    alt={image.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
-                    onError={(e) => {
-                      e.currentTarget.style.opacity = '0.5';
-                    }}
-                  />
-
-                  {/* Category Chip always visible on mobile, expanded on desktop hover */}
-                  <div className="absolute top-2.5 left-2.5 z-10">
-                    <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-white bg-slate-950/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10 shadow-sm">
-                      {image.category}
-                    </span>
-                  </div>
-
-                  {/* Gradient Hover/Focus Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 sm:p-4 z-20">
-                    <div className="flex items-center justify-between gap-2">
-                      <h3 className="text-xs sm:text-sm font-bold text-white line-clamp-1">
-                        {image.title}
-                      </h3>
-                      <div className="p-1.5 rounded-lg bg-white/20 text-white backdrop-blur-md shrink-0">
-                        <Maximize2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                  image={image}
+                  index={idx}
+                  onSelect={(i) => {
+                    setLightboxLoading(true);
+                    setLightboxIndex(i);
+                  }}
+                />
               ))}
             </motion.div>
           ) : (
@@ -363,11 +419,34 @@ export default function CampusGallery() {
 
                 {/* Main Lightbox Image Viewport */}
                 <div className="relative flex items-center justify-center p-2 sm:p-4 bg-slate-950 min-h-[220px] sm:min-h-[350px] md:min-h-[420px] select-none">
-                  <img
-                    src={filteredImages[lightboxIndex].url || filteredImages[lightboxIndex].image}
-                    alt={filteredImages[lightboxIndex].title}
-                    className="max-h-[55vh] sm:max-h-[65vh] md:max-h-[70vh] w-auto max-w-full object-contain rounded-lg sm:rounded-xl shadow-lg"
-                  />
+                  {/* Subtle spinner while high-res lightbox image is loading */}
+                  {lightboxLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                      <Loader2 className="h-8 w-8 text-[#8F173D] animate-spin opacity-80" />
+                    </div>
+                  )}
+
+                  <picture className="flex items-center justify-center">
+                    <source
+                      srcSet={filteredImages[lightboxIndex].fullUrl || filteredImages[lightboxIndex].url}
+                      type="image/webp"
+                    />
+                    <img
+                      src={filteredImages[lightboxIndex].fullUrl || filteredImages[lightboxIndex].url}
+                      alt={filteredImages[lightboxIndex].title}
+                      decoding="async"
+                      onLoad={() => setLightboxLoading(false)}
+                      onError={(e) => {
+                        if (e.currentTarget.src !== filteredImages[lightboxIndex].url) {
+                          e.currentTarget.src = filteredImages[lightboxIndex].url;
+                        }
+                        setLightboxLoading(false);
+                      }}
+                      className={`max-h-[55vh] sm:max-h-[65vh] md:max-h-[70vh] w-auto max-w-full object-contain rounded-lg sm:rounded-xl shadow-lg transition-opacity duration-300 ${
+                        lightboxLoading ? 'opacity-40' : 'opacity-100'
+                      }`}
+                    />
+                  </picture>
 
                   {/* Previous / Next Controls */}
                   {filteredImages.length > 1 && (
@@ -406,4 +485,3 @@ export default function CampusGallery() {
     </section>
   );
 }
-

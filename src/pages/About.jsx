@@ -98,11 +98,19 @@ export default function About() {
             <div className="lg:col-span-1 flex justify-center">
               <div className="relative group">
                 <div className="absolute inset-0 bg-brand/10 dark:bg-brand/20 rounded-2xl translate-x-3 translate-y-3 z-0 group-hover:translate-x-1.5 group-hover:translate-y-1.5 transition-transform duration-350" />
-                <img
-                  src="/Sir.jpeg"
-                  alt="Maha Deven"
-                  className="relative z-10 w-full max-w-[220px] sm:max-w-[256px] aspect-[4/5] object-cover rounded-2xl border-4 border-white dark:border-slate-800 shadow-md"
-                />
+                <picture>
+                  <source srcSet="/Sir.webp" type="image/webp" />
+                  <img
+                    src="/Sir.jpeg"
+                    alt="Kurunathapillai Mahathevan - Managing Director, CLIC Campus"
+                    width={256}
+                    height={320}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="relative z-10 w-full max-w-[220px] sm:max-w-[256px] aspect-[4/5] object-cover rounded-2xl border-4 border-white dark:border-slate-800 shadow-md"
+                  />
+                </picture>
               </div>
             </div>
 
