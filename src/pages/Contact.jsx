@@ -286,7 +286,6 @@ export default function Contact() {
                 <h4 className="text-sm font-bold text-slate-950 dark:text-white">Office Opening Hours</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">
                   Monday – Sunday: 08:30 AM – 05:30 PM <br />
-                  (Closed on Friday)
                 </p>
               </div>
             </div>
