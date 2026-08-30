@@ -33,8 +33,6 @@ export default function Footer() {
       title: 'Academics',
       items: [
         { name: 'Computing & IT', path: '/courses?dept=Computing' },
-        { name: 'Business School', path: '/courses?dept=Business' },
-        { name: 'Engineering Tech', path: '/courses?dept=Engineering' },
         { name: 'Graphic Design', path: '/courses?dept=Graphic Design' },
         { name: 'Language Academy', path: '/courses?dept=English' },
       ]
@@ -42,11 +40,9 @@ export default function Footer() {
     services: {
       title: 'Services',
       items: [
-        { name: 'Campus Library', path: '/services' },
-        { name: 'Student Hostel', path: '/services' },
-        { name: 'Student Support', path: '/services' },
-        { name: 'Placement Cell', path: '/services' },
-        { name: 'Scholarships', path: '/services' },
+        { name: 'Campus ComputerLab', path: '/about' },
+        { name: 'Student Support', path: '/about' },
+        { name: 'Scholarships', path: '/about' },
       ]
     },
     company: {
@@ -55,7 +51,7 @@ export default function Footer() {
         { name: 'About Campus', path: '/about' },
         { name: 'Contact & Inquiry', path: '/contact' },
         { name: 'News & Events', path: '/' },
-        { name: 'Virtual Campus Tour', path: '/about#gallery' },
+        { name: 'Virtual Campus Tour', path: '/about' },
       ]
     }
   };
@@ -64,30 +60,40 @@ export default function Footer() {
   const socialIcons = [
     {
       label: 'Facebook',
-      color: 'hover:bg-brand hover:text-white',
-      href: '#',
+      color: 'hover:bg-[#1877F2] hover:text-white',
+      href: 'https://www.facebook.com/share/1M8Gy6r3mX/',
       renderIcon: () => (
-        <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
         </svg>
       )
     },
     {
+      label: 'WhatsApp',
+      color: 'hover:bg-[#25D366] hover:text-white',
+      href: 'https://wa.me/94777635657',
+      renderIcon: () => (
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+      )
+    },
+    {
       label: 'Twitter',
-      color: 'hover:bg-brand hover:text-white',
+      color: 'hover:bg-[#1DA1F2] hover:text-white',
       href: '#',
       renderIcon: () => (
-        <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
         </svg>
       )
     },
     {
       label: 'Instagram',
-      color: 'hover:bg-brand hover:text-white',
+      color: 'hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:text-white',
       href: '#',
       renderIcon: () => (
-        <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -96,10 +102,10 @@ export default function Footer() {
     },
     {
       label: 'LinkedIn',
-      color: 'hover:bg-brand hover:text-white',
+      color: 'hover:bg-[#0A66C2] hover:text-white',
       href: '#',
       renderIcon: () => (
-        <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
           <rect x="2" y="9" width="4" height="12" />
           <circle cx="4" cy="4" r="2" />
@@ -108,12 +114,11 @@ export default function Footer() {
     },
     {
       label: 'YouTube',
-      color: 'hover:bg-brand hover:text-white',
+      color: 'hover:bg-[#FF0000] hover:text-white',
       href: '#',
       renderIcon: () => (
-        <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" />
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
         </svg>
       )
     }
@@ -151,8 +156,11 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
-                  className={`bg-slate-800 text-slate-400 hover:text-white p-2.5 rounded-xl transition-all duration-300 ${color}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-9 h-9 flex items-center justify-center bg-slate-800 text-slate-300 hover:text-white rounded-xl transition-all duration-300 hover:scale-110 shadow-sm ${color}`}
                   aria-label={label}
+                  title={label}
                 >
                   {renderIcon()}
                 </a>
@@ -240,14 +248,20 @@ export default function Footer() {
           </div>
 
           {/* Quick Contact Block */}
-          <div className="lg:col-span-1 flex flex-col md:flex-row lg:flex-col gap-4 text-xs lg:items-end md:justify-between text-slate-400">
+          <div className="lg:col-span-1 flex flex-col md:flex-row lg:flex-col gap-3.5 text-xs lg:items-end md:justify-between text-slate-400">
             <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-brand-300" />
+              <MapPin className="h-4 w-4 text-brand-300 shrink-0" />
               <span>CLIC Campus, Sagama Road, Akkaripattu</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-brand-300" />
-              <span>+94 777635657 (Campus Hotline)</span>
+              <Phone className="h-4 w-4 text-brand-300 shrink-0" />
+              <a href="tel:+94777635657" className="hover:text-white transition-colors">+94 777635657 (Campus Hotline)</a>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="h-4 w-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              <a href="https://wa.me/94777635657" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">+94 777635657 (WhatsApp)</a>
             </div>
           </div>
         </div>

@@ -205,7 +205,7 @@ export default function Contact() {
               >
                 {loading ? (
                   <>
-                    <span className="animate-spin h-4.5 w-4.5 border-2 border-brand border-t-transparent rounded-full" />
+                    <span className="animate-spin h-4 w-4 border-2 border-brand border-t-transparent rounded-full" />
                     Submitting Inquiry...
                   </>
                 ) : (
@@ -249,8 +249,8 @@ export default function Contact() {
                 </p>
               </div>
               <button
-                onClick={() => handleCopy('studentsupport@cliccampus.edu', 'email')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-455 hover:text-brand transition-colors shrink-0"
+                onClick={() => handleCopy('cliccampusinfo@gmail.com', 'email')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 p-2 rounded-lg text-slate-400 hover:text-brand transition-colors shrink-0"
                 aria-label="Copy Email"
               >
                 {copyStatus.email ? <Check className="h-4 w-4 text-brand" /> : <Copy className="h-4 w-4" />}
@@ -321,7 +321,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 50, x: '-50%' }}
             animate={{ opacity: 1, y: 0, x: '-50%' }}
             exit={{ opacity: 0, y: 50, x: '-50%' }}
-            className="fixed bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-2xl p-4 sm:p-4.5 rounded-2xl w-[calc(100vw-2rem)] max-w-sm"
+            className="fixed bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-2xl p-4 sm:p-5 rounded-2xl w-[calc(100vw-2rem)] max-w-sm"
           >
             {toast.success ? (
               <CheckCircle className="h-6 w-6 text-brand shrink-0" />

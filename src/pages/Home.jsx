@@ -100,7 +100,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-2 bg-brand/20 backdrop-blur-md border border-brand-500/30 px-3.5 py-1.5 rounded-full text-brand-300 text-xs sm:text-sm font-semibold uppercase tracking-wider w-fit"
             >
-              <GraduationCap className="h-4.5 w-4.5 text-brand-300" />
+              <GraduationCap className="h-4 w-4 text-brand-300" />
               Enjoy The Best in Learning
             </motion.div>
 
@@ -284,7 +284,7 @@ export default function Home() {
               {/* Stars indicators */}
               <div className="flex items-center gap-0.5 text-brand">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4.5 w-4.5 fill-current" />
+                  <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
 
@@ -295,14 +295,14 @@ export default function Home() {
                   className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-650 dark:text-slate-350 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-sm"
                   aria-label="Previous Slide"
                 >
-                  <ArrowLeft className="h-4.5 w-4.5" />
+                  <ArrowLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={nextSlide}
                   className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-650 dark:text-slate-350 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-sm"
                   aria-label="Next Slide"
                 >
-                  <ArrowRight className="h-4.5 w-4.5" />
+                  <ArrowRight className="h-5 w-5" />
                 </button>
               </div>
             </div>

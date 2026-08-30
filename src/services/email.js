@@ -1,9 +1,15 @@
 import emailjs from '@emailjs/browser';
 
 /**
- * Sends contact inquiry email.
- * Supports EmailJS service or falls back to simulated response if keys are not present.
- * @param {Object} formData 
+ * Sends contact inquiry email to CLIC Campus info email (cliccampusinfo@gmail.com).
+ * Uses EmailJS SDK with client-side field validation, sanitization, and fallback.
+ *
+ * @param {Object} formData
+ * @param {string} formData.name - User's full name
+ * @param {string} formData.email - User's email address
+ * @param {string} formData.phone - User's phone number
+ * @param {string} formData.course - Selected academic program/course
+ * @param {string} formData.message - Inquiry message content
  * @returns {Promise<{success: boolean, message: string}>}
  */
 export async function sendInquiryEmail(formData) {
@@ -11,47 +17,54 @@ export async function sendInquiryEmail(formData) {
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-  // Simple validation checks
-  if (!formData.name || !formData.email || !formData.phone || !formData.course || !formData.message) {
+  // 1. Basic validation checks
+  const name = formData.name?.trim();
+  const email = formData.email?.trim();
+  const phone = formData.phone?.trim();
+  const course = formData.course?.trim();
+  const message = formData.message?.trim();
+
+  if (!name || !email || !phone || !course || !message) {
     return { success: false, message: 'All form fields are required.' };
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(formData.email)) {
+  if (!emailRegex.test(email)) {
     return { success: false, message: 'Please enter a valid email address.' };
   }
 
-  // If EmailJS env credentials are not configured, simulate a premium, interactive mock delivery
+  // 2. Fallback / mock mode if EmailJS environment variables are not yet configured
   if (!serviceId || !templateId || !publicKey) {
     console.warn(
-      'EmailJS credentials (VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY) are not set. Simulating functional API delivery.'
+      'EmailJS credentials (VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY) are not configured in your .env file.'
     );
     
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    // Always succeed in mock mode
+    // Simulate slight network delay for smooth UI feedback
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+
     return { 
       success: true, 
-      message: 'Inquiry successfully processed (Simulated delivery). Please configure environment variables for real email integration.' 
+      message: 'Inquiry received! (Note: Please set your EmailJS credentials in .env to deliver real emails to cliccampusinfo@gmail.com)' 
     };
   }
 
+  // 3. Dispatch email via EmailJS
   try {
-    // Map form fields to template variables expected in your EmailJS Template
     const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      from_phone: formData.phone,
-      selected_course: formData.course,
-      message_content: formData.message,
-      to_email: 'studentsupport@cliccampus.edu' // Fallback target
+      to_email: 'cliccampusinfo@gmail.com',
+      from_name: name,
+      from_email: email,
+      from_phone: phone,
+      selected_course: course,
+      message_content: message,
+      reply_to: email,
+      submitted_at: new Date().toLocaleString(),
     };
 
     const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
     
     if (response.status === 200) {
-      return { success: true, message: 'Your inquiry has been successfully sent!' };
+      return { success: true, message: 'Your inquiry has been successfully sent to CLIC Campus!' };
     } else {
       throw new Error(`EmailJS responded with status: ${response.status}`);
     }

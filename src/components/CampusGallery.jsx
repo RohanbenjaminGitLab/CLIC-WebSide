@@ -413,7 +413,7 @@ export default function CampusGallery() {
                     className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-xl bg-slate-800 hover:bg-[#8F173D] text-slate-300 hover:text-white transition-colors cursor-pointer touch-manipulation"
                     aria-label="Close Lightbox"
                   >
-                    <X className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+                    <X className="h-4 w-4 sm:h-5 sm:w-5" />
                   </button>
                 </div>
 

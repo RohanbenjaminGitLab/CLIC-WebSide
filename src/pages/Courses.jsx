@@ -127,20 +127,20 @@ export default function Courses() {
 
   // Filter Logic
   const filteredCourses = courses.filter((course) => {
-    const matchesSearch = 
+    const matchesSearch =
       course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.dept.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     const matchesDept = selectedDept === 'All' || course.dept === selectedDept;
-    
+
     return matchesSearch && matchesDept;
   });
 
   return (
     <div className="w-full flex-grow pt-20 sm:pt-24 bg-white dark:bg-slate-950 transition-colors">
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-12">
-        
+
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-3 py-1 rounded-full">
@@ -156,7 +156,7 @@ export default function Courses() {
 
         {/* Search & Filter Controls */}
         <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 rounded-3xl shadow-sm mb-12 space-y-6">
-          
+
           {/* Search Input */}
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400 pointer-events-none" />
@@ -184,11 +184,10 @@ export default function Courses() {
               <button
                 key={dept}
                 onClick={() => handleDeptFilter(dept)}
-                className={`text-xs font-semibold px-4 py-2.5 rounded-xl border transition-all duration-300 ${
-                  selectedDept === dept
+                className={`text-xs font-semibold px-4 py-2.5 rounded-xl border transition-all duration-300 ${selectedDept === dept
                     ? 'bg-brand border-brand text-white shadow-md shadow-brand/10'
                     : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800'
-                }`}
+                  }`}
               >
                 {dept}
               </button>
@@ -220,7 +219,7 @@ export default function Courses() {
                 transition={{ duration: 0.3 }}
                 className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl shadow-sm hover:shadow-lg dark:hover:shadow-brand/5 group transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
-                
+
                 {/* Card Header details */}
                 <div className="p-6 space-y-4">
                   <div className="flex items-center justify-between">
@@ -253,13 +252,13 @@ export default function Courses() {
                       {course.lecturer.name.split(' ').slice(0, 2).join(' ')}
                     </span>
                   </div>
-                  
+
                   <button
                     onClick={() => setActiveCourseModal(course)}
                     className="text-xs font-bold text-brand dark:text-brand-300 flex items-center gap-0.5 hover:gap-1 transition-all group/btn"
                   >
                     View Details
-                    <ChevronRight className="h-4.5 w-4.5 transition-transform group-hover/btn:translate-x-0.5" />
+                    <ChevronRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
                   </button>
                 </div>
               </motion.div>
@@ -290,7 +289,7 @@ export default function Courses() {
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
               className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-5 sm:p-8 z-10 border border-slate-100 dark:border-slate-800 overflow-hidden my-auto"
             >
-              
+
               {/* Close Button */}
               <button
                 onClick={() => setActiveCourseModal(null)}
@@ -301,7 +300,7 @@ export default function Courses() {
               </button>
 
               <div className="space-y-6 max-h-[75vh] sm:max-h-[80vh] overflow-y-auto pr-1">
-                
+
                 {/* Header */}
                 <div className="space-y-2">
                   <span className="text-[10px] font-bold text-brand bg-brand/5 dark:bg-brand/10 dark:text-brand-300 border border-brand-500/10 px-3 py-1 rounded-full uppercase tracking-wider w-fit block">
