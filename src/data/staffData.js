@@ -25,8 +25,8 @@ export const staffMembers = [
     designation: 'Assistant Manager',
     phone: '+94 77 850 2912',
     email: 'cliccampusinfo@gmail.com',
-    image: '/images/staff/staff-03.webp',
-    fallbackImage: '/images/staff/staff-03.optimized.jpg',
+    image: '/images/staff/staff-05.webp',
+    fallbackImage: '/images/staff/staff-05.optimized.jpg',
     description: 'Supporting campus operations, staff coordination, and academic excellence with effective leadership.'
   },
   {
@@ -35,8 +35,8 @@ export const staffMembers = [
     designation: 'Marketing Assistant',
     phone: '+94 77 057 6784',
     email: 'cliccampusinfo@gmail.com',
-    image: '/images/staff/staff-04.webp',
-    fallbackImage: '/images/staff/staff-04.optimized.jpg',
+    image: '/images/staff/staff-05.webp',
+    fallbackImage: '/images/staff/staff-05.optimized.jpg',
     description: 'Supporting CLIC Campus marketing initiatives through creative promotions, digital outreach, student engagement, and effective communication, helping strengthen the campus brand and connect with prospective students and the wider community.'
   },
   {
