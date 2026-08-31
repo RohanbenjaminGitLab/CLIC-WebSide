@@ -17,7 +17,7 @@ export const staffMembers = [
     email: 'cliccampusinfo@gmail.com',
     image: '/images/staff/Manager1.webp',
     fallbackImage: '/images/staff/Manager1.optimized.jpg',
-    description: 'Overseeing academic governance, faculty collaboration, and ensuring all diploma curriculums match international benchmark standards.'
+    description: 'Our Manager plays an important role in coordinating daily operations, supporting staff, managing responsibilities, and ensuring the smooth and effective functioning of the organization. With strong leadership and organizational skills, the Manager helps maintain high standards and supports the team in achieving its goals.'
   },
   {
     id: 'staff-03',
