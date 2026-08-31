@@ -49,6 +49,7 @@ export default function Footer() {
       title: 'Our Institution',
       items: [
         { name: 'About Campus', path: '/about' },
+        { name: 'Our Staff', path: '/staff' },
         { name: 'Contact & Inquiry', path: '/contact' },
         { name: 'News & Events', path: '/' },
         { name: 'Virtual Campus Tour', path: '/about' },

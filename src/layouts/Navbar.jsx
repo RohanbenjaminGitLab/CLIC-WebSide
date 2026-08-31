@@ -29,6 +29,7 @@ export default function Navbar({ isDark, toggleTheme }) {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+    { name: 'Staff', path: '/staff' },
     { name: 'Courses', path: '/courses' },
     { name: 'Services', path: '/services' },
     { name: 'Contact', path: '/contact' },
