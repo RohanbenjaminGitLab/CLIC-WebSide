@@ -66,7 +66,8 @@ export default function About() {
             </div>
             <h3 className="text-2xl font-bold text-slate-950 dark:text-white mb-3">Our Mission</h3>
             <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-              To provide affordable, internationally accredited, and market-driven higher education. We actively bridge the skills gap by educating students through real-world labs, robust internship networks, and industry mentors.
+              🌟
+              To become a leading centre of excellence in education and skills development, empowering learners with knowledge, practical skills and confidence to succeed in a rapidly changing global world.
             </p>
           </motion.div>
 
@@ -85,7 +86,8 @@ export default function About() {
             </div>
             <h3 className="text-2xl font-bold text-slate-950 dark:text-white mb-3">Our Vision</h3>
             <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-              To be the premier globally recognized Smart Campus, driving sustainable innovation and research. We visualize a future where every CLIC scholar has immediate access to startup ecosystems, placement pipelines, and deep technical competencies.
+              🎯
+              To provide high-quality, accessible and practical education in languages, information technology and professional skills through innovative teaching, experienced educators and a supportive learning environment, enabling every learner to achieve academic, personal and career success.
             </p>
           </motion.div>
         </section>
@@ -163,18 +165,16 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-50px' }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className={`relative flex items-start gap-0 md:gap-0 ${
-                      isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}
+                    className={`relative flex items-start gap-0 md:gap-0 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                      }`}
                   >
                     {/* Circle Pin Marker */}
                     <div className="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-brand dark:bg-brand-300 border-4 border-white dark:border-slate-950 z-20 shadow-md shrink-0" />
 
                     {/* Mobile: full-width card offset from line */}
                     {/* Desktop: half-width card on alternating sides */}
-                    <div className={`w-full pl-12 md:pl-0 md:w-1/2 ${
-                      isEven ? 'md:pr-10 md:text-right' : 'md:pl-10'
-                    }`}>
+                    <div className={`w-full pl-12 md:pl-0 md:w-1/2 ${isEven ? 'md:pr-10 md:text-right' : 'md:pl-10'
+                      }`}>
                       {/* Spacer for even items on desktop so card is on right side */}
                       <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative">
                         <span className="inline-block bg-brand dark:bg-brand-900 border border-brand-500/25 text-white text-xs font-bold px-3 py-0.5 rounded-full mb-2">
