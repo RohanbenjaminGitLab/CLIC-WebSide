@@ -1,107 +1,255 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, Clock, DollarSign, BookOpen, ChevronRight, Award } from 'lucide-react';
+import { Search, X, Clock, Banknote, BookOpen, ChevronRight, Award, BadgePercent, Tag, Sparkles } from 'lucide-react';
 
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDept, setSelectedDept] = useState('All');
   const [activeCourseModal, setActiveCourseModal] = useState(null);
+  const [activeOfferModal, setActiveOfferModal] = useState(null);
 
   // Departments list as requested
-  const departments = ['All', 'English', 'Computing', 'Graphic Design', 'Business'];
+  const departments = ['All', 'English', 'IT', 'Graphic Designing', 'Web Designing', 'Sinhala', 'Office Package'];
 
   const courses = [
     {
       id: 'diploma-english',
       title: 'Diploma in English',
       dept: 'English',
-      duration: '6 Months (Part-time)',
-      fees: '$300 / Total',
+      duration: '3 Months (Full-time & Part-time)',
+      fees: 'Rs. 25,000/=',
       lecturer: {
-        name: 'Dr. Evelyn Hawthorne',
-        role: 'Associate Linguistics Professor',
-        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop',
-        bio: 'Dr. Hawthorne conducts active researches in cognitive semantics, comparative structural linguistics, and historical prose.'
+        name: 'Kurunathapillai Mahathevan & Mrs. Saruja Kishanth',
+        role: 'English Lecturers',
+        image: '/images/staff/Sir.webp',
+        bio: 'Led by our Director Kurunathapillai Mahathevan and Manager Mrs. Saruja Kishanth, the English program focuses on practical communication, grammar mastery, and professional language skills to prepare students for academic and corporate success.'
       },
-      desc: 'Enhance your English communication skills for corporate and academic excellence. Covers grammar, writing, and professional speaking.',
-      syllabus: ['Spoken English & Pronunciation', 'Business Communication & Email Writing', 'Advanced Grammar Structures', 'Presentation Skills']
+      desc: 'Enhance your English communication skills for corporate and academic excellence. Covers grammar, writing, professional speaking, and business communication.',
+      syllabus: ['Spoken English & Pronunciation', 'Business Communication & Email Writing', 'Advanced Grammar Structures', 'Presentation & Public Speaking Skills']
     },
     {
-      id: 'diploma-ict',
-      title: 'Diploma in ICT',
-      dept: 'Computing',
-      duration: '6 Months (Full-time)',
-      fees: '$450 / Total',
+      id: 'diploma-it',
+      title: 'Diploma in IT',
+      dept: 'IT',
+      duration: '3 Months (Full-time & Part-time)',
+      fees: 'Rs. 25,000/=',
       lecturer: {
-        name: 'Dr. Julian Sterling',
-        role: 'Professor of Distributed Systems',
-        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop',
-        bio: 'Dr. Sterling has over 15 years of software design experience in Silicon Valley, specializing in heavy-load database pipelines and cloud computing.'
+        name: 'S. Rohan Benjamin',
+        role: 'IT Lecturer & Software Developer',
+        image: '',
+        bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
       },
-      desc: 'A comprehensive foundation in Information and Communication Technology, preparing you for IT support, administration, and software development.',
-      syllabus: ['Computer Hardware & OS', 'Networking Fundamentals', 'Database Management Systems', 'Software Development Basics']
+      desc: 'A comprehensive foundation in Information Technology covering hardware, software, MS Office, and digital tools essential for today\'s workplace.',
+      syllabus: ['Computer Hardware & Operating Systems', 'MS Office (Word, Excel, PowerPoint)', 'Internet & Digital Literacy', 'Introduction to Programming & Databases']
     },
     {
-      id: 'diploma-graphic-design',
+      id: 'diploma-graphic-designing',
       title: 'Diploma in Graphic Designing',
-      dept: 'Graphic Design',
-      duration: '6 Months (Part-time)',
-      fees: '$500 / Total',
+      dept: 'Graphic Designing',
+      duration: '3 Months (Full-time & Part-time)',
+      fees: 'Rs. 25,000/=',
       lecturer: {
-        name: 'Elena Rostova',
-        role: 'Head of Visual Communications',
-        image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop',
-        bio: 'Elena has managed design teams at tech unicorns. She structures the course to mimic professional agency workflows.'
+        name: 'CLIC Campus Faculty',
+        role: 'Graphic Design Instructor',
+        image: '',
+        bio: 'Our Graphic Designing course is delivered by experienced design professionals who guide students through industry-standard tools and real-world creative projects, building a portfolio-ready skill set.'
       },
-      desc: 'Master industry-standard tools like Adobe Photoshop and Illustrator to create stunning visual content for digital marketing and print media.',
-      syllabus: ['Adobe Photoshop Essentials', 'Vector Illustration with Illustrator', 'Typography & Layout Design', 'Digital Branding & Portfolio']
-    },
-    {
-      id: 'diploma-networking',
-      title: 'Diploma in Networking',
-      dept: 'Computing',
-      duration: '6 Months (Part-time)',
-      fees: '$550 / Total',
-      lecturer: {
-        name: 'Prof. Arthur Pendleton',
-        role: 'Networking Engineering Mentor',
-        image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&auto=format&fit=crop',
-        bio: 'Prof. Arthur is a former NASA aerospace engineer, advising CLIC students on control loop systems and microcontroller structures.'
-      },
-      desc: 'Learn to design, configure, and maintain enterprise network architectures, including routing, switching, and network security protocols.',
-      syllabus: ['Network Architecture & Topologies', 'Cisco Routing & Switching', 'Network Security & Firewalls', 'Server Administration']
+      desc: 'Master industry-standard tools like Adobe Photoshop and Illustrator to create stunning visual content for digital marketing, social media, and print media.',
+      syllabus: ['Adobe Photoshop Essentials', 'Vector Illustration with Illustrator', 'Typography & Layout Design', 'Digital Branding & Portfolio Creation']
     },
     {
       id: 'diploma-web-designing',
       title: 'Diploma in Web Designing',
-      dept: 'Computing',
-      duration: '6 Months (Part-time)',
-      fees: '$480 / Total',
+      dept: 'Web Designing',
+      duration: '3 Months (Full-time & Part-time)',
+      fees: 'Rs. 25,000/=',
       lecturer: {
-        name: 'Sarah Lin',
-        role: 'Frontend Development Lead',
-        image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop',
-        bio: 'Sarah is an active startup angel investor and corporate accelerator partner, helping early-stage ventures bootstrap efficiently.'
+        name: 'S. Rohan Benjamin',
+        role: 'IT Lecturer & Software Developer',
+        image: '',
+        bio: 'S. Rohan Benjamin brings hands-on expertise in modern web technologies, guiding students through the fundamentals of building attractive and responsive websites from concept to deployment.'
       },
-      desc: 'Build beautiful, responsive, and dynamic websites from scratch using HTML5, CSS3, JavaScript, and modern frontend frameworks.',
-      syllabus: ['HTML5 & Semantic Web', 'CSS3 & Responsive Design (Tailwind)', 'JavaScript Fundamentals', 'UI/UX Prototyping']
+      desc: 'Build beautiful, responsive, and dynamic websites from scratch using HTML5, CSS3, JavaScript, and modern frontend design principles.',
+      syllabus: ['HTML5 & Semantic Web Structure', 'CSS3 & Responsive Design', 'JavaScript Fundamentals', 'UI/UX Design & Prototyping']
+    },
+    {
+      id: 'diploma-sinhala',
+      title: 'Diploma in Sinhala',
+      dept: 'Sinhala',
+      duration: '3 Months (Full-time & Part-time)',
+      fees: 'Rs. 20,000/=',
+      lecturer: {
+        name: 'CLIC Campus Faculty',
+        role: 'Sinhala Language Instructor',
+        image: '',
+        bio: 'Our Sinhala language program is delivered by qualified instructors with a strong focus on reading, writing, and spoken Sinhala to help students communicate confidently in professional and everyday settings.'
+      },
+      desc: 'Develop strong Sinhala language skills covering reading, writing, grammar, and spoken communication for professional and everyday use.',
+      syllabus: ['Sinhala Reading & Comprehension', 'Written Sinhala & Grammar', 'Spoken Sinhala Communication', 'Professional Sinhala for the Workplace']
     },
     {
       id: 'diploma-office-package',
       title: 'Diploma in Office Package',
-      dept: 'Business',
-      duration: '3 Months (Part-time)',
-      fees: '$200 / Total',
+      dept: 'Office Package',
+      duration: '3 Months (Full-time & Part-time)',
+      fees: 'Rs. 25,000/=',
       lecturer: {
-        name: 'Prof. Marcus Vance',
-        role: 'Corporate Management Fellow',
-        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop',
-        bio: 'Prof. Marcus Vance spent two decades in Goldman Sachs before joining CLIC, mentoring students in corporate valuation models.'
+        name: 'S. Rohan Benjamin',
+        role: 'IT Lecturer & Software Developer',
+        image: '',
+        bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
       },
       desc: 'Become highly proficient in Microsoft Office tools (Word, Excel, PowerPoint, Access) to streamline corporate administration and reporting.',
-      syllabus: ['Advanced MS Word Formatting', 'MS Excel Data Analysis & Macros', 'Professional MS PowerPoint Presentations', 'MS Access Database Management']
+      syllabus: ['Advanced MS Word Formatting', 'MS Excel Data Analysis & Formulas', 'Professional MS PowerPoint Presentations', 'MS Access Database Management']
+    }
+  ];
+
+  // Course Combinations & Special Discount Offers (from official CLIC Campus price list)
+  const courseOffers = [
+    {
+      id: 'offer-01',
+      courses: 'English + IT',
+      offerTitle: 'Smart Combo — Best Saving',
+      actualFee: 50000,
+      discount: 22000,
+      finalFee: 28000,
+      validity: '2025 Intake — Limited Seats',
+      isActive: true,
+      desc: 'Our biggest combo saving! Enroll in both the Diploma in English and Diploma in IT together and save Rs. 22,000 compared to enrolling individually. Perfect for students seeking both language and technology skills.'
+    },
+    {
+      id: 'offer-02',
+      courses: 'English + Graphic Designing',
+      offerTitle: 'Creative Language Combo',
+      actualFee: 50000,
+      discount: 10000,
+      finalFee: 40000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Combine professional English communication with creative design skills. Ideal for students entering the marketing, advertising, or media industries.'
+    },
+    {
+      id: 'offer-03',
+      courses: 'IT + Graphic Designing',
+      offerTitle: 'Tech & Design Combo',
+      actualFee: 50000,
+      discount: 10000,
+      finalFee: 40000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Pair your IT knowledge with visual design expertise. A powerful combination for future UI/UX designers, digital artists, and multimedia professionals.'
+    },
+    {
+      id: 'offer-04',
+      courses: 'English + Web Designing',
+      offerTitle: 'Digital Professional Combo',
+      actualFee: 50000,
+      discount: 10000,
+      finalFee: 40000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Master professional English alongside modern web design techniques. Ideal for aspiring digital marketers, freelancers, and content creators.'
+    },
+    {
+      id: 'offer-05',
+      courses: 'IT + Web Designing',
+      offerTitle: 'Full-Stack Tech Combo',
+      actualFee: 50000,
+      discount: 10000,
+      finalFee: 40000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Build a solid foundation in IT fundamentals and web design. This combo prepares students for careers in web development, IT support, and software administration.'
+    },
+    {
+      id: 'offer-06',
+      courses: 'Web Designing + Graphic Designing',
+      offerTitle: 'Visual & Web Design Combo',
+      actualFee: 50000,
+      discount: 10000,
+      finalFee: 40000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'The ultimate creative combo. Master both visual graphic design and website design to build a complete creative portfolio for the digital industry.'
+    },
+    {
+      id: 'offer-07',
+      courses: 'English + Sinhala',
+      offerTitle: 'Bilingual Language Combo',
+      actualFee: 45000,
+      discount: 10000,
+      finalFee: 35000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Develop strong bilingual communication skills in both English and Sinhala. Perfect for government job applicants, teachers, and public-facing professionals.'
+    },
+    {
+      id: 'offer-08',
+      courses: 'IT + Sinhala',
+      offerTitle: 'Tech & Language Combo',
+      actualFee: 45000,
+      discount: 10000,
+      finalFee: 35000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Combine IT skills with Sinhala language proficiency — a highly relevant combo for students seeking government IT roles or local tech positions.'
+    },
+    {
+      id: 'offer-09',
+      courses: 'English + IT + Sinhala',
+      offerTitle: 'Triple Combo — All-Rounder',
+      actualFee: 70000,
+      discount: 25000,
+      finalFee: 45000,
+      validity: '2026 Intake — Limited Seats',
+      isActive: true,
+      desc: 'The all-rounder triple combo — English, IT, and Sinhala together at a massive discount. Save Rs. 25,000 and build a comprehensive skill set that opens doors across multiple career paths.'
+    },
+    {
+      id: 'offer-10',
+      courses: 'English + IT + Graphic Designing',
+      offerTitle: 'Triple Power Combo',
+      actualFee: 70000,
+      discount: 20000,
+      finalFee: 50000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'English communication, IT foundations, and creative graphic design — three of the most in-demand skills bundled together at Rs. 20,000 savings.'
+    },
+    {
+      id: 'offer-11',
+      courses: 'English + IT + Web Designing',
+      offerTitle: 'Digital Career Triple Combo',
+      actualFee: 70000,
+      discount: 20000,
+      finalFee: 50000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Prepare for a complete digital career with English, IT, and Web Designing. This triple combo is ideal for aspiring web professionals and digital entrepreneurs.'
+    },
+    {
+      id: 'offer-12',
+      courses: 'Web Designing + Sinhala',
+      offerTitle: 'Web & Language Combo',
+      actualFee: 45000,
+      discount: 5000,
+      finalFee: 40000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Pair web design skills with Sinhala language competency. Useful for students building local websites, community platforms, or seeking bilingual tech roles.'
+    },
+    {
+      id: 'offer-13',
+      courses: 'Graphic Designing + Sinhala',
+      offerTitle: 'Creative & Language Combo',
+      actualFee: 45000,
+      discount: 5000,
+      finalFee: 40000,
+      validity: '2026 Intake — Available Now',
+      isActive: true,
+      desc: 'Combine visual design creativity with Sinhala language skills. Ideal for students interested in creating Sinhala-language digital content, posters, and media.'
     }
   ];
 
@@ -185,8 +333,8 @@ export default function Courses() {
                 key={dept}
                 onClick={() => handleDeptFilter(dept)}
                 className={`text-xs font-semibold px-4 py-2.5 rounded-xl border transition-all duration-300 ${selectedDept === dept
-                    ? 'bg-brand border-brand text-white shadow-md shadow-brand/10'
-                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800'
+                  ? 'bg-brand border-brand text-white shadow-md shadow-brand/10'
+                  : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800'
                   }`}
               >
                 {dept}
@@ -266,6 +414,166 @@ export default function Courses() {
           </AnimatePresence>
         </div>
 
+        {/* ── Course Offers Section ── */}
+        <section className="mt-20 sm:mt-24" id="course-offers">
+
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="inline-flex items-center gap-1.5 text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-4 py-1.5 rounded-full">
+              <BadgePercent className="h-4 w-4" />
+              Special Discounts
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Course Combination Offers
+            </h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400 font-light">
+              Explore our special course combination offers and save more when you enroll in two or three courses together. Click <strong className="font-semibold text-slate-700 dark:text-slate-300">View Offer Details</strong> to see full pricing information.
+            </p>
+          </div>
+
+          {/* Offers Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courseOffers.map((offer, idx) => {
+              const discountPct = Math.round((offer.discount / offer.actualFee) * 100);
+              const isExpanded = activeOfferModal === offer.id;
+              return (
+                <motion.div
+                  key={offer.id}
+                  layout
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.35, delay: idx * 0.04 }}
+                  className={`bg-white dark:bg-slate-900 border rounded-3xl shadow-sm group transition-all duration-300 overflow-hidden flex flex-col ${offer.isActive
+                      ? 'border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand/5 hover:-translate-y-1'
+                      : 'border-slate-100 dark:border-slate-800/40 opacity-60'
+                    }`}
+                >
+                  {/* Card Top */}
+                  <div className="p-5 sm:p-6 space-y-4 flex-1">
+
+                    {/* Badges Row */}
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      {/* Active / Expired badge */}
+                      {offer.isActive ? (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          Active Offer
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                          Expired
+                        </span>
+                      )}
+                      {/* Discount % pill */}
+                      <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-white bg-brand dark:bg-brand px-2.5 py-1 rounded-full">
+                        <Tag className="h-3 w-3" />
+                        {discountPct}% OFF
+                      </span>
+                    </div>
+
+                    {/* Course combination name */}
+                    <div>
+                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Course Combination</p>
+                      <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-brand dark:group-hover:text-brand-300 transition-colors">
+                        {offer.courses}
+                      </h3>
+                      <p className="text-xs text-brand dark:text-brand-300 font-semibold mt-0.5">{offer.offerTitle}</p>
+                    </div>
+
+                    {/* Pricing Block */}
+                    <div className="bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 rounded-2xl p-4 space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <span className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                          <Banknote className="h-3.5 w-3.5 text-slate-400" />
+                          Actual Fee
+                        </span>
+                        <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 line-through">
+                          Rs. {offer.actualFee.toLocaleString()}/=
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="flex items-center gap-1.5 text-xs text-brand dark:text-brand-300 font-medium">
+                          <BadgePercent className="h-3.5 w-3.5" />
+                          You Save
+                        </span>
+                        <span className="text-xs font-bold text-brand dark:text-brand-300">
+                          − Rs. {offer.discount.toLocaleString()}/=
+                        </span>
+                      </div>
+                      <div className="border-t border-slate-200 dark:border-slate-700 pt-2 flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wide">Final Fee</span>
+                        <span className="text-base font-extrabold text-slate-900 dark:text-white">
+                          Rs. {offer.finalFee.toLocaleString()}/=
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Validity */}
+                    <div className="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 font-medium">
+                      <Clock className="h-3.5 w-3.5 shrink-0" />
+                      {offer.validity}
+                    </div>
+
+                    {/* Expanded Offer Details */}
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          key="offer-detail"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.28, ease: 'easeInOut' }}
+                          className="overflow-hidden"
+                        >
+                          <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-1 space-y-3">
+                            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+                              {offer.desc}
+                            </p>
+                            <div className="flex items-center gap-2 bg-brand/5 dark:bg-brand/10 border border-brand/10 rounded-xl px-3.5 py-2.5">
+                              <Sparkles className="h-4 w-4 text-brand dark:text-brand-300 shrink-0" />
+                              <p className="text-[11px] font-semibold text-brand dark:text-brand-300">
+                                Enroll in this combination to save <strong>Rs. {offer.discount.toLocaleString()}/=</strong> — pay only <strong>Rs. {offer.finalFee.toLocaleString()}/=</strong> total.
+                              </p>
+                            </div>
+                            <Link
+                              to={`/contact?course=${encodeURIComponent(offer.courses)}`}
+                              className="w-full bg-brand hover:bg-brand-950 text-white text-center font-bold px-5 py-2.5 rounded-xl shadow-md transition-colors text-xs flex items-center justify-center gap-1"
+                            >
+                              Inquire About This Offer
+                              <ChevronRight className="h-4 w-4" />
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Card Footer — View Offer Details Button */}
+                  <div className="border-t border-slate-100 dark:border-slate-800/80 px-5 sm:px-6 py-3.5 bg-slate-50/50 dark:bg-slate-900/40">
+                    <button
+                      onClick={() => setActiveOfferModal(isExpanded ? null : offer.id)}
+                      className="w-full flex items-center justify-between text-xs font-bold text-brand dark:text-brand-300 hover:text-brand-950 dark:hover:text-white transition-colors group/btn"
+                    >
+                      <span>{isExpanded ? 'Hide Offer Details' : 'View Offer Details'}</span>
+                      <ChevronRight
+                        className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? 'rotate-90' : 'group-hover/btn:translate-x-0.5'
+                          }`}
+                      />
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Bottom note */}
+          <p className="text-center text-xs text-slate-400 dark:text-slate-500 mt-8 font-light">
+            * All prices are in Sri Lankan Rupees (LKR / Rs.). Discounts apply when enrolling in two or three courses simultaneously.
+            Contact us at <a href="tel:+940777635657" className="text-brand dark:text-brand-300 font-semibold hover:underline">0777 635 657</a> for more information.
+          </p>
+        </section>
+
       </div>
 
       {/* 5. Course Details Modal */}
@@ -329,7 +637,7 @@ export default function Courses() {
 
                   <div className="flex items-center gap-3.5">
                     <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-2.5 rounded-xl">
-                      <DollarSign className="h-5 w-5" />
+                      <Banknote className="h-5 w-5" />
                     </div>
                     <div>
                       <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">Estimated Tuition</span>
