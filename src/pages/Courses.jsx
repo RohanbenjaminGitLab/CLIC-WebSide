@@ -20,12 +20,20 @@ export default function Courses() {
       dept: 'English',
       duration: '3 Months (Full-time & Part-time)',
       fees: 'Rs. 25,000/=',
-      lecturer: {
-        name: 'Kurunathapillai Mahathevan & Mrs. Saruja Kishanth',
-        role: 'English Lecturers',
-        image: '/images/staff/Sir.webp',
-        bio: 'Led by our Director Kurunathapillai Mahathevan and Manager Mrs. Saruja Kishanth, the English program focuses on practical communication, grammar mastery, and professional language skills to prepare students for academic and corporate success.'
-      },
+      lecturers: [
+        {
+          name: 'Kurunathapillai Mahathevan',
+          role: 'Director & English Lecturer',
+          image: '/images/staff/Sir.webp',
+          bio: 'Leading CLIC Campus with strategic vision and guiding the English program with a focus on practical communication, grammar mastery, and professional language skills.'
+        },
+        {
+          name: 'Mrs. Saruja Kishanth',
+          role: 'Manager & English Lecturer',
+          image: '/images/staff/Manager1.webp',
+          bio: 'Mrs. Saruja Kishanth plays a key role in coordinating the English program, supporting students with spoken fluency, writing skills, and business communication.'
+        }
+      ],
       desc: 'Enhance your English communication skills for corporate and academic excellence. Covers grammar, writing, professional speaking, and business communication.',
       syllabus: ['Spoken English & Pronunciation', 'Business Communication & Email Writing', 'Advanced Grammar Structures', 'Presentation & Public Speaking Skills']
     },
@@ -35,12 +43,20 @@ export default function Courses() {
       dept: 'IT',
       duration: '3 Months (Full-time & Part-time)',
       fees: 'Rs. 25,000/=',
-      lecturer: {
-        name: 'S. Rohan Benjamin',
-        role: 'IT Lecturer & Software Developer',
-        image: '',
-        bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
-      },
+      lecturers: [
+        {
+          name: 'S. Rohan Benjamin',
+          role: 'IT Lecturer & Software Developer',
+          image: '/rohan.webp',
+          bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
+        },
+        {
+          name: 'Dayani',
+          role: 'IT Lecturer',
+          image: '/Diyaniakka.jpeg',
+          bio: 'Dayani has over 3 years of experience in MS Office, with strong expertise across the complete Microsoft Office suite, including Word, Excel, PowerPoint, and Access, along with modern web technologies and software solutions.'
+        }
+      ],
       desc: 'A comprehensive foundation in Information Technology covering hardware, software, MS Office, and digital tools essential for today\'s workplace.',
       syllabus: ['Computer Hardware & Operating Systems', 'MS Office (Word, Excel, PowerPoint)', 'Internet & Digital Literacy', 'Introduction to Programming & Databases']
     },
@@ -50,12 +66,14 @@ export default function Courses() {
       dept: 'Graphic Designing',
       duration: '3 Months (Full-time & Part-time)',
       fees: 'Rs. 25,000/=',
-      lecturer: {
-        name: 'CLIC Campus Faculty',
-        role: 'Graphic Design Instructor',
-        image: '',
-        bio: 'Our Graphic Designing course is delivered by experienced design professionals who guide students through industry-standard tools and real-world creative projects, building a portfolio-ready skill set.'
-      },
+      lecturers: [
+        {
+          name: 'CLIC Campus Faculty',
+          role: 'Graphic Design Instructor',
+          image: '',
+          bio: 'Our Graphic Designing course is delivered by experienced design professionals who guide students through industry-standard tools and real-world creative projects, building a portfolio-ready skill set.'
+        }
+      ],
       desc: 'Master industry-standard tools like Adobe Photoshop and Illustrator to create stunning visual content for digital marketing, social media, and print media.',
       syllabus: ['Adobe Photoshop Essentials', 'Vector Illustration with Illustrator', 'Typography & Layout Design', 'Digital Branding & Portfolio Creation']
     },
@@ -65,12 +83,14 @@ export default function Courses() {
       dept: 'Web Designing',
       duration: '3 Months (Full-time & Part-time)',
       fees: 'Rs. 25,000/=',
-      lecturer: {
-        name: 'S. Rohan Benjamin',
-        role: 'IT Lecturer & Software Developer',
-        image: '',
-        bio: 'S. Rohan Benjamin brings hands-on expertise in modern web technologies, guiding students through the fundamentals of building attractive and responsive websites from concept to deployment.'
-      },
+      lecturers: [
+        {
+          name: 'S. Rohan Benjamin',
+          role: 'IT Lecturer & Software Developer',
+          image: '/rohan.webp',
+          bio: 'S. Rohan Benjamin brings hands-on expertise in modern web technologies, guiding students through the fundamentals of building attractive and responsive websites from concept to deployment.'
+        }
+      ],
       desc: 'Build beautiful, responsive, and dynamic websites from scratch using HTML5, CSS3, JavaScript, and modern frontend design principles.',
       syllabus: ['HTML5 & Semantic Web Structure', 'CSS3 & Responsive Design', 'JavaScript Fundamentals', 'UI/UX Design & Prototyping']
     },
@@ -80,12 +100,14 @@ export default function Courses() {
       dept: 'Sinhala',
       duration: '3 Months (Full-time & Part-time)',
       fees: 'Rs. 20,000/=',
-      lecturer: {
-        name: 'CLIC Campus Faculty',
-        role: 'Sinhala Language Instructor',
-        image: '',
-        bio: 'Our Sinhala language program is delivered by qualified instructors with a strong focus on reading, writing, and spoken Sinhala to help students communicate confidently in professional and everyday settings.'
-      },
+      lecturers: [
+        {
+          name: 'CLIC Campus Faculty',
+          role: 'Sinhala Language Instructor',
+          image: '',
+          bio: 'Our Sinhala language program is delivered by qualified instructors with a strong focus on reading, writing, and spoken Sinhala to help students communicate confidently in professional and everyday settings.'
+        }
+      ],
       desc: 'Develop strong Sinhala language skills covering reading, writing, grammar, and spoken communication for professional and everyday use.',
       syllabus: ['Sinhala Reading & Comprehension', 'Written Sinhala & Grammar', 'Spoken Sinhala Communication', 'Professional Sinhala for the Workplace']
     },
@@ -95,12 +117,14 @@ export default function Courses() {
       dept: 'Office Package',
       duration: '3 Months (Full-time & Part-time)',
       fees: 'Rs. 25,000/=',
-      lecturer: {
-        name: 'S. Rohan Benjamin',
-        role: 'IT Lecturer & Software Developer',
-        image: '',
-        bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
-      },
+      lecturers: [
+        {
+          name: 'S. Rohan Benjamin',
+          role: 'IT Lecturer & Software Developer',
+          image: '/rohan.webp',
+          bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
+        }
+      ],
       desc: 'Become highly proficient in Microsoft Office tools (Word, Excel, PowerPoint, Access) to streamline corporate administration and reporting.',
       syllabus: ['Advanced MS Word Formatting', 'MS Excel Data Analysis & Formulas', 'Professional MS PowerPoint Presentations', 'MS Access Database Management']
     }
@@ -389,21 +413,37 @@ export default function Courses() {
                 </div>
 
                 {/* Card Footer details */}
-                <div className="border-t border-slate-100 dark:border-slate-800/80 px-6 py-4 bg-brand-50/20 dark:bg-slate-900/40 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <img
-                      src={course.lecturer.image}
-                      alt={course.lecturer.name}
-                      className="h-8 w-8 rounded-full object-cover border border-slate-200 dark:border-slate-800"
-                    />
-                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                      {course.lecturer.name.split(' ').slice(0, 2).join(' ')}
+                <div className="border-t border-slate-100 dark:border-slate-800/80 px-6 py-4 bg-brand-50/20 dark:bg-slate-900/40 flex items-center justify-between gap-3">
+                  {/* Stacked lecturer avatars */}
+                  <div className="flex items-center">
+                    <div className="flex -space-x-2">
+                      {course.lecturers.slice(0, 3).map((lec, i) => (
+                        <div
+                          key={i}
+                          title={lec.name}
+                          className="h-8 w-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0"
+                          style={{ zIndex: course.lecturers.length - i }}
+                        >
+                          {lec.image ? (
+                            <img src={lec.image} alt={lec.name} className="h-full w-full object-cover" />
+                          ) : (
+                            <div className="h-full w-full flex items-center justify-center bg-brand/10 text-brand dark:text-brand-300 text-[10px] font-bold">
+                              {lec.name.charAt(0)}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    <span className="ml-2.5 text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">
+                      {course.lecturers.length === 1
+                        ? course.lecturers[0].name.split(' ').slice(0, 2).join(' ')
+                        : `${course.lecturers.length} Lecturers`}
                     </span>
                   </div>
 
                   <button
                     onClick={() => setActiveCourseModal(course)}
-                    className="text-xs font-bold text-brand dark:text-brand-300 flex items-center gap-0.5 hover:gap-1 transition-all group/btn"
+                    className="text-xs font-bold text-brand dark:text-brand-300 flex items-center gap-0.5 hover:gap-1 transition-all group/btn shrink-0"
                   >
                     View Details
                     <ChevronRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
@@ -445,8 +485,8 @@ export default function Courses() {
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.35, delay: idx * 0.04 }}
                   className={`bg-white dark:bg-slate-900 border rounded-3xl shadow-sm group transition-all duration-300 overflow-hidden flex flex-col ${offer.isActive
-                      ? 'border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand/5 hover:-translate-y-1'
-                      : 'border-slate-100 dark:border-slate-800/40 opacity-60'
+                    ? 'border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand/5 hover:-translate-y-1'
+                    : 'border-slate-100 dark:border-slate-800/40 opacity-60'
                     }`}
                 >
                   {/* Card Top */}
@@ -659,26 +699,46 @@ export default function Courses() {
                   </div>
                 </div>
 
-                {/* Lecturer Card Details */}
+                {/* Lecturers Section — supports 1 to 3 lecturers */}
                 <div className="border-t border-slate-100 dark:border-slate-800 pt-6 space-y-4">
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Course Director & Lecturer</h4>
-                  <div className="flex flex-col sm:flex-row gap-4 bg-white dark:bg-slate-950/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/50">
-                    <img
-                      src={activeCourseModal.lecturer.image}
-                      alt={activeCourseModal.lecturer.name}
-                      className="h-16 w-16 rounded-full object-cover border border-slate-200 dark:border-slate-800 shrink-0 self-start sm:self-center"
-                    />
-                    <div className="space-y-1">
-                      <h5 className="text-sm font-bold text-slate-950 dark:text-white">
-                        {activeCourseModal.lecturer.name}
-                      </h5>
-                      <span className="text-[10px] font-bold text-brand dark:text-brand-300 block uppercase tracking-wide">
-                        {activeCourseModal.lecturer.role}
-                      </span>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-                        {activeCourseModal.lecturer.bio}
-                      </p>
-                    </div>
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    {activeCourseModal.lecturers.length === 1 ? 'Course Lecturer' : `Course Lecturers (${activeCourseModal.lecturers.length})`}
+                  </h4>
+                  <div className={`grid gap-3 ${activeCourseModal.lecturers.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'
+                    }`}>
+                    {activeCourseModal.lecturers.map((lec, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 bg-white dark:bg-slate-950/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/50"
+                      >
+                        {/* Avatar */}
+                        <div className="h-14 w-14 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                          {lec.image ? (
+                            <img
+                              src={lec.image}
+                              alt={lec.name}
+                              className="h-full w-full object-cover"
+                            />
+                          ) : (
+                            <div className="h-full w-full flex items-center justify-center bg-brand/10 text-brand dark:text-brand-300 text-xl font-extrabold">
+                              {lec.name.charAt(0)}
+                            </div>
+                          )}
+                        </div>
+                        {/* Info */}
+                        <div className="space-y-0.5 min-w-0">
+                          <h5 className="text-sm font-bold text-slate-950 dark:text-white leading-snug">
+                            {lec.name}
+                          </h5>
+                          <span className="text-[10px] font-bold text-brand dark:text-brand-300 block uppercase tracking-wide">
+                            {lec.role}
+                          </span>
+                          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light mt-1">
+                            {lec.bio}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
