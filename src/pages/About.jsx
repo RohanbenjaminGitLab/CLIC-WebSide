@@ -67,7 +67,7 @@ export default function About() {
             <h3 className="text-2xl font-bold text-slate-950 dark:text-white mb-3">Our Mission</h3>
             <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-light">
               🌟
-              To become a leading centre of excellence in education and skills development, empowering learners with knowledge, practical skills and confidence to succeed in a rapidly changing global world.
+              To Inspire, Educate and Empower for a Brighter Future
             </p>
           </motion.div>
 
@@ -87,7 +87,7 @@ export default function About() {
             <h3 className="text-2xl font-bold text-slate-950 dark:text-white mb-3">Our Vision</h3>
             <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-light">
               🎯
-              To provide high-quality, accessible and practical education in languages, information technology and professional skills through innovative teaching, experienced educators and a supportive learning environment, enabling every learner to achieve academic, personal and career success.
+              To Deliver Quality Education, Develop Practical Skills and Empower Every Learner to Succeed.
             </p>
           </motion.div>
         </section>
