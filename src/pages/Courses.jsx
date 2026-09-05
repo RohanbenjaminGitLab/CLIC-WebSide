@@ -55,6 +55,12 @@ export default function Courses() {
           role: 'IT Lecturer',
           image: '/Diyaniakka.jpeg',
           bio: 'Dayani has over 3 years of experience in MS Office, with strong expertise across the complete Microsoft Office suite, including Word, Excel, PowerPoint, and Access, along with modern web technologies and software solutions.'
+        },
+        {
+          name: 'Kanagarethnam Mathumitha',
+          role: 'IT Lecturer',
+          image: '/Mathumitha.png',
+          bio: ' Mathumitha has over 1 years of experience in MS Office, with strong expertise across the complete Microsoft Office suite, including Word, Excel, PowerPoint, and Access, along with modern web technologies and software solutions.'
         }
       ],
       desc: 'A comprehensive foundation in Information Technology covering hardware, software, MS Office, and digital tools essential for today\'s workplace.',
