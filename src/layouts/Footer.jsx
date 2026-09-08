@@ -261,8 +261,15 @@ export default function Footer() {
           {/* Quick Contact Block */}
           <div className="lg:col-span-1 flex flex-col md:flex-row lg:flex-col gap-3.5 text-xs lg:items-end md:justify-between text-slate-400">
             <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-brand-300 shrink-0" />
-              <span>CLIC Campus, Sagama Road, Akkaripattu</span>
+              <a
+                href="https://www.google.com/maps/place/7%C2%B012'56.8%22N+81%C2%B050'57.1%22E/@7.2157778,81.8491944,17z/data=!3m1!4b1!4m4!3m3!8m2!3d7.2157778!4d81.8491944?hl=en&entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-brand-300 transition-colors"
+              >
+                <MapPin className="h-4 w-4 text-brand-300 shrink-0" />
+                <span>CLIC Campus, Sagama Road, Akkaripattu</span>
+              </a>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-brand-300 shrink-0" />
