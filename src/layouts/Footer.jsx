@@ -265,7 +265,7 @@ export default function Footer() {
                 href="https://www.google.com/maps/search/?api=1&query=7.2157778,81.8491944"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-brand-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm hover:text-brand-300 transition-colors"
               >
                 <MapPin className="h-4 w-4 text-brand-300 shrink-0" />
                 <span>CLIC Campus, Sagama Road, Akkaripattu</span>
