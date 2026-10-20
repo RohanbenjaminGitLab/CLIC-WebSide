@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Target, Compass, Award, Calendar, BookOpen, UserCheck, ShieldAlert, Zap } from 'lucide-react';
+import { Target, Compass, Award, Calendar, BookOpen, UserCheck, Zap } from 'lucide-react';
 import CampusGallery from '../components/CampusGallery';
 
 export default function About() {
@@ -7,27 +7,32 @@ export default function About() {
     {
       year: '2012',
       title: 'Foundation Stone',
-      desc: 'CLIC Campus was established with a singular focus: merging professional training with direct tech careers, launching with just 2 branches.'
+      desc: 'CLIC Campus was established with a singular focus: merging professional training with direct tech careers, launching with just 2 branches.',
+      icon: Calendar,
     },
     {
       year: '2016',
       title: 'Global Accreditation Hub',
-      desc: 'Formed elite partnerships with British and American standard educational bodies, expanding computing and engineering programs.'
+      desc: 'Formed elite partnerships with British and American standard educational bodies, expanding computing and engineering programs.',
+      icon: Award,
     },
     {
       year: '2020',
       title: 'Advanced AI & Research Labs',
-      desc: 'Inaugurated our multi-million dollar computing research centers and cloud labs, establishing state-of-the-art visual design clusters.'
+      desc: 'Inaugurated our multi-million dollar computing research centers and cloud labs, establishing state-of-the-art visual design clusters.',
+      icon: BookOpen,
     },
     {
       year: '2023',
       title: 'Innovation Incubation Center',
-      desc: 'Launched the Student Startup Fund, allowing students to prototype and seek corporate funding right within the campus incubation cells.'
+      desc: 'Launched the Student Startup Fund, allowing students to prototype and seek corporate funding right within the campus incubation cells.',
+      icon: Zap,
     },
     {
       year: '2026',
       title: 'CLIC Smart Campus Launch',
-      desc: 'Completed our fully eco-friendly digital campus hosting 12,000+ national and international scholars in state-of-the-art premises.'
+      desc: 'Completed our fully eco-friendly digital campus hosting 12,000+ national and international scholars in state-of-the-art premises.',
+      icon: UserCheck,
     }
   ];
 
@@ -177,9 +182,12 @@ export default function About() {
                       }`}>
                       {/* Spacer for even items on desktop so card is on right side */}
                       <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative">
-                        <span className="inline-block bg-brand dark:bg-brand-900 border border-brand-500/25 text-white text-xs font-bold px-3 py-0.5 rounded-full mb-2">
-                          {item.year}
-                        </span>
+                        <div className={`flex items-center gap-2 mb-2.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                          <span className="inline-flex items-center gap-1.5 bg-brand dark:bg-brand-900 border border-brand-500/25 text-white text-xs font-bold px-3 py-1 rounded-full shadow-xs">
+                            {item.icon && <item.icon className="h-3 w-3" />}
+                            {item.year}
+                          </span>
+                        </div>
                         <h4 className="text-base font-bold text-slate-950 dark:text-white mb-1.5">
                           {item.title}
                         </h4>

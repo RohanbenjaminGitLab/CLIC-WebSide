@@ -1,69 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --brand-primary: #651631;
+    --brand-secondary: #8F173D;
+  }
+
   html {
     scroll-behavior: smooth;
-    /* Prevent horizontal overflow at root level */
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-white text-slate-800 font-sans transition-colors duration-300 antialiased selection:bg-brand/20 selection:text-brand-700 overflow-x-hidden;
-    /* Prevent text from overflowing on very narrow screens */
+    @apply bg-slate-50 text-slate-800 font-sans transition-colors duration-300 antialiased selection:bg-brand/20 selection:text-brand-800 overflow-x-hidden min-h-screen flex flex-col;
     word-break: break-word;
     overflow-wrap: break-word;
   }
 
   body.dark {
-    @apply bg-slate-950 text-slate-100 selection:bg-brand/30 selection:text-brand-300;
+    @apply bg-slate-950 text-slate-100 selection:bg-brand/40 selection:text-brand-200;
   }
 
-  /* All images scale proportionally */
+  /* All media scales safely */
   img,
   video {
     max-width: 100%;
     height: auto;
+    display: block;
   }
 
-  /* Prevent fixed-size images from overflowing their containers */
-  img {
-    display: block;
+  /* Accessible focus indicators */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-white dark:ring-offset-slate-950;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer utilities {
-
-  /* Glassmorphism Styles */
+  /* Modern Glassmorphism Styles */
   .glass-light {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
   }
 
   .glass-dark {
-    background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .glass-navbar-light {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(101, 22, 49, 0.08);
   }
 
   .glass-navbar-dark {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  .glass-card-dark {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   /* Custom Smooth Scrollbar */
@@ -81,10 +111,10 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-brand/50 dark:bg-brand/60;
+    @apply bg-brand-500/70 dark:bg-brand-500/70;
   }
 
-  /* Hide scrollbar utility for horizontal scroll containers */
+  /* Hide scrollbar utility */
   .scrollbar-none {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -101,23 +131,9 @@
   }
 }
 
-/* Base custom resets */
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Prevent any child from creating horizontal scroll */
   overflow-x: hidden;
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-6px);
-  }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Clock, Banknote, BookOpen, ChevronRight, Award, BadgePercent, Tag, Sparkles } from 'lucide-react';
@@ -6,12 +6,14 @@ import { Search, X, Clock, Banknote, BookOpen, ChevronRight, Award, BadgePercent
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDept, setSelectedDept] = useState('All');
   const [activeCourseModal, setActiveCourseModal] = useState(null);
   const [activeOfferModal, setActiveOfferModal] = useState(null);
 
   // Departments list as requested
   const departments = ['All', 'English', 'IT', 'Graphic Designing', 'Web Designing', 'Sinhala', 'Office Package'];
+
+  const deptParam = searchParams.get('dept');
+  const selectedDept = deptParam && departments.includes(deptParam) ? deptParam : 'All';
 
   const courses = [
     {
@@ -283,24 +285,14 @@ export default function Courses() {
     }
   ];
 
-  // URL Query Sync
-  useEffect(() => {
-    const deptQuery = searchParams.get('dept');
-    if (deptQuery && departments.includes(deptQuery)) {
-      setSelectedDept(deptQuery);
-    } else {
-      setSelectedDept('All');
-    }
-  }, [searchParams]);
-
   const handleDeptFilter = (dept) => {
-    setSelectedDept(dept);
+    const nextParams = new URLSearchParams(searchParams);
     if (dept === 'All') {
-      searchParams.delete('dept');
+      nextParams.delete('dept');
     } else {
-      searchParams.set('dept', dept);
+      nextParams.set('dept', dept);
     }
-    setSearchParams(searchParams);
+    setSearchParams(nextParams);
   };
 
   // Filter Logic

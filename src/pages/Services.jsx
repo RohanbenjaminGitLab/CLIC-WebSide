@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Home, Briefcase, Users, Award, ShieldCheck, Compass, CheckCircle, ChevronRight, X, Clock, MapPin, Sparkles } from 'lucide-react';
+import { BookOpen, Home, Briefcase, Users, Award, Compass, CheckCircle, ChevronRight, X, Clock, MapPin, Sparkles } from 'lucide-react';
 
 export default function Services() {
   const [activeModal, setActiveModal] = useState(null);

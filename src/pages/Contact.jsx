@@ -1,40 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, XCircle, Copy, Check } from 'lucide-react';
 import { sendInquiryEmail } from '../services/email';
 
+const COURSES_LIST = [
+  'General Inquiry',
+  'Diploma in English',
+  'Diploma in ICT',
+  'Diploma in Graphic Designing',
+  'Diploma in Networking',
+  'Diploma in Web Designing',
+  'Diploma in Office Package'
+];
+
 export default function Contact() {
   const [searchParams] = useSearchParams();
+  const courseParam = searchParams.get('course');
+  const initialCourse = courseParam && COURSES_LIST.includes(courseParam) ? courseParam : 'General Inquiry';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    course: 'General Inquiry',
+    course: initialCourse,
     message: ''
   });
 
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState({ show: false, success: true, message: '' });
   const [copyStatus, setCopyStatus] = useState({ email: false, phone: false });
-
-  const coursesList = [
-    'General Inquiry',
-    'Diploma in English',
-    'Diploma in ICT',
-    'Diploma in Graphic Designing',
-    'Diploma in Networking',
-    'Diploma in Web Designing',
-    'Diploma in Office Package'
-  ];
-
-  // Pre-populate course selection if passed via search query parameters
-  useEffect(() => {
-    const courseParam = searchParams.get('course');
-    if (courseParam && coursesList.includes(courseParam)) {
-      setFormData((prev) => ({ ...prev, course: courseParam }));
-    }
-  }, [searchParams]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,7 +73,7 @@ export default function Contact() {
           message: response.message
         });
       }
-    } catch (err) {
+    } catch {
       setToast({
         show: true,
         success: false,
@@ -174,7 +169,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand text-sm"
                   >
-                    {coursesList.map((course) => (
+                    {COURSES_LIST.map((course) => (
                       <option key={course} value={course}>
                         {course}
                       </option>

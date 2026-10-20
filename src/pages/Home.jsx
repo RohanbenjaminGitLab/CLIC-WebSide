@@ -67,9 +67,11 @@ export default function Home() {
 
   // Autoplay testimonials
   useEffect(() => {
-    const timer = setInterval(nextSlide, 7000);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+    }, 7000);
     return () => clearInterval(timer);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <div className="w-full flex-grow pt-16">

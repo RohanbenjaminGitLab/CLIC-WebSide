@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Users, Phone, Mail, ArrowRight, ShieldCheck, Sparkles, Check } from 'lucide-react';
+import { Users, Phone, Mail, ArrowRight, Sparkles, Check } from 'lucide-react';
 import { staffMembers } from '../data/staffData';
 
 // Individual Staff Card Component with robust image fallback handling
@@ -23,10 +23,13 @@ function StaffCard({ member, index }) {
   const handleCopyPhone = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    navigator.clipboard.writeText(member.phone);
+    const phoneToCopy = member.phone || '+94777635657';
+    navigator.clipboard.writeText(phoneToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const cleanPhone = member.phone ? member.phone.replace(/[\s()-]/g, '') : '94777635657';
 
   return (
     <motion.div
@@ -76,23 +79,37 @@ function StaffCard({ member, index }) {
 
       {/* Phone Number & Direct Actions */}
       <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 mt-auto flex items-center justify-between gap-3">
-        <a
-          href={`tel:${member.phone.replace(/[\s\(\)-]/g, '')}`}
-          className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300 transition-colors group/tel"
-          aria-label={`Call ${member.name} at ${member.phone}`}
-        >
-          <span className="p-2 rounded-xl bg-brand/5 dark:bg-brand-950/60 text-brand dark:text-brand-300 group-hover/tel:bg-brand group-hover/tel:text-white transition-colors duration-200 shrink-0">
-            <Phone className="h-4 w-4" />
-          </span>
-          <span className="font-semibold tracking-wide whitespace-nowrap">{member.phone}</span>
-        </a>
+        {member.phone ? (
+          <a
+            href={`tel:${cleanPhone}`}
+            className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300 transition-colors group/tel"
+            aria-label={`Call ${member.name} at ${member.phone}`}
+          >
+            <span className="p-2 rounded-xl bg-brand/5 dark:bg-brand-950/60 text-brand dark:text-brand-300 group-hover/tel:bg-brand group-hover/tel:text-white transition-colors duration-200 shrink-0">
+              <Phone className="h-4 w-4" />
+            </span>
+            <span className="font-semibold tracking-wide whitespace-nowrap">{member.phone}</span>
+          </a>
+        ) : (
+          <a
+            href={`tel:+94777635657`}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-300 transition-colors group/tel"
+            aria-label={`Contact ${member.name} through campus reception`}
+            title="Campus Desk Line"
+          >
+            <span className="p-2 rounded-xl bg-brand/5 dark:bg-brand-950/60 text-brand dark:text-brand-300 group-hover/tel:bg-brand group-hover/tel:text-white transition-colors duration-200 shrink-0">
+              <Phone className="h-4 w-4" />
+            </span>
+            <span className="font-semibold tracking-wide whitespace-nowrap">+94 77 763 5657</span>
+          </a>
+        )}
 
         <div className="flex items-center gap-1.5 shrink-0">
           {/* Quick Copy Phone Button */}
           <button
             onClick={handleCopyPhone}
             type="button"
-            aria-label={`Copy phone number for ${member.name}`}
+            aria-label={`Copy contact number for ${member.name}`}
             title={copied ? "Copied!" : "Copy Phone"}
             className={`p-2 rounded-xl border transition-all duration-200 ${
               copied
@@ -106,7 +123,7 @@ function StaffCard({ member, index }) {
           {/* Email Link */}
           {member.email && (
             <a
-              href={`mailto:${member.email}`}
+              href={`mailto:${member.email}?subject=Inquiry for ${encodeURIComponent(member.name)}`}
               className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-400 hover:text-brand hover:border-brand dark:hover:text-brand-300 dark:hover:border-brand-400 transition-colors"
               title={`Email ${member.name}`}
               aria-label={`Email ${member.name}`}
