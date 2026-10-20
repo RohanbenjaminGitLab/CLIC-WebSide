@@ -207,7 +207,9 @@ export default function About() {
         </section>
 
         {/* 4. Campus Gallery Component */}
-        <CampusGallery />
+        <div id="campus-gallery">
+          <CampusGallery />
+        </div>
       </div>
     </div>
   );

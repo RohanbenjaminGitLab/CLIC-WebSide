@@ -30,29 +30,35 @@ export default function Footer() {
 
   const footerLinks = {
     academics: {
-      title: 'Academics',
+      title: 'Academic Programs',
       items: [
-        { name: 'Computing & IT', path: '/courses?dept=Computing' },
-        { name: 'Graphic Design', path: '/courses?dept=Graphic Design' },
-        { name: 'Language Academy', path: '/courses?dept=English' },
+        { name: 'School of IT', path: '/courses?dept=IT' },
+        { name: 'School of English', path: '/courses?dept=English' },
+        { name: 'Graphic Designing', path: '/courses?dept=Graphic%20Designing' },
+        { name: 'Web Designing', path: '/courses?dept=Web%20Designing' },
+        { name: 'Office Package', path: '/courses?dept=Office%20Package' },
+        { name: 'Sinhala Language', path: '/courses?dept=Sinhala' },
+        { name: 'Special Combo Offers', path: '/courses#course-offers' },
       ]
     },
     services: {
-      title: 'Services',
+      title: 'Campus Life & Facilities',
       items: [
-        { name: 'Campus ComputerLab', path: '/about' },
-        { name: 'Student Support', path: '/about' },
-        { name: 'Scholarships', path: '/about' },
+        { name: 'Computer Research Lab', path: '/services' },
+        { name: 'Student Career & Support', path: '/services' },
+        { name: 'Academic Advising', path: '/services' },
+        { name: 'Scholarships & Subsidies', path: '/services' },
+        { name: 'Campus Photo Gallery', path: '/about' },
       ]
     },
     company: {
       title: 'Our Institution',
       items: [
-        { name: 'About Campus', path: '/about' },
-        { name: 'Our Staff', path: '/staff' },
-        { name: 'Contact & Inquiry', path: '/contact' },
-        { name: 'News & Events', path: '/' },
-        { name: 'Virtual Campus Tour', path: '/about' },
+        { name: 'About CLIC Campus', path: '/about' },
+        { name: 'Our Academic Staff', path: '/staff' },
+        { name: 'Course Catalog & Fees', path: '/courses' },
+        { name: 'Admissions Inquiry', path: '/contact' },
+        { name: 'Location & Map', path: '/contact' },
       ]
     }
   };

@@ -1,290 +1,64 @@
-import { useState } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, Clock, Banknote, BookOpen, ChevronRight, Award, BadgePercent, Tag, Sparkles } from 'lucide-react';
+import {
+  Search,
+  X,
+  Clock,
+  Banknote,
+  BookOpen,
+  ChevronRight,
+  Award,
+  BadgePercent,
+  RotateCcw,
+  CheckCircle,
+  MapPin,
+  ShieldCheck,
+  Star,
+  ArrowUpDown
+} from 'lucide-react';
+import {
+  courses,
+  courseOffers,
+  departments,
+  qualificationLevels,
+  deliveryModes
+} from '../data/coursesData';
 
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState('');
+
+  // Search and Filter State
+  const initialQuery = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
+  const [selectedLevel, setSelectedLevel] = useState('All Levels');
+  const [selectedMode, setSelectedMode] = useState('All Modes');
+  const [sortBy, setSortBy] = useState('featured');
+  const [activeTab, setActiveTab] = useState('courses'); // 'courses' | 'offers'
+
+  // Modals state
   const [activeCourseModal, setActiveCourseModal] = useState(null);
   const [activeOfferModal, setActiveOfferModal] = useState(null);
 
-  // Departments list as requested
-  const departments = ['All', 'English', 'IT', 'Graphic Designing', 'Web Designing', 'Sinhala', 'Office Package'];
-
+  // Sync department from URL params
   const deptParam = searchParams.get('dept');
   const selectedDept = deptParam && departments.includes(deptParam) ? deptParam : 'All';
 
-  const courses = [
-    {
-      id: 'diploma-english',
-      title: 'Diploma in English',
-      dept: 'English',
-      duration: '3 Months (Full-time & Part-time)',
-      fees: 'Rs. 25,000/=',
-      lecturers: [
-        {
-          name: 'Kurunathapillai Mahathevan',
-          role: 'Director & English Lecturer',
-          image: '/images/staff/Sir.webp',
-          bio: 'Leading CLIC Campus with strategic vision and guiding the English program with a focus on practical communication, grammar mastery, and professional language skills.'
-        },
-        {
-          name: 'Mrs. Saruja Kishanth',
-          role: 'Manager & English Lecturer',
-          image: '/images/staff/Manager1.webp',
-          bio: 'Mrs. Saruja Kishanth plays a key role in coordinating the English program, supporting students with spoken fluency, writing skills, and business communication.'
-        }
-      ],
-      desc: 'Enhance your English communication skills for corporate and academic excellence. Covers grammar, writing, professional speaking, and business communication.',
-      syllabus: ['Spoken English & Pronunciation', 'Business Communication & Email Writing', 'Advanced Grammar Structures', 'Presentation & Public Speaking Skills']
-    },
-    {
-      id: 'diploma-it',
-      title: 'Diploma in IT',
-      dept: 'IT',
-      duration: '3 Months (Full-time & Part-time)',
-      fees: 'Rs. 25,000/=',
-      lecturers: [
-        {
-          name: 'S. Rohan Benjamin',
-          role: 'IT Lecturer & Software Developer',
-          image: '/rohan.webp',
-          bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
-        },
-        {
-          name: 'Dayani',
-          role: 'IT Lecturer',
-          image: '/Diyaniakka.jpeg',
-          bio: 'Dayani has over 3 years of experience in MS Office, with strong expertise across the complete Microsoft Office suite, including Word, Excel, PowerPoint, and Access, along with modern web technologies and software solutions.'
-        },
-        {
-          name: 'Kanagarethnam Mathumitha',
-          role: 'IT Lecturer',
-          image: '/Mathumitha.png',
-          bio: ' Mathumitha has over 1 years of experience in MS Office, with strong expertise across the complete Microsoft Office suite, including Word, Excel, PowerPoint, and Access, along with modern web technologies and software solutions.'
-        }
-      ],
-      desc: 'A comprehensive foundation in Information Technology covering hardware, software, MS Office, and digital tools essential for today\'s workplace.',
-      syllabus: ['Computer Hardware & Operating Systems', 'MS Office (Word, Excel, PowerPoint)', 'Internet & Digital Literacy', 'Introduction to Programming & Databases']
-    },
-    {
-      id: 'diploma-graphic-designing',
-      title: 'Diploma in Graphic Designing',
-      dept: 'Graphic Designing',
-      duration: '3 Months (Full-time & Part-time)',
-      fees: 'Rs. 25,000/=',
-      lecturers: [
-        {
-          name: 'CLIC Campus Faculty',
-          role: 'Graphic Design Instructor',
-          image: '',
-          bio: 'Our Graphic Designing course is delivered by experienced design professionals who guide students through industry-standard tools and real-world creative projects, building a portfolio-ready skill set.'
-        }
-      ],
-      desc: 'Master industry-standard tools like Adobe Photoshop and Illustrator to create stunning visual content for digital marketing, social media, and print media.',
-      syllabus: ['Adobe Photoshop Essentials', 'Vector Illustration with Illustrator', 'Typography & Layout Design', 'Digital Branding & Portfolio Creation']
-    },
-    {
-      id: 'diploma-web-designing',
-      title: 'Diploma in Web Designing',
-      dept: 'Web Designing',
-      duration: '3 Months (Full-time & Part-time)',
-      fees: 'Rs. 25,000/=',
-      lecturers: [
-        {
-          name: 'S. Rohan Benjamin',
-          role: 'IT Lecturer & Software Developer',
-          image: '/rohan.webp',
-          bio: 'S. Rohan Benjamin brings hands-on expertise in modern web technologies, guiding students through the fundamentals of building attractive and responsive websites from concept to deployment.'
-        }
-      ],
-      desc: 'Build beautiful, responsive, and dynamic websites from scratch using HTML5, CSS3, JavaScript, and modern frontend design principles.',
-      syllabus: ['HTML5 & Semantic Web Structure', 'CSS3 & Responsive Design', 'JavaScript Fundamentals', 'UI/UX Design & Prototyping']
-    },
-    {
-      id: 'diploma-sinhala',
-      title: 'Diploma in Sinhala',
-      dept: 'Sinhala',
-      duration: '3 Months (Full-time & Part-time)',
-      fees: 'Rs. 20,000/=',
-      lecturers: [
-        {
-          name: 'CLIC Campus Faculty',
-          role: 'Sinhala Language Instructor',
-          image: '',
-          bio: 'Our Sinhala language program is delivered by qualified instructors with a strong focus on reading, writing, and spoken Sinhala to help students communicate confidently in professional and everyday settings.'
-        }
-      ],
-      desc: 'Develop strong Sinhala language skills covering reading, writing, grammar, and spoken communication for professional and everyday use.',
-      syllabus: ['Sinhala Reading & Comprehension', 'Written Sinhala & Grammar', 'Spoken Sinhala Communication', 'Professional Sinhala for the Workplace']
-    },
-    {
-      id: 'diploma-office-package',
-      title: 'Diploma in Office Package',
-      dept: 'Office Package',
-      duration: '3 Months (Full-time & Part-time)',
-      fees: 'Rs. 25,000/=',
-      lecturers: [
-        {
-          name: 'S. Rohan Benjamin',
-          role: 'IT Lecturer & Software Developer',
-          image: '/rohan.webp',
-          bio: 'S. Rohan Benjamin has over 2 years of experience in Web Development and MS Office, specializing in modern web technologies, software solutions, and professional document management.'
-        }
-      ],
-      desc: 'Become highly proficient in Microsoft Office tools (Word, Excel, PowerPoint, Access) to streamline corporate administration and reporting.',
-      syllabus: ['Advanced MS Word Formatting', 'MS Excel Data Analysis & Formulas', 'Professional MS PowerPoint Presentations', 'MS Access Database Management']
+  // Handle highlighted course from URL (e.g., from search modal or home link)
+  useEffect(() => {
+    const highlightId = searchParams.get('highlight');
+    if (highlightId) {
+      const targetCourse = courses.find((c) => c.id === highlightId);
+      if (targetCourse) {
+        const timer = setTimeout(() => {
+          setActiveCourseModal(targetCourse);
+        }, 0);
+        return () => clearTimeout(timer);
+      }
     }
-  ];
+  }, [searchParams]);
 
-  // Course Combinations & Special Discount Offers (from official CLIC Campus price list)
-  const courseOffers = [
-    {
-      id: 'offer-01',
-      courses: 'English + IT',
-      offerTitle: 'Smart Combo — Best Saving',
-      actualFee: 50000,
-      discount: 22000,
-      finalFee: 28000,
-      validity: '2025 Intake — Limited Seats',
-      isActive: true,
-      desc: 'Our biggest combo saving! Enroll in both the Diploma in English and Diploma in IT together and save Rs. 22,000 compared to enrolling individually. Perfect for students seeking both language and technology skills.'
-    },
-    {
-      id: 'offer-02',
-      courses: 'English + Graphic Designing',
-      offerTitle: 'Creative Language Combo',
-      actualFee: 50000,
-      discount: 10000,
-      finalFee: 40000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Combine professional English communication with creative design skills. Ideal for students entering the marketing, advertising, or media industries.'
-    },
-    {
-      id: 'offer-03',
-      courses: 'IT + Graphic Designing',
-      offerTitle: 'Tech & Design Combo',
-      actualFee: 50000,
-      discount: 10000,
-      finalFee: 40000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Pair your IT knowledge with visual design expertise. A powerful combination for future UI/UX designers, digital artists, and multimedia professionals.'
-    },
-    {
-      id: 'offer-04',
-      courses: 'English + Web Designing',
-      offerTitle: 'Digital Professional Combo',
-      actualFee: 50000,
-      discount: 10000,
-      finalFee: 40000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Master professional English alongside modern web design techniques. Ideal for aspiring digital marketers, freelancers, and content creators.'
-    },
-    {
-      id: 'offer-05',
-      courses: 'IT + Web Designing',
-      offerTitle: 'Full-Stack Tech Combo',
-      actualFee: 50000,
-      discount: 10000,
-      finalFee: 40000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Build a solid foundation in IT fundamentals and web design. This combo prepares students for careers in web development, IT support, and software administration.'
-    },
-    {
-      id: 'offer-06',
-      courses: 'Web Designing + Graphic Designing',
-      offerTitle: 'Visual & Web Design Combo',
-      actualFee: 50000,
-      discount: 10000,
-      finalFee: 40000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'The ultimate creative combo. Master both visual graphic design and website design to build a complete creative portfolio for the digital industry.'
-    },
-    {
-      id: 'offer-07',
-      courses: 'English + Sinhala',
-      offerTitle: 'Bilingual Language Combo',
-      actualFee: 45000,
-      discount: 10000,
-      finalFee: 35000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Develop strong bilingual communication skills in both English and Sinhala. Perfect for government job applicants, teachers, and public-facing professionals.'
-    },
-    {
-      id: 'offer-08',
-      courses: 'IT + Sinhala',
-      offerTitle: 'Tech & Language Combo',
-      actualFee: 45000,
-      discount: 10000,
-      finalFee: 35000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Combine IT skills with Sinhala language proficiency — a highly relevant combo for students seeking government IT roles or local tech positions.'
-    },
-    {
-      id: 'offer-09',
-      courses: 'English + IT + Sinhala',
-      offerTitle: 'Triple Combo — All-Rounder',
-      actualFee: 70000,
-      discount: 25000,
-      finalFee: 45000,
-      validity: '2026 Intake — Limited Seats',
-      isActive: true,
-      desc: 'The all-rounder triple combo — English, IT, and Sinhala together at a massive discount. Save Rs. 25,000 and build a comprehensive skill set that opens doors across multiple career paths.'
-    },
-    {
-      id: 'offer-10',
-      courses: 'English + IT + Graphic Designing',
-      offerTitle: 'Triple Power Combo',
-      actualFee: 70000,
-      discount: 20000,
-      finalFee: 50000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'English communication, IT foundations, and creative graphic design — three of the most in-demand skills bundled together at Rs. 20,000 savings.'
-    },
-    {
-      id: 'offer-11',
-      courses: 'English + IT + Web Designing',
-      offerTitle: 'Digital Career Triple Combo',
-      actualFee: 70000,
-      discount: 20000,
-      finalFee: 50000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Prepare for a complete digital career with English, IT, and Web Designing. This triple combo is ideal for aspiring web professionals and digital entrepreneurs.'
-    },
-    {
-      id: 'offer-12',
-      courses: 'Web Designing + Sinhala',
-      offerTitle: 'Web & Language Combo',
-      actualFee: 45000,
-      discount: 5000,
-      finalFee: 40000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Pair web design skills with Sinhala language competency. Useful for students building local websites, community platforms, or seeking bilingual tech roles.'
-    },
-    {
-      id: 'offer-13',
-      courses: 'Graphic Designing + Sinhala',
-      offerTitle: 'Creative & Language Combo',
-      actualFee: 45000,
-      discount: 5000,
-      finalFee: 40000,
-      validity: '2026 Intake — Available Now',
-      isActive: true,
-      desc: 'Combine visual design creativity with Sinhala language skills. Ideal for students interested in creating Sinhala-language digital content, posters, and media.'
-    }
-  ];
-
+  // Update URL department
   const handleDeptFilter = (dept) => {
     const nextParams = new URLSearchParams(searchParams);
     if (dept === 'All') {
@@ -295,347 +69,552 @@ export default function Courses() {
     setSearchParams(nextParams);
   };
 
-  // Filter Logic
-  const filteredCourses = courses.filter((course) => {
-    const matchesSearch =
-      course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.dept.toLowerCase().includes(searchQuery.toLowerCase());
+  // Reset all filters
+  const handleClearAll = () => {
+    setSearchQuery('');
+    setSelectedLevel('All Levels');
+    setSelectedMode('All Modes');
+    setSortBy('featured');
+    const nextParams = new URLSearchParams();
+    setSearchParams(nextParams);
+  };
 
-    const matchesDept = selectedDept === 'All' || course.dept === selectedDept;
+  // Filtered and Sorted Courses
+  const filteredCourses = useMemo(() => {
+    return courses
+      .filter((course) => {
+        // Search Query Match (Title, Description, Department, Syllabus, Lecturer Name)
+        const q = searchQuery.toLowerCase().trim();
+        const matchesSearch =
+          q === '' ||
+          course.title.toLowerCase().includes(q) ||
+          course.desc.toLowerCase().includes(q) ||
+          course.dept.toLowerCase().includes(q) ||
+          course.code.toLowerCase().includes(q) ||
+          course.syllabus.some((item) => item.toLowerCase().includes(q)) ||
+          course.lecturers.some((lec) => lec.name.toLowerCase().includes(q));
 
-    return matchesSearch && matchesDept;
-  });
+        // Department Match
+        const matchesDept = selectedDept === 'All' || course.dept === selectedDept;
+
+        // Qualification Level Match
+        const matchesLevel = selectedLevel === 'All Levels' || course.level === selectedLevel;
+
+        // Delivery Mode Match
+        const matchesMode =
+          selectedMode === 'All Modes' || course.deliveryMode.includes(selectedMode.split(' ')[0]);
+
+        return matchesSearch && matchesDept && matchesLevel && matchesMode;
+      })
+      .sort((a, b) => {
+        if (sortBy === 'name-asc') return a.title.localeCompare(b.title);
+        if (sortBy === 'name-desc') return b.title.localeCompare(a.title);
+        if (sortBy === 'fee-asc') return a.numericFee - b.numericFee;
+        if (sortBy === 'fee-desc') return b.numericFee - a.numericFee;
+        return 0; // 'featured' preserves catalog ordering
+      });
+  }, [searchQuery, selectedDept, selectedLevel, selectedMode, sortBy]);
+
+  // Filtered Course Offers
+  const filteredOffers = useMemo(() => {
+    return courseOffers.filter((offer) => {
+      const q = searchQuery.toLowerCase().trim();
+      if (!q) return true;
+      return (
+        offer.courses.toLowerCase().includes(q) ||
+        offer.offerTitle.toLowerCase().includes(q) ||
+        offer.desc.toLowerCase().includes(q)
+      );
+    });
+  }, [searchQuery]);
+
+  const hasActiveFilters =
+    searchQuery.trim() !== '' ||
+    selectedDept !== 'All' ||
+    selectedLevel !== 'All Levels' ||
+    selectedMode !== 'All Modes' ||
+    sortBy !== 'featured';
 
   return (
     <div className="w-full flex-grow pt-20 sm:pt-24 bg-white dark:bg-slate-950 transition-colors">
-      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-12">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-10 sm:py-14">
 
-        {/* Page Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-3 py-1 rounded-full">
-            Academics & Curriculums
+        {/* ── Page Header ── */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3">
+          <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 border border-brand/10 px-4 py-1.5 rounded-full inline-block">
+            Academic Catalog • 2026 Intakes
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Explore Professional Courses
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            Explore Professional Diplomas
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-light">
-            Search our globally-accredited portfolio across 5 major departments. Click any course to view full fees structures, duration, and lecturer information.
+          <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+            Search our comprehensive, practical qualification portfolio across 6 major departments. Gain career-ready skills under expert lecturers at our Akkaripattu campus.
           </p>
+
+          {/* Catalog View Tabs (Diplomas vs Combo Offers) */}
+          <div className="flex items-center justify-center gap-2 pt-4">
+            <button
+              onClick={() => setActiveTab('courses')}
+              className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                activeTab === 'courses'
+                  ? 'bg-brand text-white shadow-md shadow-brand/20'
+                  : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
+              }`}
+            >
+              <BookOpen className="h-4 w-4" />
+              <span>Standard Diplomas ({courses.length})</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('offers')}
+              className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                activeTab === 'offers'
+                  ? 'bg-brand text-white shadow-md shadow-brand/20'
+                  : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
+              }`}
+            >
+              <BadgePercent className="h-4 w-4 text-amber-400" />
+              <span>Combo Offers (13 Bundles)</span>
+            </button>
+          </div>
         </div>
 
-        {/* Search & Filter Controls */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 rounded-3xl shadow-sm mb-12 space-y-6">
+        {/* ── COURSE DISCOVERY CONTROLS ── */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-5 sm:p-7 shadow-xs mb-10 space-y-5">
+          
+          {/* Top Row: Live Search Input + Sorting */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-center">
+            
+            {/* Search Input */}
+            <div className="md:col-span-8 relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search course title, syllabus topic, keywords, or lecturers..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white placeholder-slate-400 pl-11 pr-10 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand dark:focus:border-brand-400 transition-colors text-sm font-medium"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1"
+                  aria-label="Clear Search"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
 
-          {/* Search Input */}
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400 pointer-events-none" />
-            <input
-              type="text"
-              placeholder="Search course title, description, keywords..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white placeholder-slate-400 pl-12 pr-10 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-brand transition-colors text-sm"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-650"
-              >
-                <X className="h-5 w-5" />
-              </button>
+            {/* Sort Dropdown */}
+            <div className="md:col-span-4 flex items-center gap-2">
+              <div className="relative w-full">
+                <ArrowUpDown className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="w-full bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-200 pl-10 pr-8 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-medium outline-none focus:border-brand cursor-pointer"
+                >
+                  <option value="featured">Sort by: Featured</option>
+                  <option value="name-asc">Course Name: A to Z</option>
+                  <option value="name-desc">Course Name: Z to A</option>
+                  <option value="fee-asc">Tuition: Low to High</option>
+                  <option value="fee-desc">Tuition: High to Low</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Middle Row: Department Filter Buttons */}
+          <div className="space-y-2 pt-1 border-t border-slate-100 dark:border-slate-800/80">
+            <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+              Filter by Department:
+            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              {departments.map((dept) => {
+                const isSelected = selectedDept === dept;
+                return (
+                  <button
+                    key={dept}
+                    onClick={() => handleDeptFilter(dept)}
+                    className={`text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-200 border ${
+                      isSelected
+                        ? 'bg-brand border-brand text-white shadow-xs'
+                        : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-brand/40'
+                    }`}
+                  >
+                    {dept}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Bottom Row: Additional Advanced Filters & Active Pill Counts */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs">
+            
+            {/* Qualification Level & Delivery Mode Dropdowns */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <span className="text-slate-400 font-medium">Level:</span>
+                <select
+                  value={selectedLevel}
+                  onChange={(e) => setSelectedLevel(e.target.value)}
+                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 dark:text-slate-200 outline-none"
+                >
+                  {qualificationLevels.map((lvl) => (
+                    <option key={lvl} value={lvl}>{lvl}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-slate-400 font-medium">Study Mode:</span>
+                <select
+                  value={selectedMode}
+                  onChange={(e) => setSelectedMode(e.target.value)}
+                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 dark:text-slate-200 outline-none"
+                >
+                  {deliveryModes.map((mode) => (
+                    <option key={mode} value={mode}>{mode}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Clear All & Result Counter */}
+            <div className="flex items-center gap-3">
+              <span className="text-slate-500 dark:text-slate-400 font-medium">
+                Showing <strong>{activeTab === 'courses' ? filteredCourses.length : filteredOffers.length}</strong> {activeTab === 'courses' ? 'program(s)' : 'offer(s)'}
+              </span>
+
+              {hasActiveFilters && (
+                <button
+                  onClick={handleClearAll}
+                  className="inline-flex items-center gap-1 text-brand dark:text-brand-300 font-bold hover:underline"
+                >
+                  <RotateCcw className="h-3.5 w-3.5" />
+                  <span>Reset Filters</span>
+                </button>
+              )}
+            </div>
+
+          </div>
+
+          {/* Active Filter Badges */}
+          {hasActiveFilters && (
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <span className="text-[11px] font-semibold text-slate-400">Active Filters:</span>
+              {searchQuery && (
+                <span className="inline-flex items-center gap-1 text-xs bg-brand/10 text-brand dark:text-brand-300 px-3 py-1 rounded-full font-medium">
+                  Keyword: "{searchQuery}"
+                  <button onClick={() => setSearchQuery('')}><X className="h-3 w-3" /></button>
+                </span>
+              )}
+              {selectedDept !== 'All' && (
+                <span className="inline-flex items-center gap-1 text-xs bg-brand/10 text-brand dark:text-brand-300 px-3 py-1 rounded-full font-medium">
+                  Dept: {selectedDept}
+                  <button onClick={() => handleDeptFilter('All')}><X className="h-3 w-3" /></button>
+                </span>
+              )}
+              {selectedLevel !== 'All Levels' && (
+                <span className="inline-flex items-center gap-1 text-xs bg-brand/10 text-brand dark:text-brand-300 px-3 py-1 rounded-full font-medium">
+                  Level: {selectedLevel}
+                  <button onClick={() => setSelectedLevel('All Levels')}><X className="h-3 w-3" /></button>
+                </span>
+              )}
+              {selectedMode !== 'All Modes' && (
+                <span className="inline-flex items-center gap-1 text-xs bg-brand/10 text-brand dark:text-brand-300 px-3 py-1 rounded-full font-medium">
+                  Mode: {selectedMode}
+                  <button onClick={() => setSelectedMode('All Modes')}><X className="h-3 w-3" /></button>
+                </span>
+              )}
+            </div>
+          )}
+
+        </div>
+
+        {/* ── VIEW 1: STANDARD DIPLOMAS GRID ── */}
+        {activeTab === 'courses' && (
+          <>
+            {/* Empty State */}
+            {filteredCourses.length === 0 && (
+              <div className="text-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-12 sm:p-16 rounded-3xl shadow-sm space-y-4">
+                <BookOpen className="h-14 w-14 text-slate-300 dark:text-slate-600 mx-auto" />
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">No Matching Courses Found</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto font-light">
+                  We couldn't find any courses matching your specific search criteria. Try removing some filters or resetting to view all courses.
+                </p>
+                <button
+                  onClick={handleClearAll}
+                  className="bg-brand hover:bg-brand-800 text-white font-bold px-6 py-3 rounded-2xl text-xs transition-colors shadow-xs"
+                >
+                  Reset All Filters
+                </button>
+              </div>
             )}
-          </div>
 
-          {/* Department Tabs */}
-          <div className="flex flex-wrap items-center gap-2 border-t border-slate-100 dark:border-slate-800 pt-4">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mr-2">Filter Dept:</span>
-            {departments.map((dept) => (
-              <button
-                key={dept}
-                onClick={() => handleDeptFilter(dept)}
-                className={`text-xs font-semibold px-4 py-2.5 rounded-xl border transition-all duration-300 ${selectedDept === dept
-                  ? 'bg-brand border-brand text-white shadow-md shadow-brand/10'
-                  : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-800'
-                  }`}
+            {/* Course Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
+              <AnimatePresence>
+                {filteredCourses.map((course) => (
+                  <motion.div
+                    key={course.id}
+                    layout
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.28 }}
+                    className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl overflow-hidden shadow-xs hover:shadow-xl hover:shadow-brand/5 group transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* Image Header with Badge and Mode */}
+                      <div className="relative h-44 overflow-hidden bg-slate-100 dark:bg-slate-800">
+                        <img
+                          src={course.thumbnail}
+                          alt={course.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        
+                        {/* Top Badges */}
+                        <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                          <span className="text-[10px] font-bold text-brand-900 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            {course.dept}
+                          </span>
+                          <span className="text-[10px] font-bold text-white bg-emerald-600/90 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            {course.level}
+                          </span>
+                        </div>
+
+                        {/* Bottom Info bar in image */}
+                        <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white/90">
+                          <span className="flex items-center gap-1 font-medium">
+                            <Clock className="h-3.5 w-3.5 text-brand-300" />
+                            {course.duration}
+                          </span>
+                          <span className="font-semibold text-amber-300 flex items-center gap-0.5">
+                            <Star className="h-3.5 w-3.5 fill-current" />
+                            {course.rating}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Card Content */}
+                      <div className="p-6 space-y-4">
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-brand dark:group-hover:text-brand-300 transition-colors">
+                          {course.title}
+                        </h3>
+
+                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light line-clamp-3">
+                          {course.desc}
+                        </p>
+
+                        {/* Syllabus preview */}
+                        <div className="space-y-1.5 pt-1">
+                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                            Key Modules Covered:
+                          </span>
+                          <div className="space-y-1">
+                            {course.syllabus.slice(0, 3).map((item, i) => (
+                              <div key={i} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-350">
+                                <CheckCircle className="h-3 w-3 text-brand dark:text-brand-300 shrink-0" />
+                                <span className="truncate">{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card Footer */}
+                    <div className="border-t border-slate-100 dark:border-slate-800/80 px-6 py-4 bg-slate-50/60 dark:bg-slate-900/40 flex items-center justify-between gap-3">
+                      <div>
+                        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                          Tuition Fee
+                        </span>
+                        <span className="text-base font-extrabold text-slate-900 dark:text-white">
+                          {course.fees}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setActiveCourseModal(course)}
+                          className="bg-brand hover:bg-brand-800 active:bg-brand-950 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-xs transition-colors flex items-center gap-1"
+                        >
+                          <span>Full Details</span>
+                          <ChevronRight className="h-3.5 w-3.5" />
+                        </button>
+                        <Link
+                          to={`/contact?course=${encodeURIComponent(course.title)}`}
+                          className="border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl transition-colors"
+                          title="Direct Admissions Inquiry"
+                        >
+                          Inquire
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          </>
+        )}
+
+        {/* ── VIEW 2: COURSE COMBINATION OFFERS ── */}
+        {activeTab === 'offers' && (
+          <div className="space-y-8" id="course-offers">
+            
+            {/* Combo Banner Intro */}
+            <div className="bg-gradient-to-r from-brand-950 via-slate-900 to-brand-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+              <div className="space-y-2 text-center md:text-left">
+                <span className="text-xs font-bold text-amber-300 uppercase tracking-widest flex items-center gap-1.5 justify-center md:justify-start">
+                  <BadgePercent className="h-4 w-4" /> Official 2026 CLIC Campus Combo Pricing
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black">
+                  Bundle 2 or 3 Diplomas & Save Up to Rs. 25,000/=
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 font-light max-w-xl">
+                  Enrolling in dual or triple course packages provides complete dual-domain fluency at heavily discounted rates.
+                </p>
+              </div>
+              <Link
+                to="/contact?course=Combo%20Discount%20Inquiry"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl text-xs uppercase tracking-wider shadow-lg transition-all shrink-0"
               >
-                {dept}
-              </button>
-            ))}
-          </div>
-        </div>
+                Inquire For Any Combo
+              </Link>
+            </div>
 
-        {/* Empty Search State */}
-        {filteredCourses.length === 0 && (
-          <div className="text-center bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-12 rounded-3xl shadow-sm">
-            <BookOpen className="h-12 w-12 text-slate-300 dark:text-slate-700 mx-auto mb-4" />
-            <h3 className="text-lg font-bold text-slate-950 dark:text-white mb-1">No Courses Found</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto font-light">
-              We couldn't find any courses matching "{searchQuery}" under the "{selectedDept}" department. Try adjusting search terms or choosing another filter.
-            </p>
+            {/* Offers Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredOffers.map((offer, idx) => {
+                const discountPct = Math.round((offer.discount / offer.actualFee) * 100);
+                const isExpanded = activeOfferModal === offer.id;
+                return (
+                  <motion.div
+                    key={offer.id}
+                    layout
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: idx * 0.04 }}
+                    className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl shadow-xs hover:shadow-xl hover:shadow-brand/5 group transition-all duration-300 overflow-hidden flex flex-col justify-between"
+                  >
+                    <div className="p-5 sm:p-6 space-y-4">
+                      {/* Badge row */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          Active Intake
+                        </span>
+                        <span className="text-[10px] font-extrabold text-white bg-brand px-2.5 py-1 rounded-full">
+                          {discountPct}% OFF
+                        </span>
+                      </div>
+
+                      <div>
+                        <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-0.5">
+                          Course Combination:
+                        </p>
+                        <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-brand dark:group-hover:text-brand-300 transition-colors">
+                          {offer.courses}
+                        </h3>
+                        <p className="text-xs text-brand dark:text-brand-300 font-semibold mt-0.5">
+                          {offer.offerTitle}
+                        </p>
+                      </div>
+
+                      {/* Pricing Box */}
+                      <div className="bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 space-y-2">
+                        <div className="flex items-center justify-between text-xs text-slate-500">
+                          <span>Actual Individual Fee:</span>
+                          <span className="line-through">Rs. {offer.actualFee.toLocaleString()}/=</span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs text-emerald-600 dark:text-emerald-400 font-bold">
+                          <span>You Save:</span>
+                          <span>− Rs. {offer.discount.toLocaleString()}/=</span>
+                        </div>
+                        <div className="border-t border-slate-200 dark:border-slate-800 pt-2 flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+                            Discounted Fee:
+                          </span>
+                          <span className="text-base font-extrabold text-slate-900 dark:text-white">
+                            Rs. {offer.finalFee.toLocaleString()}/=
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Validity */}
+                      <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                        <Clock className="h-3.5 w-3.5" />
+                        <span>{offer.validity}</span>
+                      </div>
+
+                      {/* Expandable detail */}
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="border-t border-slate-100 dark:border-slate-800 pt-3 space-y-2.5 overflow-hidden"
+                          >
+                            <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                              {offer.desc}
+                            </p>
+                            <Link
+                              to={`/contact?course=${encodeURIComponent(offer.courses)}`}
+                              className="w-full bg-brand hover:bg-brand-800 text-white text-center font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1 transition-colors"
+                            >
+                              <span>Inquire About This Offer</span>
+                              <ChevronRight className="h-3.5 w-3.5" />
+                            </Link>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Toggle expand button */}
+                    <div className="border-t border-slate-100 dark:border-slate-800/80 px-5 sm:px-6 py-3 bg-slate-50/50 dark:bg-slate-900/40">
+                      <button
+                        onClick={() => setActiveOfferModal(isExpanded ? null : offer.id)}
+                        className="w-full flex items-center justify-between text-xs font-bold text-brand dark:text-brand-300"
+                      >
+                        <span>{isExpanded ? 'Hide Offer Details' : 'View Offer Details'}</span>
+                        <ChevronRight className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                      </button>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         )}
 
-        {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence>
-            {filteredCourses.map((course) => (
-              <motion.div
-                key={course.id}
-                layout
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl shadow-sm hover:shadow-lg dark:hover:shadow-brand/5 group transition-all duration-300 flex flex-col justify-between overflow-hidden"
-              >
-
-                {/* Card Header details */}
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold text-brand bg-brand/5 dark:bg-brand/10 dark:text-brand-300 border border-brand-500/10 px-3 py-1 rounded-full uppercase tracking-wider">
-                      {course.dept}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-slate-400 font-semibold">
-                      <Clock className="h-3.5 w-3.5 text-slate-300" />
-                      {course.duration.split(' ')[0]} {course.duration.split(' ')[1]}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-slate-950 dark:text-white leading-snug group-hover:text-brand dark:group-hover:text-brand-300 transition-colors">
-                    {course.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light line-clamp-3">
-                    {course.desc}
-                  </p>
-                </div>
-
-                {/* Card Footer details */}
-                <div className="border-t border-slate-100 dark:border-slate-800/80 px-6 py-4 bg-brand-50/20 dark:bg-slate-900/40 flex items-center justify-between gap-3">
-                  {/* Stacked lecturer avatars */}
-                  <div className="flex items-center">
-                    <div className="flex -space-x-2">
-                      {course.lecturers.slice(0, 3).map((lec, i) => (
-                        <div
-                          key={i}
-                          title={lec.name}
-                          className="h-8 w-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0"
-                          style={{ zIndex: course.lecturers.length - i }}
-                        >
-                          {lec.image ? (
-                            <img src={lec.image} alt={lec.name} className="h-full w-full object-cover" />
-                          ) : (
-                            <div className="h-full w-full flex items-center justify-center bg-brand/10 text-brand dark:text-brand-300 text-[10px] font-bold">
-                              {lec.name.charAt(0)}
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                    <span className="ml-2.5 text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">
-                      {course.lecturers.length === 1
-                        ? course.lecturers[0].name.split(' ').slice(0, 2).join(' ')
-                        : `${course.lecturers.length} Lecturers`}
-                    </span>
-                  </div>
-
-                  <button
-                    onClick={() => setActiveCourseModal(course)}
-                    className="text-xs font-bold text-brand dark:text-brand-300 flex items-center gap-0.5 hover:gap-1 transition-all group/btn shrink-0"
-                  >
-                    View Details
-                    <ChevronRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* ── Course Offers Section ── */}
-        <section className="mt-20 sm:mt-24" id="course-offers">
-
-          {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <span className="inline-flex items-center gap-1.5 text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 px-4 py-1.5 rounded-full">
-              <BadgePercent className="h-4 w-4" />
-              Special Discounts
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-              Course Combination Offers
-            </h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400 font-light">
-              Explore our special course combination offers and save more when you enroll in two or three courses together. Click <strong className="font-semibold text-slate-700 dark:text-slate-300">View Offer Details</strong> to see full pricing information.
-            </p>
-          </div>
-
-          {/* Offers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {courseOffers.map((offer, idx) => {
-              const discountPct = Math.round((offer.discount / offer.actualFee) * 100);
-              const isExpanded = activeOfferModal === offer.id;
-              return (
-                <motion.div
-                  key={offer.id}
-                  layout
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.35, delay: idx * 0.04 }}
-                  className={`bg-white dark:bg-slate-900 border rounded-3xl shadow-sm group transition-all duration-300 overflow-hidden flex flex-col ${offer.isActive
-                    ? 'border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand/5 hover:-translate-y-1'
-                    : 'border-slate-100 dark:border-slate-800/40 opacity-60'
-                    }`}
-                >
-                  {/* Card Top */}
-                  <div className="p-5 sm:p-6 space-y-4 flex-1">
-
-                    {/* Badges Row */}
-                    <div className="flex items-center justify-between flex-wrap gap-2">
-                      {/* Active / Expired badge */}
-                      {offer.isActive ? (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                          Active Offer
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                          Expired
-                        </span>
-                      )}
-                      {/* Discount % pill */}
-                      <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-white bg-brand dark:bg-brand px-2.5 py-1 rounded-full">
-                        <Tag className="h-3 w-3" />
-                        {discountPct}% OFF
-                      </span>
-                    </div>
-
-                    {/* Course combination name */}
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Course Combination</p>
-                      <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-brand dark:group-hover:text-brand-300 transition-colors">
-                        {offer.courses}
-                      </h3>
-                      <p className="text-xs text-brand dark:text-brand-300 font-semibold mt-0.5">{offer.offerTitle}</p>
-                    </div>
-
-                    {/* Pricing Block */}
-                    <div className="bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 rounded-2xl p-4 space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium">
-                          <Banknote className="h-3.5 w-3.5 text-slate-400" />
-                          Actual Fee
-                        </span>
-                        <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 line-through">
-                          Rs. {offer.actualFee.toLocaleString()}/=
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 text-xs text-brand dark:text-brand-300 font-medium">
-                          <BadgePercent className="h-3.5 w-3.5" />
-                          You Save
-                        </span>
-                        <span className="text-xs font-bold text-brand dark:text-brand-300">
-                          − Rs. {offer.discount.toLocaleString()}/=
-                        </span>
-                      </div>
-                      <div className="border-t border-slate-200 dark:border-slate-700 pt-2 flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wide">Final Fee</span>
-                        <span className="text-base font-extrabold text-slate-900 dark:text-white">
-                          Rs. {offer.finalFee.toLocaleString()}/=
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Validity */}
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 font-medium">
-                      <Clock className="h-3.5 w-3.5 shrink-0" />
-                      {offer.validity}
-                    </div>
-
-                    {/* Expanded Offer Details */}
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          key="offer-detail"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.28, ease: 'easeInOut' }}
-                          className="overflow-hidden"
-                        >
-                          <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-1 space-y-3">
-                            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-                              {offer.desc}
-                            </p>
-                            <div className="flex items-center gap-2 bg-brand/5 dark:bg-brand/10 border border-brand/10 rounded-xl px-3.5 py-2.5">
-                              <Sparkles className="h-4 w-4 text-brand dark:text-brand-300 shrink-0" />
-                              <p className="text-[11px] font-semibold text-brand dark:text-brand-300">
-                                Enroll in this combination to save <strong>Rs. {offer.discount.toLocaleString()}/=</strong> — pay only <strong>Rs. {offer.finalFee.toLocaleString()}/=</strong> total.
-                              </p>
-                            </div>
-                            <Link
-                              to={`/contact?course=${encodeURIComponent(offer.courses)}`}
-                              className="w-full bg-brand hover:bg-brand-950 text-white text-center font-bold px-5 py-2.5 rounded-xl shadow-md transition-colors text-xs flex items-center justify-center gap-1"
-                            >
-                              Inquire About This Offer
-                              <ChevronRight className="h-4 w-4" />
-                            </Link>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Card Footer — View Offer Details Button */}
-                  <div className="border-t border-slate-100 dark:border-slate-800/80 px-5 sm:px-6 py-3.5 bg-slate-50/50 dark:bg-slate-900/40">
-                    <button
-                      onClick={() => setActiveOfferModal(isExpanded ? null : offer.id)}
-                      className="w-full flex items-center justify-between text-xs font-bold text-brand dark:text-brand-300 hover:text-brand-950 dark:hover:text-white transition-colors group/btn"
-                    >
-                      <span>{isExpanded ? 'Hide Offer Details' : 'View Offer Details'}</span>
-                      <ChevronRight
-                        className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? 'rotate-90' : 'group-hover/btn:translate-x-0.5'
-                          }`}
-                      />
-                    </button>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Bottom note */}
-          <p className="text-center text-xs text-slate-400 dark:text-slate-500 mt-8 font-light">
-            * All prices are in Sri Lankan Rupees (LKR / Rs.). Discounts apply when enrolling in two or three courses simultaneously.
-            Contact us at <a href="tel:+940777635657" className="text-brand dark:text-brand-300 font-semibold hover:underline">0777 635 657</a> for more information.
-          </p>
-        </section>
-
       </div>
 
-      {/* 5. Course Details Modal */}
+      {/* ── RICH COURSE DETAILS MODAL ── */}
       <AnimatePresence>
         {activeCourseModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 sm:py-10 overflow-y-auto">
-            {/* Backdrop Blur */}
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveCourseModal(null)}
-              className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm"
+              className="fixed inset-0 bg-slate-950/75 backdrop-blur-md"
             />
 
             {/* Modal Box */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 30 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-5 sm:p-8 z-10 border border-slate-100 dark:border-slate-800 overflow-hidden my-auto"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+              className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-6 sm:p-8 z-10 border border-slate-200 dark:border-slate-800 overflow-hidden my-auto"
             >
-
               {/* Close Button */}
               <button
                 onClick={() => setActiveCourseModal(null)}
@@ -646,30 +625,43 @@ export default function Courses() {
               </button>
 
               <div className="space-y-6 max-h-[75vh] sm:max-h-[80vh] overflow-y-auto pr-1">
-
+                
                 {/* Header */}
                 <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-brand bg-brand/5 dark:bg-brand/10 dark:text-brand-300 border border-brand-500/10 px-3 py-1 rounded-full uppercase tracking-wider w-fit block">
-                    {activeCourseModal.dept}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white leading-tight">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-[10px] font-bold text-brand bg-brand/5 dark:bg-brand/10 dark:text-brand-300 border border-brand-500/10 px-3 py-1 rounded-full uppercase tracking-wider">
+                      {activeCourseModal.dept}
+                    </span>
+                    <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                      {activeCourseModal.level}
+                    </span>
+                    <span className="text-[11px] text-slate-400 font-mono">
+                      Code: {activeCourseModal.code}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white leading-tight">
                     {activeCourseModal.title}
                   </h3>
                 </div>
 
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-                  {activeCourseModal.desc}
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
+                  {activeCourseModal.fullOverview || activeCourseModal.desc}
                 </p>
 
                 {/* Course Metadata Specs */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 p-5 rounded-2xl">
                   <div className="flex items-center gap-3.5">
                     <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-2.5 rounded-xl">
                       <Clock className="h-5 w-5" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">Duration</span>
-                      <span className="text-xs sm:text-sm font-semibold text-slate-950 dark:text-white">{activeCourseModal.duration}</span>
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                        Duration & Schedule
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                        {activeCourseModal.duration}
+                      </span>
                     </div>
                   </div>
 
@@ -678,18 +670,55 @@ export default function Courses() {
                       <Banknote className="h-5 w-5" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">Estimated Tuition</span>
-                      <span className="text-xs sm:text-sm font-semibold text-slate-950 dark:text-white">{activeCourseModal.fees}</span>
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                        Tuition & Fees
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                        {activeCourseModal.fees}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3.5">
+                    <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-2.5 rounded-xl">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                        Campus Location
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                        {activeCourseModal.branch}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3.5">
+                    <div className="bg-brand/5 dark:bg-brand-950/40 text-brand dark:text-brand-300 p-2.5 rounded-xl">
+                      <ShieldCheck className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+                        Awarding Body
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                        {activeCourseModal.awardingBody}
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Core Syllabus Modules */}
                 <div className="space-y-3">
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Syllabus Highlights</h4>
+                  <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+                    Complete Syllabus Curriculum
+                  </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {activeCourseModal.syllabus.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-350 font-medium">
+                      <div
+                        key={idx}
+                        className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium"
+                      >
                         <Award className="h-4 w-4 text-brand dark:text-brand-300 shrink-0" />
                         <span>{item}</span>
                       </div>
@@ -697,35 +726,40 @@ export default function Courses() {
                   </div>
                 </div>
 
-                {/* Lecturers Section — supports 1 to 3 lecturers */}
+                {/* Entry Requirements */}
+                {activeCourseModal.entryRequirements && (
+                  <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200/80 dark:border-slate-800 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
+                      Entry Requirements:
+                    </span>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                      {activeCourseModal.entryRequirements}
+                    </p>
+                  </div>
+                )}
+
+                {/* Lecturers Section */}
                 <div className="border-t border-slate-100 dark:border-slate-800 pt-6 space-y-4">
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    {activeCourseModal.lecturers.length === 1 ? 'Course Lecturer' : `Course Lecturers (${activeCourseModal.lecturers.length})`}
+                    Course Faculty ({activeCourseModal.lecturers.length})
                   </h4>
-                  <div className={`grid gap-3 ${activeCourseModal.lecturers.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'
-                    }`}>
+                  <div className={`grid gap-3 ${activeCourseModal.lecturers.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
                     {activeCourseModal.lecturers.map((lec, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-3 bg-white dark:bg-slate-950/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/50"
+                        className="flex items-start gap-3 bg-slate-50 dark:bg-slate-950/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/60"
                       >
-                        {/* Avatar */}
-                        <div className="h-14 w-14 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                        <div className="h-13 w-13 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
                           {lec.image ? (
-                            <img
-                              src={lec.image}
-                              alt={lec.name}
-                              className="h-full w-full object-cover"
-                            />
+                            <img src={lec.image} alt={lec.name} className="h-full w-full object-cover" />
                           ) : (
-                            <div className="h-full w-full flex items-center justify-center bg-brand/10 text-brand dark:text-brand-300 text-xl font-extrabold">
+                            <div className="h-full w-full flex items-center justify-center bg-brand/10 text-brand dark:text-brand-300 text-lg font-extrabold">
                               {lec.name.charAt(0)}
                             </div>
                           )}
                         </div>
-                        {/* Info */}
                         <div className="space-y-0.5 min-w-0">
-                          <h5 className="text-sm font-bold text-slate-950 dark:text-white leading-snug">
+                          <h5 className="text-sm font-bold text-slate-900 dark:text-white leading-snug">
                             {lec.name}
                           </h5>
                           <span className="text-[10px] font-bold text-brand dark:text-brand-300 block uppercase tracking-wide">
@@ -751,9 +785,9 @@ export default function Courses() {
                   <Link
                     to={`/contact?course=${encodeURIComponent(activeCourseModal.title)}`}
                     onClick={() => setActiveCourseModal(null)}
-                    className="bg-brand hover:bg-brand-950 text-white text-center font-bold px-6 py-3 rounded-xl shadow-md transition-colors text-xs flex items-center gap-1"
+                    className="bg-brand hover:bg-brand-800 text-white text-center font-bold px-6 py-3.5 rounded-2xl shadow-md transition-colors text-xs flex items-center gap-1.5"
                   >
-                    Inquire About This Course
+                    <span>Inquire / Enroll In Course</span>
                     <ChevronRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -763,6 +797,7 @@ export default function Courses() {
           </div>
         )}
       </AnimatePresence>
+
     </div>
   );
 }
