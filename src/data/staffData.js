@@ -1,7 +1,7 @@
 export const staffMembers = [
   {
     id: 'staff-01',
-    name: 'Kurunathapillai Mahathevan',
+    name: 'Mr. Kurunathapillai Mahathevan',
     designation: 'Director',
     phone: '+94 77 763 5657',
     email: 'cliccampusinfo@gmail.com',
@@ -31,7 +31,7 @@ export const staffMembers = [
   },
   {
     id: 'staff-04',
-    name: 'Uthayakumar Sathurshika',
+    name: 'Kanisiyas Stepnuja',
     designation: 'Marketing Assistant',
     phone: '',
     email: 'cliccampusinfo@gmail.com',
@@ -39,15 +39,5 @@ export const staffMembers = [
     fallbackImage: '/images/staff/staff-05.optimized.jpg',
     description: 'Supporting CLIC Campus marketing initiatives through creative promotions, digital outreach, student engagement, and effective communication, helping strengthen the campus brand and connect with prospective students and the wider community.'
   },
-  {
-    id: 'staff-05',
-    name: 'Kanisiyas Stepnuja',
-    designation: 'Marketing Assistant',
-    phone: '',
-    email: 'cliccampusinfo@gmail.com',
-    image: '/images/staff/staff-05.webp',
-    fallbackImage: '/images/staff/staff-05.optimized.jpg',
-    description: 'Supporting marketing activities, promotions, and student engagement to strengthen the campus community.'
-  }
 ];
 
