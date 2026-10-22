@@ -15,7 +15,7 @@ export const staffMembers = [
     designation: 'Manager',
     phone: '',
     email: 'cliccampusinfo@gmail.com',
-    image: '/images/staff/Manager1.webp',
+    image: '/images/staff/sharuakka.jpeg',
     fallbackImage: '/images/staff/Manager1.optimized.jpg',
     description: 'Our Manager plays an important role in coordinating daily operations, supporting staff, managing responsibilities, and ensuring the smooth and effective functioning of the organization. With strong leadership and organizational skills, the Manager helps maintain high standards and supports the team in achieving its goals.'
   },

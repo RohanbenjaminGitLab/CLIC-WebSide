@@ -26,8 +26,8 @@ export default function Home() {
 
   // Verified Institutional Strengths & Metrics
   const stats = [
-    { value: '14+', label: 'Years of Excellence', desc: 'Guiding regional students since 2012' },
-    { value: '6+', label: 'Specialized Diplomas', desc: 'IT, English, Web, Design & Languages' },
+    { value: '16+', label: 'Successful Batches', desc: 'Guiding students to meet the demands of the Job Market' },
+    { value: '6+', label: 'Specialized Diplomas', desc: 'IT, Web & Gripic Design,English & Other Languages' },
     { value: '13', label: 'Combo Discount Offers', desc: 'Save up to Rs. 25,000/= on bundles' },
     { value: '100%', label: 'Hands-on Lab Training', desc: 'Practical computing & multimedia lab' },
   ];
@@ -135,10 +135,10 @@ export default function Home() {
 
       {/* ── 1. Hero Section With Live Course Discovery ── */}
       <section className="relative min-h-[640px] lg:min-h-[720px] w-full flex items-center justify-center overflow-hidden bg-slate-950">
-        
+
         {/* High-Performance Hero Background Image */}
         <img
-          src="/frontpic.webp"
+          src="/CLIClogo.webp"
           alt="CLIC Campus Building and Academic Facility"
           fetchPriority="high"
           loading="eager"
@@ -277,11 +277,9 @@ export default function Home() {
             {stats.map((stat, idx) => (
               <div
                 key={stat.label}
-                className={`text-center space-y-1.5 ${
-                  idx % 2 !== 0 && idx !== 3 ? 'border-r-0 sm:border-r border-slate-100 dark:border-slate-800' : ''
-                } ${
-                  idx !== stats.length - 1 ? 'lg:border-r lg:border-slate-100 dark:lg:border-slate-800/80' : ''
-                }`}
+                className={`text-center space-y-1.5 ${idx % 2 !== 0 && idx !== 3 ? 'border-r-0 sm:border-r border-slate-100 dark:border-slate-800' : ''
+                  } ${idx !== stats.length - 1 ? 'lg:border-r lg:border-slate-100 dark:lg:border-slate-800/80' : ''
+                  }`}
               >
                 <span className="text-3xl sm:text-4xl font-black text-brand dark:text-brand-300 block tracking-tight">
                   {stat.value}
@@ -302,14 +300,14 @@ export default function Home() {
       <section className="py-16 sm:py-24 bg-white dark:bg-slate-950 transition-colors">
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 items-center">
-            
+
             {/* Visual Column */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white dark:border-slate-800 group">
                 <img
-                  src="/gallery/awarding/Avarding1.webp"
+                  src="CLIClogo.webp"
                   alt="CLIC Campus Awarding Ceremony"
-                  className="w-full h-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full aspect-[4/4] object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -323,7 +321,7 @@ export default function Home() {
 
               {/* Float Experience Badge */}
               <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-6 bg-brand text-white p-4 sm:p-5 rounded-2xl shadow-xl border-2 border-white dark:border-slate-900 hidden sm:block">
-                <span className="text-2xl font-black block">Est. 2012</span>
+                <span className="text-2xl font-black block">Est. 2020</span>
                 <span className="text-[11px] font-semibold text-brand-100 uppercase tracking-wider">Over a Decade of Trust</span>
               </div>
             </div>
@@ -381,7 +379,7 @@ export default function Home() {
       {/* ── 4. Academic Schools & Departments Showcase ── */}
       <section className="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/60 border-y border-slate-200/70 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          
+
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div className="space-y-2 max-w-2xl">
@@ -487,7 +485,7 @@ export default function Home() {
       {/* ── 5. Featured Courses Catalog Showcase ── */}
       <section className="py-16 sm:py-24 bg-white dark:bg-slate-950 transition-colors">
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
             <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 border border-brand/10 px-3.5 py-1.5 rounded-full inline-block">
@@ -521,7 +519,7 @@ export default function Home() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                    
+
                     {/* Badges */}
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
                       <span className="text-[10px] font-bold text-brand-900 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider">
@@ -614,7 +612,7 @@ export default function Home() {
 
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
+
             <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
               <span className="inline-flex items-center gap-1.5 text-brand-200 text-xs font-bold uppercase tracking-widest bg-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
                 <BadgePercent className="h-4 w-4 text-amber-300" />
@@ -626,7 +624,7 @@ export default function Home() {
               <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-xl">
                 Maximize your employment potential by bundling high-demand courses together. Enroll in English + IT for just <strong>Rs. 28,000/=</strong> (Saving Rs. 22,000), or master English, IT & Sinhala together with our all-rounder triple bundle.
               </p>
-              
+
               <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <Link
                   to="/courses#course-offers"
@@ -690,7 +688,7 @@ export default function Home() {
       {/* ── 7. Why Choose Us / Institutional Strengths ── */}
       <section className="py-16 sm:py-24 bg-white dark:bg-slate-950 transition-colors">
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 border border-brand/10 px-3.5 py-1.5 rounded-full inline-block">
@@ -736,7 +734,7 @@ export default function Home() {
       {/* ── 8. Campus Highlights & Activities ── */}
       <section className="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/50 border-y border-slate-200/70 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div className="space-y-2 max-w-2xl">
               <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 border border-brand/10 px-3.5 py-1 rounded-full inline-block">
@@ -815,7 +813,7 @@ export default function Home() {
       {/* ── 9. Student Voices & Verified Testimonials ── */}
       <section className="py-16 sm:py-24 bg-white dark:bg-slate-950 transition-colors">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center mb-14 space-y-3">
             <span className="text-brand dark:text-brand-300 text-xs sm:text-sm font-bold uppercase tracking-widest bg-brand/5 dark:bg-brand/10 border border-brand/10 px-3.5 py-1.5 rounded-full inline-block">
               Student Experiences
@@ -827,7 +825,7 @@ export default function Home() {
 
           {/* Testimonial Card Slider */}
           <div className="relative bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-10 md:p-12 shadow-sm min-h-[300px] flex flex-col justify-between">
-            
+
             {/* Ambient quote mark */}
             <div className="absolute top-6 left-6 text-brand/10 dark:text-slate-800 text-6xl font-serif select-none pointer-events-none">
               “
