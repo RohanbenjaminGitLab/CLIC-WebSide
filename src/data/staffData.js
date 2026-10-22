@@ -25,8 +25,8 @@ export const staffMembers = [
     designation: 'Assistant Manager',
     phone: '',
     email: 'cliccampusinfo@gmail.com',
-    image: '/images/staff/staff-05.webp',
-    fallbackImage: '/images/staff/staff-05.optimized.jpg',
+    image: '/images/staff/AssitentManager.jpeg',
+    fallbackImage: '/images/staff/AssitentManager.optimized.jpg',
     description: 'Supporting campus operations, staff coordination, and academic excellence with effective leadership.'
   },
   {
